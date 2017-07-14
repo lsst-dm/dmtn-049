@@ -31,12 +31,12 @@
 
 
 
-% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % 
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
 \section{Introduction} \label{sec:intro}
 
 \subsection{Roadmap for LSST Level 2 DRP Photo-$z$}\label{ssec:intro_roadmap}
 
-This roadmap is directly from comments by Mario Juri\'{c} on the Jira thread\footnote{If you have permissions, access at \url{https://jira.lsstcorp.org/browse/DM-6367}}. 
+This roadmap is directly from comments by Mario Juri\'{c} on the Jira thread\footnote{If you have permissions, access at \url{https://jira.lsstcorp.org/browse/DM-6367}}.
 
 The process for the definition of the L2 photo-z data product is the same as for any other data product that isn't fully defined yet. The canonical steps are: \\ {\bf (1)} DM Project Science (acting on behalf of overall Project Science) consults with the community (represented by the relevant collaboration -- in this case, the DESC) for options and proposals as to what form of the data product is needed, and the selection of the appropriate algorithm. While it is likely that we will adopt what the DESC recommends, it's likely there will be some iterating to converge to a scientifically acceptable yet implementable solution (e.g. the recommended algorithm may run afoul of our computational, storage, or budget limitations; also DESC may not be the only group concerned about the photo-z product and its properties). \\ {\bf (2)} Following that (iterative) consultation, DM will recommend (and the Project will select) the Photo-Z algorithm and the data product format, for use in Level 2. \\ {\bf (3)} DM will implement the selected algorithm. We will, of course, use whatever we can transfer over from DESC (or other) work, but our requirements may be higher than DESC's (e.g., we need to run it reliably in LSST's production environment). \\ {\bf (4)} DM will implement anything needed to integrate, QC, QA the photo-z data product in data releases (and everything leading up to those; e.g., commissioning). We will, of course, make use of any code and/or help from the DESC, but it is the Project deliverable.
 
@@ -50,21 +50,21 @@ The process for the definition of the L2 photo-z data product is the same as for
 (6) DM should continue to interact with the Science Collaborations to validate that the specifications related to the Level 2 DRP catalog's photo-$z$ meet their needs. One option may be to officially request the report from the Pitt photo-$z$ meeting which is in preparation and would provide useful input.
 
 
-% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % 
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
 \section{Use-Cases as Motivation for the Level 2 Photo-$z$ Estimator(s)}\label{sec:motivation}
 
 In this section we describe the internal and external motivations for why photo-$z$ are being included in the Level 2 database and how they influence our choice of photo-$z$ algorithm. Typically, photometric redshift algorithms work by either fitting template spectra to the observed photometry or by matching photometry to a training set of galaxies with spectroscopic redshifts. The method of ``matching photometry" is often done with machine learning codes. Hybrid photo-$z$ estimators also exist, attempting to mitigate the flaws of either process (e.g., the SDSS DR12 photo-$z$ estimator by \citealt{2016MNRAS.460.1371B}, or the Gaussian Processes estimator described by \citealt{2016arXiv161200847L}). To know which kind of photo-$z$ estimator(s) LSST will need, we start by collecting the various motivations for including a photo-$z$ estimate in the Level 2 catalogs.
 
 \subsection{Internal Requirements}\label{ssec:motivation_internal}
 
-The relevant requirement is DMS-REQ-0046, ``The DMS shall compute a photometric redshift for all detected Objects". From the Jira conversation on this issue we've managed to cobble together some potential internal uses for a Level 2 photo-$z$: 
+The relevant requirement is DMS-REQ-0046, ``The DMS shall compute a photometric redshift for all detected Objects". From the Jira conversation on this issue we've managed to cobble together some potential internal uses for a Level 2 photo-$z$:
 \noindent {\bf A)} ``DM would like to be able to run some sort of photo-z code for QA purposes ... good enough to validate LSST's galaxy photometry".
 \noindent {\bf B)} DM ``should definitely also run some sort of photometric cluster finder for QA purposes, which provides much better photo-zs for red cluster galaxies and hence gives us much better photometric quality tests for a small subset of the population ... idea is that the width of the red sequence in clusters is really the only simple metric we have for galaxy photometry colors that doesn't rely on simulations". However, photo-$z$ might not actually be involved in this metric, as the code uses ``the colors of the galaxies directly to estimate the red sequence, rather than relying on photo-zs (which have a lot of assumptions built in already)".
 \noindent {\bf C)} ``DM is already on the hook for some sort of photo-z in the form of SED fitting (and I would assume templates/redshifts) for chromatic corrections".
 
-While vague, all of these seem to suggest at least implicitly that a template-fitting code would be used to generate the photo-$z$. 
-\noindent {\bf A)} Using observed SED of real galaxies seems like the best choice for validating photometry, e.g., if the question is whether the photometric outputs match the colors of real galaxies. 
-\noindent {\bf B)} If photo-$z$ for red sequence galaxies are being prioritized, perhaps the best results would be generated by fitting elliptical galaxy spectra only. Also, we'd need to test whether template-fitting or machine-learning is best for that particular scenario. 
+While vague, all of these seem to suggest at least implicitly that a template-fitting code would be used to generate the photo-$z$.
+\noindent {\bf A)} Using observed SED of real galaxies seems like the best choice for validating photometry, e.g., if the question is whether the photometric outputs match the colors of real galaxies.
+\noindent {\bf B)} If photo-$z$ for red sequence galaxies are being prioritized, perhaps the best results would be generated by fitting elliptical galaxy spectra only. Also, we'd need to test whether template-fitting or machine-learning is best for that particular scenario.
 \noindent {\bf C)} In this case, it sounds like SED fitting is the only option that would satisfy the use case of chromatic corrections.
 
 Reconciling the photo-$z$ option that best suits internal needs with external might be quite difficult and furthermore, unnecessary. Jeff Newman from DESC-PZ commented that the internal-use photo-$z$ {\it "will almost certainly be different/simpler photo-$z$s than the database ones".}
@@ -78,7 +78,7 @@ ${\rm \ \ \ }\bullet$ evaluate the cluster membership status of galaxies (e.g., 
 ${\rm \ \ \ }\bullet$ reject compact extragalactic objects from stellar samples, or vice versa (e.g., for spectroscopic follow-up campaigns) \\
 ${\rm \ \ \ }\bullet$ identify and/or characterize extragalactic transient host galaxies (sometimes the transient redshift is known and used to identify the host, and sometimes the most probable host is used to constrain the transient redshift) \\
 ${\rm \ \ \ }\bullet$ begin their cosmological studies as soon as possible, before the Level 3 photometric redshift routines are perfected \\
-${\rm \ \ \ }\bullet$ additionally some advanced/specialized science may start with the Level 2 photo-$z$ and then apply calibrations, adjustments, or cuts on top of that in order to use them (e.g., maybe weak lensing studies; from a conversation with H. Hildebrandt) 
+${\rm \ \ \ }\bullet$ additionally some advanced/specialized science may start with the Level 2 photo-$z$ and then apply calibrations, adjustments, or cuts on top of that in order to use them (e.g., maybe weak lensing studies; from a conversation with H. Hildebrandt)
 
 \smallskip
 The chosen Level 2 photo-$z$ algorithm(s) should be easily understandable and characterizable, and the output photometric redshifts and their uncertainties should be strictly defined. If a tradeoff needs to be made, it will probably be more important for the uncertainties to be reliable than for the photo-$z$ to be more accurate (to a point, of course). To maximize early science capabilities of the scientific community we should consider algorithms that will return the most accurate photo-$z$ as early in the survey as possible. For this reason, in Section \ref{sec:options} we begin to set up a framework for a performance analysis of photo-$z$ from galaxy catalogs simulated to resemble LSST data at 1, 2, 5 and 10 years.
@@ -91,10 +91,10 @@ In the future we will be be in touch with the extragalactic LSST Science Collabo
 
 \subsection{Requirements Summary}
 
-The initial impression is that DM/QA might require a template-fitting estimator, and that machine-learning codes would be less favorable because they require a deep training set be made in advance (i.e., from the 10-year equivalent commissioning field). 
+The initial impression is that DM/QA might require a template-fitting estimator, and that machine-learning codes would be less favorable because they require a deep training set be made in advance (i.e., from the 10-year equivalent commissioning field).
 
 
-% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % 
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
 \section{Format of Photo-$z$ in Level 2 Catalog}\label{sec:format}
 
 In this Section we discuss the format of the photo-$z$ in the Level 2 catalog and options for compression. The photometric redshift products that the LSST DM team will provide in the Level 2 object catalogs are defined in DPDD, Table 4, ``Level 2 Catalog Object Table" as:
@@ -114,17 +114,17 @@ And furthermore: \\
 \subsection{Compression}\label{ssec:format_compression}
 
 Efficient $P(z)$ compression algorithms are in development. \cite{2014MNRAS.441.3550C} present an alternative method for storing photo-$z$ PDFs that requires less storage space. With their algorithm for sparse representation, ``an entire PDF can be stored by using a 4-byte integer per basis function". As they describe, ``only ten to twenty points per galaxy are sufficient to reconstruct both the individual PDFs and the ensemble redshift distribution, $N(z)$, to an accuracy of 99.9\% when compared to the one built using the original PDFs computed with a resolution of $\delta z = 0.01$, reducing the required storage of two hundred original values by a factor of ten to twenty". The advantage in this method seems to be the accuracy, and the disadvantage is that the science user would need to convert the stored format into a $P(z)$ before they can use it (minor drawback). It is unclear to me how much additional processing is required for this conversion, and whether this is within DM's computational budget. The DESC photo-$z$ WG has indicated that they expect compression techniques to be sufficient to store multiple algorithms' $P(z)$ results into the single database element of {\tt Object.photoZ (float[2x100])}. This will increase both the advantages of compression and the required processing time. Also, Phil Marshall and Alex Malz are currently working on photo-$z$ compression (2017-04-12).
-%From our analysis in Section \ref{sec:options}, we look at the output from the BPZ code with a galaxy catalog simulated for a 1 year LSST survey to get an idea of the amount of information in a PDF. Approximately 50\% of all test galaxies had a $P(z)$ with $>100$ elements with $P>0.000$ when a resolution of $\delta z = 0.01$ was used. This fraction drops to 6\% of galaxies with $>100$ elements with $P>0.005$. This suggests it might be possible to do a really simple compression down to 100 elements by, e.g., combining adjacent low-probability bins in some efficient fashion until the number of bins is $=100$. No bins with $>1\%$ of the probability would need to be combined, and while some information would be lost, the benefit for the science user is that the posterior PDF is a simple machine-readable ascii table. However, in practice, many more complicated and 
+%From our analysis in Section \ref{sec:options}, we look at the output from the BPZ code with a galaxy catalog simulated for a 1 year LSST survey to get an idea of the amount of information in a PDF. Approximately 50\% of all test galaxies had a $P(z)$ with $>100$ elements with $P>0.000$ when a resolution of $\delta z = 0.01$ was used. This fraction drops to 6\% of galaxies with $>100$ elements with $P>0.005$. This suggests it might be possible to do a really simple compression down to 100 elements by, e.g., combining adjacent low-probability bins in some efficient fashion until the number of bins is $=100$. No bins with $>1\%$ of the probability would need to be combined, and while some information would be lost, the benefit for the science user is that the posterior PDF is a simple machine-readable ascii table. However, in practice, many more complicated and
 
 \subsection{Proposed Alterations}\label{ssec:format_summary}
 
 Two low-priority suggestions for minor changes to the photo-$z$ content in the Level 2 database. (1) Many science users will simply want the photo-$z$ and its uncertainty (e.g., the peak of the PDF and its 68\% confidence interval). We recommend including this separately from the $P(z)$. This could be a separate element in the database or e.g., the first element of {\tt photoZ}. As these values are natural outcomes of most algorithms they should not increase DM processing. (2) If a template-fitting estimator is used, we need add a database element to store information about the best fit template. We will also have to make the templates publicly available. This information is important because it could help the user to evaluate whether the photo-$z$ is sensible; e.g., allow them to weed out instances when an elliptical SED is best fit to a morphologically spiral object, or similar scenarios. \\
 \textbf{Recommendation: DM should expand the number of database elements allotted to photo-$z$ from just the {\tt float[2x100]} that will contain the $P(z)$ by adding one {\tt float[4]} for a ``best" photometric redshift and it's uncertainty (mean, median, 68\%, 95\%), and one e.g., {\tt float[1]}, to encode the best-fit SED template (or synthesized mix of templates) when applicable. However, using 5 of the allocated 200 floats would probably be a suitable compromise.}
-%Having 100 redshift bins (maximum) for the PDF means that no bin has $<1\%$ of the probability, which is a nice, round number and easy to understand. Although not exactly a science-driven need, perhaps we could simply increase the storage space allotted to {\sc photoZ} to {\sc float[2x101]} to accommodate the first elements being used to store the photo-$z$ and error. 
+%Having 100 redshift bins (maximum) for the PDF means that no bin has $<1\%$ of the probability, which is a nice, round number and easy to understand. Although not exactly a science-driven need, perhaps we could simply increase the storage space allotted to {\sc photoZ} to {\sc float[2x101]} to accommodate the first elements being used to store the photo-$z$ and error.
 
 
 
-% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % 
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
 \section{Potential Options for Photo-$z$ Evaluation}\label{sec:options}
 
 As an extremely preliminary demonstration of the types of tests a given photo-$z$ estimator might undergo during the selection process to determine which will be included in the Level 2 database, we examine the performance of two off-the-shelf photo-$z$ codes. We consider, for now, one template-fitting and one machine-learning estimator. In Section \ref{ssec:options_lit} we cover some existing work that was consulted in compiling these evaluation options. In Section \ref{ssec:cats} we describe the galaxy catalogs that we use. In Section \ref{ssec:estimators} we describe the template-fitting photo-$z$ estimator BPZ and the machine-learning code TPZ. Section \ref{ssec:comp} demonstrates some analysis techniques for comparison of different estimators' photo-$z$ results. We emphasize that the parameters of the estimators themselves have not been optimized to return the most accurate photo-$z$, and some minor mistakes have been made in these initial runs, but that this is fine as we are simply demonstrating an evaluation process. In Section \ref{ssec:more} we write down some ideas for future tests of the photo-$z$ estimators that would evaluate their performance in real world situations, and that are similar to the types of early science that might be done with LSST photo-$z$.
@@ -150,12 +150,12 @@ In addition to the test set, we need a training set of galaxies for the machine-
 
 \subsection{Example Photo-$z$ Estimators}\label{ssec:estimators}
 
-{\bf Bayesian Photometric Redshifts} (BPZ; \citealt{2000ApJ...536..571B}) is a template-fitting algorithm with a magnitude prior\footnote{\url{http://www.stsci.edu/~dcoe/BPZ/}}. We use all default parameters, including the $i$-band for the magnitude prior, except that we supply the CFHTLS set of SED templates. This set is 66 SEDs that were used for the CFHTLS photo-z paper and are from \cite{2006A&A...457..841I}, and they were interpolated from the CWW and Kinney models. 
+{\bf Bayesian Photometric Redshifts} (BPZ; \citealt{2000ApJ...536..571B}) is a template-fitting algorithm with a magnitude prior\footnote{\url{http://www.stsci.edu/~dcoe/BPZ/}}. We use all default parameters, including the $i$-band for the magnitude prior, except that we supply the CFHTLS set of SED templates. This set is 66 SEDs that were used for the CFHTLS photo-z paper and are from \cite{2006A&A...457..841I}, and they were interpolated from the CWW and Kinney models.
 
 %Note: run with 100 trees was 1h 47m.
 {\bf Trees for Photometric Redshifts} (TPZ; \citealt{2013ascl.soft04011C,2013MNRAS.432.1483C}) is a machine learning algorithm that uses prediction trees and a training set of galaxies with known redshifts. We use all the default parameters from the example, except we increase the number of trees from 4 to 10 (this was set low in the provided example to decrease run time). Since the number of realizations is 2, this is a total of 20 trees. As shown in \cite{2013MNRAS.432.1483C}, the bias and scatter of the resulting photo-$z$ improve the most as the number of trees is increased to 20, and continues to improve more mildly to 100, and then are not much improved beyond 100 trees (i.e., their Figure 9). We also set the maximum redshift to 3.5 and the number of redshift bins to 350. We include both magnitudes and colors and their uncertainties as attributes to be used in the prediction trees, as Lucy's work found that this led to better results. From the TPZ output files, we take as $z_{\rm phot}$ the mode of the redshift distribution instead of the mean because this is the peak of the distribution (most likely redshift). {\it Note: I may have misunderstood how TPZ uses the photometric uncertainties. I thought it treated errors differently from other {\tt Attributes}, but perhaps it uses them just the same. That makes sense, but means it is inappropriate to include photometric errors as {ttc Attributes} if the train and test sets have different photometric precision.} In case a training set with LSST photometric uncertainties at the level of a 10-year survey is not available from commissioning or a dedicated deep drilling survey by the end of year 1, we also simulate the photo-$z$ results with a training set that has the same level of photometric uncertainty as the test set.
 
-{\bf Nearest-Neighbors in Color} (NNC; Graham et al. in prep) is a photo-$z$ estimator that uses the Mahalanobis distance in color-space to match a galaxy to a training set. We simulate photo-$z$ at 1, 2, 5, and 10 years using a test set of 20000 and a training set of 60000. Training set has the same photometric depth as the test set. 
+{\bf Nearest-Neighbors in Color} (NNC; Graham et al. in prep) is a photo-$z$ estimator that uses the Mahalanobis distance in color-space to match a galaxy to a training set. We simulate photo-$z$ at 1, 2, 5, and 10 years using a test set of 20000 and a training set of 60000. Training set has the same photometric depth as the test set.
 
 
 \subsection{Techniques for Analysis and Comparison of Photo-z Estimators}\label{ssec:comp}
@@ -163,8 +163,8 @@ In addition to the test set, we need a training set of galaxies for the machine-
 In this section we demonstrate several analysis techniques for comparing the output of different photo-$z$ estimators, discussing each in turn below and then listing some potential future techniques in Section \ref{ssec:more}.
 
 \smallskip \noindent {\bf The $z_{\rm true}$--$z_{\rm phot}$ Diagram} \\
-Figure \ref{fig:tzpz} shows the photo-$z$ results in $z_{\rm true}$--$z_{\rm phot}$ diagrams, which are a typical way to visually asses the output. Galaxies are plotted with a semi-transparent black dot so that density and clustering of points is clear, and galaxies that end up designated as ``outliers" are over-plotted with a more opaque red dot. Problems such as outlier structure from e.g., color-$z$ degeneracies, and quantization of $z_{\rm phot}$ is obvious in these kinds of diagrams, as well as a decent overall impression of the scatter and bias. Even though our runs with these estimators have not been optimized, we can make an ``example" assessment of these figures to compare the two estimators. 
-{\bf BPZ:} Overall the results are quite poor even with the LSST 10-year predicted photometry, especially the amount of quantization at $z_{\rm phot}>1.5$. We find that the results are not improved if we remove the magnitude prior, or use a different SED template set such as those from \cite{2014ApJS..212...18B}. We do know from Lucy's work that the choice of SED template set has a significant impact on the results (this is actually widely known) -- in Lucy's work, the best results were achieved when we used the Brown SEDs with a galaxy catalog for which the photometry was simulated using those same SEDs. However, it's less straightforward to identify the ``best" template SEDs to use with the Euclid galaxy catalog (or real data for that matter). \cite{2014MNRAS.439..264G} describes the wide variety of stellar population spectral synthesis models they used, but it would take quite some work to get them all together into a single catalog to provide to BPZ. 
+Figure \ref{fig:tzpz} shows the photo-$z$ results in $z_{\rm true}$--$z_{\rm phot}$ diagrams, which are a typical way to visually asses the output. Galaxies are plotted with a semi-transparent black dot so that density and clustering of points is clear, and galaxies that end up designated as ``outliers" are over-plotted with a more opaque red dot. Problems such as outlier structure from e.g., color-$z$ degeneracies, and quantization of $z_{\rm phot}$ is obvious in these kinds of diagrams, as well as a decent overall impression of the scatter and bias. Even though our runs with these estimators have not been optimized, we can make an ``example" assessment of these figures to compare the two estimators.
+{\bf BPZ:} Overall the results are quite poor even with the LSST 10-year predicted photometry, especially the amount of quantization at $z_{\rm phot}>1.5$. We find that the results are not improved if we remove the magnitude prior, or use a different SED template set such as those from \cite{2014ApJS..212...18B}. We do know from Lucy's work that the choice of SED template set has a significant impact on the results (this is actually widely known) -- in Lucy's work, the best results were achieved when we used the Brown SEDs with a galaxy catalog for which the photometry was simulated using those same SEDs. However, it's less straightforward to identify the ``best" template SEDs to use with the Euclid galaxy catalog (or real data for that matter). \cite{2014MNRAS.439..264G} describes the wide variety of stellar population spectral synthesis models they used, but it would take quite some work to get them all together into a single catalog to provide to BPZ.
 {\bf TPZ:} The results are quite poor 1 and 2 years, with a lot of quantization in the photo-$z$ and many outliers at low and high redshift, but are significantly improved at 10 years. It is very interesting that there is actually a large improvement if the training set does not have better photometric errors than the test set (i.e., compare the 1 and 2 year results in the third row to the second row), but this may just be related to how we've included the errors as {\tt Attributes}. Either way, TPZ is sensitive to the provided training set, so an extended investigation into what would truly be a realistic 1 year spectroscopic training set for LSST should be done (e.g., different redshift distributions, different magnitude limits). Although TPZ appears to give better accuracy, we also need to ensure that it gives realistic precision for it's photo-$z$ results.
 
 \begin{figure*}
@@ -231,7 +231,7 @@ In Figure \ref{fig:pzpze} we demonstrate a way to assess the photo-$z$ uncertain
 
 
 \smallskip \noindent {\bf The Posterior Probability Density Function, $P(z)$} \\
-In Figure \ref{fig:zpdf} we plot examples of the posterior probability density functions output by the BPZ and TPZ algorithms for two test galaxies. One galaxy was chosen as a random representative of galaxies for which an inaccurate and imprecise photo-$z$ was returned from both BPZ and TPZ for all years (top panel of Figure \ref{fig:zpdf}). The other was chosen as a random representative of galaxies which experienced a large and consistent improvement in both the accuracy and precision of its photo-$z$ from year 1 to 10, for both BPZ and TPZ (bottom panel of Figure \ref{fig:zpdf}). These kind of plots demonstrate, for example, the quantization in the TPZ photo-$z$ in the PDFs (this may be related to a mistake in the TPZ input). 
+In Figure \ref{fig:zpdf} we plot examples of the posterior probability density functions output by the BPZ and TPZ algorithms for two test galaxies. One galaxy was chosen as a random representative of galaxies for which an inaccurate and imprecise photo-$z$ was returned from both BPZ and TPZ for all years (top panel of Figure \ref{fig:zpdf}). The other was chosen as a random representative of galaxies which experienced a large and consistent improvement in both the accuracy and precision of its photo-$z$ from year 1 to 10, for both BPZ and TPZ (bottom panel of Figure \ref{fig:zpdf}). These kind of plots demonstrate, for example, the quantization in the TPZ photo-$z$ in the PDFs (this may be related to a mistake in the TPZ input).
 
 \begin{figure*}
 \begin{center}
@@ -269,16 +269,3 @@ For now, our interim recommendations are listed up front in the Introduction.
 \bibliography{ms}
 
 \end{document}
-
-
-
-
-
-
-
-
-
-
-
-
-

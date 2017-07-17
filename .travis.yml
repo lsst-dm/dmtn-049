@@ -11,13 +11,12 @@ script:
   # Compile PDF using containerized lsst-texmf
   - "docker run --rm -v `pwd`:/workspace -w /workspace lsstsqre/lsst-texmf:latest sh -c 'make'"
 after_success:
-  - "lander --pdf DMTN-049*.pdf --upload --lsstdoc DMTN-049.tex --env=travis --ltd-product $PRODUCT --handle $HANDLE"
+  - "lander --pdf DMTN-049.pdf --upload --lsstdoc DMTN-049.tex --env=travis --ltd-product $PRODUCT --handle $HANDLE"
 env:
   global:
     # Handle needs to be explicitly set until https://github.com/lsst-sqre/metasrc handles LaTeX inputs
     - HANDLE="DMTN-049"
     - PRODUCT="dmtn-049"
-    # LTD Keeper credentials
-    - secure: "kxWkecmhxXyjxHGia/69QJxIUlJGaP5z8sQZ/BjfXiOpJdlFJmcWt7pZ0fTIK5ElXH4szvuRQESzZCmQio1gw1ZmLv+1S2xuy83qTkuTArxnb+MC5h4LwTPedDcssAnquZXIBFwGjNnansXthROgzq368XXXni2FHhzVHPBRLZp3HhtPUgdiR86c4lQoYeHuw/vgMug5xW0dOIzcWS/zTh6RIajMc6xHRxI85JE5+jBptUd/RS74pwdMp/Lyniw7scCHI8dE9m6U5tP5lZjPbIzB/V8DG1bJNSHmHPzsLfUHCX//rWuiMFhfH1g7i/E2fRq0trWnhuRMS4nHc9dnkkMgU8KpiUaKT1hjZMO53Rnvwnh/OGE07vg6rMNkJNB9xCOsWve+ABEUL2bCRA9TbE0smjQCWIBdjRkNEgxAfTTzokKDb3ztU2Xf57XdgK+GQ2EQETEiC/OW+QocUJr4vFJz1LG8pnkJrD9ZBAt2NEcZZor5tgw7DSRpZ7lxQ8NUpNgcf//GWjOL3GNDUJDQQkbAJqVq0exAKQtkoq5eFVuHtJ3UgWbidRVNwmlxOo/Y5v3R5MKsX+5EmYA1OZcWVBPfuihizkMmU2AP6ekKIhYNcRQcAkRuP+ftdFrIVKOi+FYfyR4D6IA22sWjSWIY/fuQZflAvFwjR+xcqVP2HUY="
-    # AWS credentials
-    - secure: "sZQVmytckLz05yh75EoTEXmBup1x5VogrXtUlOy/1c2YsgIJlWiEtTi7GMeKVqyjD0FLT/VXBegQullWwabIWN+mkPaOrjAi1gVDSGn6SgZ+YzKTW/9xO76RbX33V1Et8a89N7g99FJOYr4tpOBq6oiKrs8wyrUHJIJbIgqlgoJOkW5L8DCTJxnZtO38zdUP4L0iSclHIeX7FpY0RQPnKkI2R4Jf1bV2+pQ2GSX6KLf+7bg+/EnecPJESeS8z0WGT5Af7d7QkcCn5bRZaQtuAlePrmCu7cN292u3nEoQBlwtsUc3EkZZtOSPvaRlDoadLFWZla2yUqIsxhAlKQYnOaSUnq5bBYOP1OsLYTQ5zfjYiGipOaYCVBtvCUHbq04ku0V16KNHorB5UEIPxjOToBuVQl5Xm4fVE3y0SDYmT9WFMfrlIPfZoxMmRv7dEOGjHy7bA8DcUH0isiBY7yxIOccMMJsmYiU4eF8ZzY2z7MGfiVONB3zSAaWv2VyR3NZHliWXmGScjnBhoYlvdFcx8go+MQlghtF0iAIVh+uK9Kv9pt9plxl0b0xHmFqK+U4yijoz+TAzkzuZPzyvmReuxzK5MfRrVNruBE57Z7plAGSUiu01ND4sfZlqJJfj/9lDnLAjy6bwH+dl6etEdvLNdJzRbva9UFy/McvWsB0GMIc="
+    # LTD Keeper and AWS credentials
+    - secure: "bIA3+RJQ1vCCRiC3504X8K/b1t6vIQbplr9bcIMTud7Oqsupi4C5v6PR1qswIxr2VTLJ/1fgB7mxOyWxNHZfLjlJPO3XJ6S+DPI8p+almiIS8pZn/FuvCoJpQbt2qt9SH+rwgGz6nGoOY8h1nLD5dcn7p8n7tFeAz/7UR/XnVRm6cgVPiRjcQ5EL4NB4tlgjgFqCQZ8wymsLKYJtjOv3Rt4sCxl9jg6TweUFTCuSyDttcxSe/8CZab/cHeqbCImg796yf9OKcj/mYmWotk4n4yedF22f6i8S7l8HcP8t+EFr43MMr3/1H3mUehwXHgkTeBQHgrOUiHpNky6pemzDqHTzJWUbnLX+AUcdxYKdFSeSYpvuu0OFXcNRIFBHOFEz2JUTyy7HnLbUYjCX3eBMjGS1u9hFhEB8UscyihAqyOq11v9GBJdXXIIIoF4Lc1upLhp5P8p2LzibqSuZIpyHNKJqquiGCtU+ixRm6WPuiIYwYPaBqxNIh6BqJE+9iLAO9INwui9NU4FWeC98CDS87z8V2IRqg8CGtoKiWBM753dGyQqncXbKh0U5w3lKAu2n06eJBvVDMS3NQLAfIKzfoUYcB4aoNWEV7NlBVk0GLpJXU3fVnCmImad0Q7j688/cpGKHEn2f/ffLJYpl7YXkZ0QyVkO7TCtTuUAVkzvjmHQ="
+    - secure: "oP8UGEEpW6D0Q0BaB7PdaZ7pFQjT9UikYaGQdplKgqsuurs5oHG2YC+dKlGlFdMvRHeMeaqFmHoUdJGYS7ezy8sMeiW16N2if/bubnuD2qUSTjk50mrsF/DudS1H6XeDVX+g4FPH4F8jaG4vqG8Q5EEFbnnPKVqUKuOpSNXdFdIpI39/+WorTD4uiF1Ic3oi/CvJ5U29niwR791pUHRdvOsZ9Vpgs2UHhHGTv1eHFEeSd1jULP+zve9kBn3LgcU9fSCEC91DrTKY9CFdt9fb75sHi5KtY6AQP3ONOYrWpIAVL/j+uRmySzMrFcOzYLHCN7nwngw9Q0xsQxr6xQ/gSznP3XXZQjdjNgoLYu/4dp4y6d9ZmSVluombrlzUVxquZk3u94+7XGTNb4YnIK+d+1YHg+Uax07tFZLEBUliY3PoeNrQnPZ4PKZs+iKJhOZKtPJVVuWRKD8F29rovZ2tFXN7l02ILw9WZk4dYsRFxuD1+PFVZdL7aGnBksNU2V4fQRK/PTp4fi5xO73+TJ9oPvENu/OHehQn4iWVdccGwFfrOCvS6H5SzYS3xMcSW7RVvhe22dp2wEyEKWPgzLEjP5a/VtP4lbxJbyRsJ/7JnunspglGvEZxt5/wlNYJQyUCSnNHtuDr4YPUC9YHtUPxewf4r4yrMRR+Njbw6kOiSPM="

@@ -52,7 +52,8 @@ Furthermore, it is a requirement that the LSST Data Management System (DMS) calc
 Research and development of photometric redshift algorithms for LSST is beyond the scope of DM (not part of DM's specialized knowledge base), as it is itself an active area of current and future LSST research.
 Instead, one or more existing photo-$z$ estimator(s) would be installed by DM into the DR pipeline.
 
-{\bf The purpose of this document is} to propose a path forwards for DM to select a photo-$z$ estimator, implement the algorithm to run at scale, and validate the results, with the final goal of meeting the LSST requirements regarding {\tt Object} photo-$z$ and serving the scientific community this essential data product.
+{\bf The purpose of this document is} to propose a path forwards for DM to select a photo-$z$ estimator, implement the algorithm to run at scale, and validate the results -- all with the final goal of meeting the LSST requirements regarding {\tt Object} photo-$z$ and serving the scientific community this essential data product. 
+Alternative pathways, and the potential impact of not meeting these goals, are also discussed.
 
 
 
@@ -68,7 +69,7 @@ We review all appearances of the term "photometric redshift", "redshift", or "ph
 One of the main science drivers of the LSST design is a significant advance in constraining the models of dark energy cosmology. 
 Section 2.1 of \citeds{LPM-17} describes the statistical accuracy of photo-$z$ estimates for $i<25$, $0.3<z_{\rm phot}<3.0$ galaxies which are required for the cosmological probes: root-mean-square error $<0.02(1+z_{\rm phot})$, bias $<0.003$, and fraction of catastrophic outliers $<10\%$.
 The SRD specifies that these target statistical values {\it "are the primary drivers for the photometric depth of the main LSST survey."} 
-In other words, the LSST 10-year photometry must enable a state-of-the-art photometric redshift estimator to achieve these targets -- they do not apply to the general-use {\tt Object} catalog photo-$z$ which are the topic of this Tech Note.
+In other words, the LSST 10-year photometry must enable a state-of-the-art photometric redshift estimator to achieve these targets -- they do not apply to the general-use {\tt Object} catalog photo-$z$ which are the topic of this document.
 
 \subsection{Observatory System Specifications}\label{ssec:docs_oss}
 
@@ -82,13 +83,13 @@ Although spectroscopic redshifts could be obtained and used for this purpose, th
 There is a requirement\dmreq{0046} on the Data Management System (DMS) which states that {\it "The DMS shall compute a photometric redshift for all detected Objects"} \citedsp{LSE-61}. 
 
 No discussion or details are provided regarding how or when the {\tt Object} photo-$z$ are to be calculated, validated, or served, or whether it might be equivalent to serve photo-$z$ computed by a third party (i.e., to federate a user-generated photo-$z$ catalog).
-It is the current role of this Tech Note to evaluate the options for fulfilling this requirement and initiate an LSST Change Request to clarify the computation of {\tt Object} photo-$z$.
+It is the current role of this document to evaluate the options for fulfilling this requirement and initiate an LSST Change Request to clarify the computation of {\tt Object} photo-$z$.
 
 \subsection{Data Products Definitions Document}\label{ssec:docs_dpdd}
 
 The LSST Data Products Definitions Document (DPDD) \citedsp{LSE-163} defines the format of the {\tt Object} catalog's table columns which could store the results of photometric redshift estimates, regardless of how they're generated. 
 The following is from Table 5 of the DPDD:
-\begin{itemize}[noitemsep,topsep=-10pt]
+\begin{itemize}%[noitemsep,topsep=-10pt]
 \item \texttt{photoZ (float[2x95])} = photometric redshift likelihood samples -- pairs of redshift and likelihood ($z,\log{L}$) -- computed using a to-be-determined published and widely accepted algorithm at the time of LSST Commissioning
 \item \texttt{photoZ\_pest (float[10])} = point estimates for the photometric redshift provided in {\tt photoZ}
 \end{itemize}
@@ -125,6 +126,10 @@ As a side note, although the DMS will assign fiducial spectral energy distributi
 Furthermore, the SED templates used will likely be simpler (e.g., step-function or slope) than would be needed for deriving photo-$z$.
 
 \subsection{Scientific Use-Cases}\label{ssec:use_sci}
+
+A variety of potential scientific applications for the {\tt Object} photo-$z$ are discussed in turn. 
+These use-cases should be considered in the algorithm(s) selection process (as proposed in \S~\ref{sec:sel}).
+A brief summary of the commonalities between science use-cases for photo-$z$ is provided in \S~\ref{sssec:use_sci_sum}.
 
 \subsubsection{Dark Energy}
 Extragalactic astrophysics such as weak lensing, baryon acoustic oscillations, and Type Ia supernova cosmology are all main science drivers for the LSST, and all require catalogs of galaxies with photometric redshifts.
@@ -165,15 +170,15 @@ For EPO purposes, high precision is not as important as outlier reduction for ph
 \subsubsection{Current Surveys}
 {\bf Placeholder to add citations to the science enabled by release of photo-$z$ catalogs for recent wide-area surveys (e.g., SDSS, HSC, DES?).}
 
-\subsubsection{Science Use-Cases Summary}
-Aside from the specialized use-cases related to dark energy cosmology, which will be served by customized photo-$z$ estimators developed within DESC, most other scientific use-case scenarios for the {\tt Object} photo-$z$ can be summarized as either a tool for subsetting the data and identifying targets of interest for follow-up, or point estimates for inferring intrinsic galaxy properties.
+\subsubsection{Science Use-Cases Summary}\label{sssec:use_sci_sum}
+Aside from the specialized use-cases related to dark energy cosmology, which will be served by customized photo-$z$ estimators developed within DESC, most other scientific scenarios use the {\tt Object} photo-$z$ as point estimates of distance in order to subset the data and identifying targets of interest for follow-up, and/or infer intrinsic galaxy properties.
 
 \subsection{Considerations for LSST Year 1}\label{ssec:use_LOY1}
 
 To maximize early science capabilities, algorithms that will return the most accurate photo-$z$ as early in the survey as possible could be prioritized.
 In the first year of LSST, it might be simpler to use a template-fitting photo-$z$ estimator and avoid potential issues related to computation resources and/or the need to train a machine learning model.
 Additionally, the large spectroscopic training sets needed for ML photo-$z$ estimators are more likely to exist by 2030 than at 2020.
-However, if a machine learning estimator is applied for LSST DR 1 and 2, it should be a community-accepted algorithm with demonstrated success in other surveys, preferably surveys that overlap the LSST volume, as this will facilitate the characterization and validation of the LSST photo-$z$. 
+However, if a machine learning estimator is applied for LSST DR 1 and 2, it should be a community-accepted algorithm with demonstrated success in other surveys, preferably surveys that overlap the LSST volume, as this will facilitate the characterization and validation of the LSST photo-$z$.
 
 
 
@@ -181,49 +186,47 @@ However, if a machine learning estimator is applied for LSST DR 1 and 2, it shou
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
 \section{Option 1: DM Calculates {\tt Object} Photo-$z$ Prior to DR}\label{sec:dmcalc}
 
-{\bf \#0. Define a "Minimum Viable Product" (MVP) for DM-calculated photo-$z$.} (See \S~\ref{ssec:dmcalc_mvp}.)\\
-Project and community work together to refine the type, basic attributes, and minimum performance of {\tt Object} catalog photo-$z$ to meet {\it the basic} science needs for communities which will not or cannot generate custom photo-$z$, and also DM's internal use-cases.
-A proposed definition for the minimum viable product is put forth in \S~\ref{ssec:dmcalc_mvp}.
-Preliminarily, it seems very likely that off-the-shelf photo-$z$ estimators will be able to fulfill these basic necessities (\S~\ref{sec:sel}).
+The following is a proposed 6-step path for DM to generate {\tt Object} catalog photo-$z$ that meet {\it the basic} science needs for communities which will not or cannot generate custom photo-$z$, and also DM's internal use-cases, as described in \S~\ref{sec:use}.
 
-{\bf \#1. Define the selection criteria and asses algorithm(s).}\\
+{\bf \#1. Define a "Minimum Viable Product" (MVP) for DM-calculated photo-$z$.}\\
+Project and community work together to refine the type, basic attributes, and minimum performance of {\tt Object} catalog photo-$z$, a proposal for which is put forth in \S~\ref{ssec:dmcalc_mvp}.
+Preliminarily, it seems very likely that off-the-shelf photo-$z$ estimators will be able to fulfill these basic necessities (as discussed in \S~\ref{sec:sel}).
+
+{\bf \#2. Define the selection criteria and asses algorithm(s).}\\
 Project and community work together to refine the algorithm selection criteria and evaluate the currently available photo-$z$ algorithms.
 A preliminary proposal for selection criteria and potential algorithms is put forth in \S~\ref{sec:sel}.
 
-{\bf \#2. Select the algorithm(s).}\\
+{\bf \#3. Select the algorithm(s).}\\
 DM chooses one or more algorithms to implement, based on the jointly established evaluation criteria {\it and other internal considerations such as computational resources}.
 
-{\bf \#3. Implement, calibrate, and/or train the algorithm.}\\
-DM implements the algorithm(s) into the DR pipeline, along with any needed supporting data sets such as templates or spec-$z$ catalogs, and diagnostic code (see \#5).
-The community is welcomed to participate in calibration/training with "DR previews" released shortly before (weeks/months) a new DR {\bf (this is already planned --- find the right doc to reference)}.
+{\bf \#4. Implement, calibrate, and/or train the algorithm.}\\
+DM implements the algorithm(s) into the DR pipeline, along with any needed supporting data sets such as templates or spec-$z$ catalogs, and the related validation codes (see \#6).
+The community is welcomed to participate in calibration/training with "DR previews" released shortly before (weeks/months) a new DR \textcolor{red}{("DR previews" are already planned --- find the right doc to reference)}.
 
-{\bf \#4. Run the algorithm, populate the {\tt Object} catalog.}\\
+{\bf \#5. Run the algorithm, populate the {\tt Object} catalog.}\\
 DM runs the algorithm as part of DR processing.
 The {\tt Object} catalog is populated with photo-$z$ results prior to DR.
 
-{\bf \#5. Provide diagnostics.}\\
-Diagnostics regarding the photo-$z$ results are made available (e.g., as auto-generated documentation); potential diagnostic tests are collected in Section \ref{sec:diagnostics}.
-The community is welcomed and encouraged to participate in this workflow item.
+{\bf \#6. Validate the MVP Photo-$z$.}\\
+DM runs validation tests to ensure that the {\tt Object} catalog photo-$z$ meet the defined MVP qualities, and to identify and characterize failure modes.
+The community is welcomed and encouraged to participate in generating the validation code and diagnostic tests for the photo-$z$.
+Diagnostics regarding the photo-$z$ results are made available (e.g., as auto-generated documentation) to inform the community's use of the {\tt Object} photo-$z$ (potential diagnostic tests are collected in \S~\ref{sec:diagnostics}).
 
-The above step should not be construed as a full "science validation of the photo-$z$", because that is beyond scope: these photo-$z$ are not intended to meet {\it all} science needs, just the MVP.
-The above step could be considered as validation of the MVP.
-DM would provide these diagnostics to inform users' application of the {\tt Object} catalog photo-$z$, but validation of these photo-$z$ for individual science goals is left to the users.
-
-{\bf \#6. Upgrade the {\tt Object} table with a superior community product if possible.}\\
+{\bf Optional: Upgrade the {\tt Object} table with a superior community product if possible.}\\
 The DM system as delivered to the Operations Project provides a minimal scientific capability with respect to {\tt Object} catalog photo-$z$, but if that is rendered obsolete by community efforts, then the superior product should be ingested and federated.
 
 
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
 \subsection{Proposed "Minimum Viable Product" for {\tt Object} Photo-$z$}\label{ssec:dmcalc_mvp}
 
-Based on the use-cases for {\tt Object} photo-$z$ presented in Section \ref{sec:use}, the following is proposed for the type, basic attributes, and minimum performance of the {\tt Object} photo-$z$.
+Based on the use-cases for {\tt Object} photo-$z$ presented in \S~\ref{sec:use}, the following is proposed for the type, basic attributes, and minimum performance of the {\tt Object} photo-$z$.
 The goal of this "MVP" photo-$z$ is to meet {\it the basic} science needs for communities which will not or cannot generate custom photo-$z$ (i.e., dark energy cosmology use-cases excluded), and also DM's internal applications for {\tt Object} photo-$z$.
 
 {\bf The following must be refined by iterating with the scientific community.}
 
 {\bf Type (Template-fit or Machine Learned)}\\
 Descriptions of the internal and Galaxies science use-cases indicate that a template-fitting photo-$z$ estimator, as opposed to an estimator based on machine learning, might be preferred in those cases.
-Thus it is proposed that  {\tt Object} catalog photo-$z$ should be based on a template-fitting algorithm {\it and then also} a machine-learning algorithm, if multiple results can be stored (see Section \ref{sec:store}).
+Thus it is proposed that  {\tt Object} catalog photo-$z$ should be based on a template-fitting algorithm {\it and then also} a machine-learning algorithm, if multiple results can be stored (see \S~\ref{sec:store}).
 The best fit template should be easily accessible by users. 
 
 {\bf Attributes}\\
@@ -248,25 +251,32 @@ It is proposed that these quality goals would apply to $i<25$ mag galaxies.
 % % % % % % % % % % % % % %
 \section{Option 2: DM Ingests a Community Photo-$z$ Catalog After DR}\label{sec:dmingest}
 
-If this option were to become the primary plan for generating {\tt Object} photo-$z$, then the steps for the project and the community would be as follows.
+The following is a proposed 5-step path for DM to obtain {\tt Object} catalog photo-$z$ from the community after a data release. The potential drawbacks and risks of this option, compared to the option for DM to calculate photo-$z$ and include them in each new data release (\S~\ref{sec:dmcalc}), are listed below.
 
-\begin{enumerate}[noitemsep,topsep=-10pt]
-\item Well before data release, the science community submits proposals to generate photometric redshifts for the {\tt Object} catalog.
-\item Before the data release, the project selects one or more of the proposals. 
+{\bf \#1. Solicit Proposals.}\\
+Well before data release, the science community submits proposals to generate photometric redshifts for the {\tt Object} catalog.
+
+{\bf \#2. Select Photo-$z$.}\\
+Before the data release, the project selects one or more of the proposals. 
 The project works with the community team to ensure the requisite LSST calibration data will be obtained of, e.g., spec-$z$ deep fields.
-\item Shortly before data release, the project provides the community team(s) with a "DR preview" so that they can train and calibrate their photo-$z$ algorithm.
-\item After data release, the community team generates {\tt Object} catalog photometric redshifts, performs quality assessment and validation, and prepares the associated documentation that would be needed for user applications.
-\item After data release, the project ingests and federates the photometric redshifts into the {\tt Object} catalog.
-\end{enumerate}
 
-Although this option would be significantly less work for the DM/Ops teams, there are many potential {\bf drawbacks:}
+{\bf \#3. Provide DR Preview.}\\
+Shortly before data release, the project provides the community team(s) with a "DR preview" so that they can train and calibrate their photo-$z$ algorithm.
 
-\begin{itemize}[noitemsep,topsep=-10pt]
-\item no initiative or reward for the community team which has generated the photo-$z$ (except maybe citations to their photo-$z$ catalog)
+{\bf \#4. Community Team Generates Photo-$z$}\\
+After data release, the community team generates {\tt Object} catalog photometric redshifts, performs quality assessment and validation, and prepares the associated documentation that would be needed for user applications.
+
+{\bf \#5. Ingest Photo-$z$}\\
+After data release, the project ingests and federates the photometric redshifts into the {\tt Object} catalog.
+
+Although this option would be less work for the DM/Ops teams, there are several potential risks and drawbacks:
+
+\begin{itemize}%[noitemsep,topsep=-10pt]
 \item risk of having no {\tt Object} photo-$z$ if no community team delivers
 \item risk of having {\tt Object} photo-$z$ which are tailored to the specific science case of the community team and do not serve the broader science use-cases
-\item a DR without photo-$z$ is a problem for brokers (unless alerts are associated to an older DR's {\tt Object} catalog)
-\item does not satisfy the requirement that the {\it "DMS shall compute"} photo-$z$
+\item a DR without photo-$z$ is a problem for brokers, unless alerts are instead (or additionally) associated to an older DR's {\tt Object} catalog that has photo-$z$
+\item does not satisfy the requirement that the {\it "DMS shall compute"} photo-$z$, as it is currently worded
+\item no initiative or reward for the community team which has generated the photo-$z$ (except maybe citations to their photo-$z$ catalog)
 \end{itemize}
 
 % % % % % % % % % % % % % %
@@ -315,10 +325,10 @@ Such a plan cannot be negotiated or decided on by DM, or by any aspect of the co
 %For example, having {\tt Object} photo-$z$ at the time of data release is likely to be especially important for alert brokers, because {\tt DIASources} will be associated with {\tt Objects} from the most recent data release. 
 %This is how brokers will obtain photo-$z$ estimates for transient host galaxies, which is an essential component of classification and prioritization for follow-up.
 %
-%{\bf What is the amount of DR processing resources that can be dedicated to one or more photometric redshift algorithm(s) and/or compression (Section \ref{sec:store}).} \\
+%{\bf What is the amount of DR processing resources that can be dedicated to one or more photometric redshift algorithm(s) and/or compression (\S~\ref{sec:store}).} \\
 %TBD.
 %
-%{\bf When and how might DM generate and use {\tt Object} photo-$z$ internally for, e.g., photometric validation? Would these photo-$z$ also meet the scientific use-cases (Section \ref{ssec:use_dm})?} \\
+%{\bf When and how might DM generate and use {\tt Object} photo-$z$ internally for, e.g., photometric validation? Would these photo-$z$ also meet the scientific use-cases (\S~\ref{ssec:use_dm})?} \\
 %TBD.
 
 
@@ -332,7 +342,7 @@ Such a plan cannot be negotiated or decided on by DM, or by any aspect of the co
 It is important to ensure that the photometric parameters computed and provided in the {\tt Object} table are sufficient for both DM and users to generate photometric redshifts from custom codes.
 Aside from fluxes and/or apparent magnitudes and errors for each LSST filter, this might include the color properties in the {\tt Object} table \citedsp{LSE-163}: 
 
-\begin{itemize}[noitemsep,topsep=-10pt]
+\begin{itemize}%[noitemsep,topsep=-10pt]
 \item \texttt{stdColor (float[5])} = 'standard color', color of the object measured in 'standard seeing', suitable for photo-$z$
 \item \texttt{stdColorErr (float[5])} = uncertainty on \texttt{stdColor}
 \end{itemize}
@@ -388,11 +398,11 @@ Decompression must be fast and easy for users to implement.
 {\bf The following must be refined by iterating with the scientific community.}
 
 Regardless of whether DM calculates the photo-$z$ or ingests a community-generated catalog, the community will require diagnostics in order to interpret the results.
-These diagnostics would be based on the attributes/performance defined in Section \ref{sec:mvp} and the evaluation criteria defined in Section \ref{sec:sel}. 
+These diagnostics would be based on the attributes/performance defined in \S~\ref{sec:mvp} and the evaluation criteria defined in \S~\ref{sec:sel}. 
 These could be automatically generated for the {\tt Object} photo-$z$.
 
 Based on the LSST {\tt Object} catalog alone, some diagnostics could be:
-\begin{itemize}[noitemsep,topsep=-10pt]
+\begin{itemize}%[noitemsep,topsep=-10pt]
 % \item comparing the sum of the $P(z)$ to the ensemble $N(z)$
 \item smoothness of $N(z)$ and $P(z)$ (or at their expected shape)
 \item how $z_{\rm phot}$ uncertainty correlates with photometric error
@@ -400,7 +410,7 @@ Based on the LSST {\tt Object} catalog alone, some diagnostics could be:
 \end{itemize}
 
 Based on a cross-match between the LSST {\tt Object} catalog to other spec-$z$ and/or phot-$z$ catalogs (e.g., \citealt{2019MNRAS.488.4565Z}), some diagnostics could be:
-\begin{itemize}[noitemsep,topsep=-10pt]
+\begin{itemize}%[noitemsep,topsep=-10pt]
 \item comparing phot/spec distributions $N(z)$ for a set of color or magnitude cuts
 \item compare the shapes of $P(z)$ for individual objects
 \item spec. {\it vs.} phot. redshift plots and associated statistics (standard deviation, bias, fraction of outliers)
@@ -409,7 +419,7 @@ Based on a cross-match between the LSST {\tt Object} catalog to other spec-$z$ a
 DESC is currently investigating methods of validating accuracy of probability distributions from a photo-$z$ algorithm (see e.g., Schmidt, Malz et al. 2019 in prep.) and those methods could be used to generate diagnostics.
 
 The scientific community may want to perform their own advanced diagnostics to inform their use of the LSST photo-$z$, such as:
-\begin{itemize}[noitemsep,topsep=-10pt]
+\begin{itemize}%[noitemsep,topsep=-10pt]
 \item assessing the performance of point estimates in broker photometric classification algorithms
 \item evaluating the absolute magnitude distribution of Type Ia supernovae once the distance derived from the photo-$z$ point estimates are applied
 \item evaluating the distributions of derived physical parameters for galaxies using the $P(z)$
@@ -426,8 +436,8 @@ The scientific community may want to perform their own advanced diagnostics to i
 The full selection criteria should include aspects such as performance, attributes, ease of use and implementation, the existence of publicly available training or template sets, demonstrated success for other wide-field optical surveys (and overlap of those surveys with the future LSST area), and community adoption.
 
 This is an extremely preliminary demonstration of the types of tests a given photo-$z$ estimator might undergo during the selection process. 
-In Section \ref{ssec:sel_lit} we cover some existing work that compares photo-$z$ estimators. 
-In Section \ref{ssec:sel_ex} we apply a couple of of-the-shelf estimators to simulated LSST photometry to demonstrate a few statistical techniques for comparing photometric redshifts.
+In \S~\ref{ssec:sel_lit} we cover some existing work that compares photo-$z$ estimators. 
+In \S~\ref{ssec:sel_ex} we apply a couple of of-the-shelf estimators to simulated LSST photometry to demonstrate a few statistical techniques for comparing photometric redshifts.
 Since this is mainly for {\it demonstrative} purposes, the estimators themselves have not been optimized to return the most accurate photo-$z$, and some minor mistakes have been left uncorrected.
 
 {\bf Pretty much all of the following can be replaced with a citation to Schmidt et al. (2019) when that paper is ready. That work, plus the examples shown in \S~\ref{ssec:sel_ex}, demonstrate that the preliminary MVP target performance is achievable with current photo-z estimators.} 
@@ -449,7 +459,7 @@ Since this is mainly for {\it demonstrative} purposes, the estimators themselves
 %% % % % % % % % % % % % % %
 \subsection{An Example Comparative Analysis of Photo-$z$ Codes for LSST Photometry}\label{ssec:sel_ex}
 
-We have used simulated galaxy catalogs (Section \ref{sssec:sel_ex_cats}) and three different photo-$z$ estimators (Section \ref{sssec:sel_ex_estimators}) to generate photometric redshifts. We then apply a series of diagnostics to evaluate and compare their performance (Section \ref{sssec:sel_ex_comp}).
+We have used simulated galaxy catalogs (\S~\ref{sssec:sel_ex_cats}) and three different photo-$z$ estimators (\S~\ref{sssec:sel_ex_estimators}) to generate photometric redshifts. We then apply a series of diagnostics to evaluate and compare their performance (\S~\ref{sssec:sel_ex_comp}).
 
 
 \subsubsection{Simulated Catalogs}\label{sssec:sel_ex_cats}

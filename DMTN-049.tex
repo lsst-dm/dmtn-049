@@ -163,7 +163,7 @@ These criteria may also apply to community-generated catalogs proposing to be fe
 The algorithm should meet the minimum attributes defined in \S~\ref{sec:mvp}, and serve both the basic science needs of the science community and the internal use-cases of the LSST project (\S~\ref{sec:use}).
 Performance beyond the basic needs, and the ability to provide higher-quality photo-$z$ results, should obviously also be considered favorably.
 Evaluating and comparing the performance of photo-$z$ estimators is discussed further in \S~\ref{ssec:sel_eval}.
-The proposed minimum performance is likely achievable for LSST data with current photo-$z$ estimators, as demonstrated by, e.g., \citet{2018AJ....155....1G}, \textcolor{red}{Schmidt et al. 2020}.
+The proposed minimum performance is likely achievable for LSST data with current photo-$z$ estimators, as demonstrated by, e.g., \citet{2018AJ....155....1G}, Schmidt et al. (2020, in prep.).
 
 {\bf Scientific Utility}\\
 The selected algorithm(s) should serve as wide a variety of science needs as possible.
@@ -177,11 +177,11 @@ Desired photo-$z$ outputs, access methods, and documentation are discussed in \S
 {\bf Computational Feasibility}\\
 The selected algorithm should take as inputs quantities that the LSST pipelines are planning to produce (\S~\ref{ssec:dp_objvals}).
 The necessary data -- from LSST or elsewhere -- for training and/or calibration must exist by the time of DR1 (e.g., galaxy catalogs with spectroscopic redshifts and LSST photometry; \S~\ref{ssec:dp_calib}).
-\textcolor{red}{The computational needs of the selected algorithm must fit within the available resources of the LSST data facility.}
+The computational needs of the selected algorithm must fit within the available resources of the LSST data facility.
 
 {\bf Personnel Requirements}\\
 New algorithmic development is beyond the scope of DM, and the selected algorithm should not need any expansion or maturation prior to installation in the DMS.
-\textcolor{red}{The process of implementation and validation should require no more personnel hours than are available for the task.}
+%\textcolor{red}{The process of implementation and validation should require no more personnel hours than are available for the task.}
 
 
 \subsection{Evaluating Photo-$z$ Estimators' Performance}\label{ssec:sel_eval}
@@ -195,7 +195,7 @@ Criteria for evaluating the statistical performance of different photo-$z$ estim
 \item \citet{2013ApJ...775...93D} tested 11 different photo-$z$ codes on the CANDLES data set ($U$-band through infrared photometry) and also find that no method stands out as the "best'', and that most of the photo-$z$ codes underestimate their redshift errors.
 \item \citet{2014MNRAS.445.1482S} used the science verification data (200 square degrees of $grizY$ photometry to a depth of $i_{AB}=24$ magnitudes) of the Dark Energy Survey (DES) to evaluate several photometric redshift estimators. They found that the Trees for Photo-$z$ code (TPZ; \citet{2013ascl.soft04011C}) provided the most accurate results with the highest redshift resolution, and that template-fitting methods also performed well -- especially with priors -- but that in general there was no clear "winner.''
 \item \citet{2018PASJ...70S...9T} provides a comparative analysis of several photo-$z$ algorithms applied to their data set from the HSC Strategic Program. Their website\footnote{\url{https://hsc-release.mtk.nao.ac.jp/doc/index.php/photometric-redshifts/}} provides comparative analysis plots for each of them.
-\item \textcolor{red}{Schmidt et al. 2020} statistically compare the posterior probability distribution functions produced by 12 photo-$z$ estimators for a mock data set that is representative of the LSST, identifying some biases and shortfalls in both the produced PDFs and the evaluation methods used to analyze them.
+\item Schmidt et al. (2020, in prep.) statistically compare the posterior probability distribution functions produced by 12 photo-$z$ estimators for a mock data set that is representative of the LSST, identifying some biases and shortfalls in both the produced PDFs and the evaluation methods used to analyze them.
 \end{itemize}
 
 
@@ -246,7 +246,7 @@ Regardless of whether the LSST photo-$z$ are a DMS-generated data product or a f
 Below is a compilation of potential validation tests, some of which overlap with the evaluation criteria described above (especially the truth comparisons). 
 These lists are based in part on a brainstorming session during the LSST Project and Community Workshop's session on Photometric Redshifts on Aug 14 2019\footnote{E.g., slide 14 of \url{https://docs.google.com/presentation/d/1GEahvDQXIjSL4lLVjDlZHV5zpXLhGQfHwVtucs72Ajg/edit?usp=sharing}}.
 
-Journal articles that demonstrate validation processes for photo-$z$ from multi-band wide-area surveys include {\it "DES science portal: Computing photometric redshifts"} \citep{2018A&C....25...58G}; {\it "Photometric redshifts for Hyper Suprime-Cam Subaru Strategic Program Data Release 1"} \citep{2018PASJ...70S...9T}; and {\it "On the realistic validation of photometric redshifts"} \citep{2017MNRAS.468.4323B}. Furthermore, DESC is currently investigating methods of validating accuracy of probability distributions from a photo-$z$ algorithm (see, e.g., \textcolor{red}{Schmidt et al. 2020 in prep.}).
+Journal articles that demonstrate validation processes for photo-$z$ from multi-band wide-area surveys include {\it "DES science portal: Computing photometric redshifts"} \citep{2018A&C....25...58G}; {\it "Photometric redshifts for Hyper Suprime-Cam Subaru Strategic Program Data Release 1"} \citep{2018PASJ...70S...9T}; and {\it "On the realistic validation of photometric redshifts"} \citep{2017MNRAS.468.4323B}. Furthermore, DESC is currently investigating methods of validating accuracy of probability distributions from a photo-$z$ algorithm (see, e.g., Schmidt et al. 2020, in prep).
 
 {\bf Truth Comparisons}\\
 Catalogs of true redshifts can be obtained by withholding some fraction of the training set or by cross-matching to external spectroscopic catalogs. Validation metrics should include at least those used to define the minimum performance of the LSST photo-$z$ for basic science needs (\S~\ref{sec:mvp}). A list of potential metrics might include the following, and targets or limits on these metric values might apply to subsets in magnitude, color, or redshift: 
@@ -263,7 +263,7 @@ Catalogs of true redshifts can be obtained by withholding some fraction of the t
 $L(\Delta z) = 1 - \left(1+ \left(\frac{\Delta z}{\gamma} \right)^2 \right)^{-1}$, 
 where $\gamma$ is a characteristic threshold (e.g., $0.15$), and:\\
 $R(z_{\rm phot}) = \int P(z)\,L(z_{\rm phot},z)\,dz$, as described in \citet{2018PASJ...70S...9T}
-\item the conditional density estimation (CDE) loss as described in Section 4.2 of \textcolor{red}{Schmidt et al. 2020}. (Note that the CDE does not strictly require the true posterior be known.)
+\item the conditional density estimation (CDE) loss as described in Section 4.2 of Schmidt et al. (2020, in prep). (Note that the CDE does not strictly require the true posterior be known.)
 \end{itemize}
 
 {\bf Sanity Checks}\\
@@ -364,7 +364,7 @@ Appropriate types of documentation might include published journal articles, Git
 
 Regardless of whether the {\tt Object} catalog photo-$z$ are generated by the DMS or an ingested community catalog, the stored values are subject to the storage space allotted in the {\tt Objects} table as described in \S~\ref{ssec:docs_dpdd}.
 However, both the posteriors and point estimates from several different photo-$z$ estimators could be compressed and stored in this allotted space.
-Furthermore, given the variety of use-cases and the fact that different photo-z estimators produce different results (Schmidt et al., in prep.), the option to compute, compress, and store estimates from multiple algorithms in the $2\times95$ float might be scientifically desirable.
+Furthermore, given the variety of use-cases and the fact that different photo-z estimators produce different results (Schmidt et al. 2020, in prep.), the option to compute, compress, and store estimates from multiple algorithms in the $2\times95$ float might be scientifically desirable.
 
 Efficient $P(z)$ compression algorithms are in development, such as \citet{2014MNRAS.441.3550C} and \citet{2018AJ....156...35M}.
 \citet{2014MNRAS.441.3550C} present an algorithm for sparse representation, for which {\it "an entire PDF can be stored by using a 4-byte integer per basis function''} and {\it "only ten to twenty points per galaxy are sufficient to reconstruct both the individual PDFs and the ensemble redshift distribution, $N(z)$, to an accuracy of 99.9\% when compared to the one built using the original PDFs computed with a resolution of $\delta z = 0.01$, reducing the required storage of two hundred original values by a factor of ten to twenty.''} 

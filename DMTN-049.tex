@@ -22,7 +22,7 @@ This roadmap proposes three phases for the DM team:
 \item {\bf Phase 0:} Finalize this plan and its timeline (Dec 31 2020).
 \item {\bf Phase 1:} Define the criteria for evaluating photo-$z$ estimators (Aug 31 2021) by soliciting community input regarding their science needs and interests.
 \item {\bf Phase 2:} Prepare a ranked list of community-vetted photo-$z$ estimator(s) by soliciting community "letters of recommendation" (due Apr 31 2022).
-\item {\bf Phase 3:} Make a final selection of the community-vetted photo-$z$ estimator(s) to be used for DR1 by facilitating community participation in a "photo-$z$ validation data challenge" based on commissioning data.
+\item {\bf Phase 3:} Facilitate community participation in a "photo-$z$ validation cooperative" based on commissioning data that informs DM's selection of the community-vetted photo-$z$ estimator(s) to be used for DR1.
 \end{itemize}
 }
 
@@ -64,7 +64,7 @@ Furthermore, it is a requirement\dmreq{0046} that the LSST Data Management Syste
 Research and development of new photometric redshift algorithms for LSST data is beyond the scope of DM (i.e., not part of DM's specialized knowledge base), as it is an active area of current and future LSST research.
 The high-level plan is that one or more existing photo-$z$ estimator(s) be installed into the Data Release (DR) pipeline and run at scale, and/or a user-generated photo-$z$ catalog be ingested and federated with the {\tt Object} catalog.
 
-This roadmap guides the Rubin Observatory DM team towards a decision on which \textit{community-vetted} photo-$z$ estimator(s) will be implemented into the DR pipeline and served for the {\tt Object} catalog.
+This roadmap guides the Rubin Observatory DM team's engagement of the scientific community regarding a decision on which \textit{community-vetted} photo-$z$ estimator(s) will be implemented for the DR1 {\tt Object} catalog.
 This is a \textit{\textbf{living document}} that will evolve over time to incorporate input from the science community, which has a considerable wealth of expertise in generating photo-$z$ catalogs and will be the primary users of the photo-$z$ data product.
 
 
@@ -104,25 +104,22 @@ The forums would {\it not} be the only way to contribute -- community input will
 {\bf Apr 31 2022:} Acceptance deadline for scientific "Letters of Recommendation".\\
 {\bf Jun 30 2022:} Choose a shortlist of community-vetted estimators to consider during Phase 3, and add the rationale for these choices to \S~\ref{ssec:lor_choice}.
 
-\subsection{Phase 3: Photo-$z$ Validation Data Challenge}\label{ssec:time_pzdc}
+\subsection{Phase 3: Photo-$z$ Validation Cooperative}\label{ssec:time_pzcoop}
 
-{\bf During commissioning} the DM team will facilitate community participation in a "Photo-$z$ Validation Data Challenge" (\S~\ref{sec:pzdc}).
-The DM team will make any final decisions regarding which photo-$z$ estimator(s) will be implemented for DR1 {\it after} this data challenge. 
-The details and the timeline for this data challenge are to be determined, as they are contingent on the commissioning schedule.
-The types of commissioning data that might be most useful for this data challenge are described in \S~\ref{ssec:pzdc_commissioning}.
-A preliminary collection of photo-$z$ validation techniques are presented in Appendix \ref{sec:imp}.
-Full documentation for the validation process and associated data challenge is considered beyond the scope of this document, and will appear elsewhere.
+{\bf During commissioning:} facilitate community participation in a "Photo-$z$ Validation Cooperative" for the shortlisted estimators based on commissioning data.
+The timeline for this effort remains to be determined, as it is contingent on the commissioning schedule.
+The DM team will make any final decisions regarding which photo-$z$ estimator(s) will be used for DR1 {\it after} this effort. 
+See \S~\ref{sec:pzcoop} for a preliminary description of the cooperative.
 
 \subsection{Rubin Operations}\label{ssec:time_ops}
 
-{\bf During operations} the Data Production team will produce and validate photo-$z$ for the {\tt Object} catalog using the software and data products delivered by the Construction-era DMS (which may include in-kind contributions, described in Appendix \ref{ssec:opts_inkind}).
+{\bf During operations:} the Data Production team will produce and validate photo-$z$ for the {\tt Object} catalog using the software and data products delivered by the Construction-era DMS (which may include in-kind contributions, described in Appendix \ref{ssec:opts_inkind}).
 These photo-$z$ for the {\tt Object} catalog will be available at the time of all data releases, starting with DR1, along with any and all supporting materials such as documentation or spectral templates.
 The Rubin Operations team may solicit and collect community feedback on the photo-$z$ performance, and return to any stage of this process to update the attributes, algorithms, implementation, and/or validation of {\tt Object} catalog photo-$z$ for future data releases.
 
-\clearpage
 \begin{figure}
 \begin{center}
-\includegraphics[width=17cm]{timeline.pdf}
+\includegraphics[width=17cm]{DMTN049_timeline.pdf}
 \caption{A schematic of the proposed timeline in \S~\ref{sec:time}. In addition to the virtual forums (stars), community input will be ingested from discussions on Community.lsst.org. \label{fig:timeline}}
 \end{center}
 \end{figure}
@@ -166,7 +163,7 @@ These criteria will guide the community's "Letters of Recommendation" in Phase 3
 {\bf Meeting the Defined Minimum Attributes --}
 Estimators should meet the minimum attributes defined in \S~\ref{sec:mvp}, and serve at least the basic science needs of the community and any internal DM use-cases (Appendix \ref{sec:use}).
 The preliminary proposed performance (in version 3 of this document) has been shown to be achievable for simulated LSST data with existing photo-$z$ estimators \citep[e.g.,][]{2018AJ....155....1G,2020arXiv200103621S}.
-The criteria for evaluating performance overlaps with the validation tests discussed in Appendix \ref{ssec:imp_val}, and evaluating the performance of potential photo-$z$ estimators with LSST data will be part of the validation data challenge  based on commissioning data (Phase 3; \S~\ref{sec:lor}).
+The criteria for evaluating performance overlaps with the validation tests discussed in Appendix \ref{ssec:imp_val}, and evaluating the performance of potential photo-$z$ estimators with LSST data will be part of the validation process based on commissioning data (Phase 3; \S~\ref{sec:lor}).
 
 {\bf Scientific Utility and User Experience --}
 Photo-$z$ estimators should serve as wide a variety of science needs as possible (Appendix \ref{sec:use}).
@@ -192,8 +189,8 @@ The computational needs of the estimator must fit within the available resources
 Community input on this proposed draft call for letters of recommendation is welcome at any time.}
 
 \textbf{Draft:} The Rubin Observatory LSST DM team solicits letters of recommendation from the science community that advocate for particular photo-$z$ estimators, based on the evaluation criteria defined in \S~\ref{sec:eval}.
-The DM team's goal is to create a shortlist of several community-vetted photo-$z$ estimator(s) that will serve as broad a range of LSST science goals as possible and also meet any internal requirements.
-The shortlisted estimators would then be included in the "Photo-$z$ Validation Data Challenge" based on commissioning data (\S~\ref{sec:pzdcs}). 
+The DM team's goal is to create a shortlist of several community-vetted photo-$z$ estimator(s) that will serve as broad a range of LSST science goals as possible and also meet internal (DM use-case) requirements.
+The shortlisted estimators would then be supported by DM during the "Photo-$z$ Validation Cooperative", which will be based on commissioning data (\S~\ref{sec:pzcoop}). 
 These letters should not be seen as a competition, but rather as a formal chance for the science community to state their scientific needs regarding {\tt Object} catalog photo-$z$. 
 These letters should focus on providing a clear and scientifically-justified prioritization of photo-$z$ estimators that is informed by the evaluation criteria in  \S~\ref{sec:eval}.
 Letters could focus on many, a few, or just one estimator(s) or science goal(s).
@@ -201,20 +198,26 @@ Letters could be {\it qualitative} in their evaluation of the photo-$z$ estimato
 
 \subsection{Rationale for DM's Shortlisted Photo-$z$ Estimator(s)} \label{ssec:lor_choice}
 
-\textit{TBD: this section will describe which community-vetted photo-$z$ estimator(s) DM has shortlisted to move on to Phase 3, and why.}
+\textit{TBD: this section will describe which community-vetted photo-$z$ estimator(s) DM has shortlisted for the photo-$z$ validation cooperative, and why.}
 
 
 \clearpage
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
-\section{Proposed Photo-$z$ Validation Data Challenge}\label{sec:pzdc}
+\section{Proposed Photo-$z$ Validation Cooperative}\label{sec:pzcoop}
 
 As the scientific community has a considerable wealth of expertise in generating photo-z catalogs, and will be the primary users of the photo-z data product, it is essential that the validation process includes their input.
-Towards this end, the DM team plans to facilitate a photo-$z$ validation data challenge based on LSST commissioning data.
-This data challenge should not be seen as a competition, but rather a collaborative endeavor between project and community to maximize the scientific utility of the {\tt Object} catalog photo-$z$ data products.
-{\bf It is anticipated that this process will start with open communication about what the science community needs, in terms of commissioning data and access to tools and computational resources, to fully participate in the data challenge.}
-A full description of this data challenge, and the implementation and validation process, is considered beyond the scope of this document and will appear elsewhere.
+Towards this end the DM team plans to facilitate a "photo-$z$ validation cooperative" based on LSST commissioning data.
 
-\subsection{Potential Commissioning Data for Photo-$z$ Validation}\label{ssec:pzdc_commissioning}
+\textbf{Draft:} Functionally this may be similar to a data challenge, but should not be though of as a competition that results in a "winning" estimator.
+Rather, it will serve as a collaborative endeavor between project and community to maximize the scientific utility of the {\tt Object} catalog photo-$z$ data products.
+{\bf It is anticipated that this process will start with open communication about what the science community needs, in terms of commissioning data and access to tools and computational resources, to fully participate in the photo-$z$ cooperative.}
+During this process, DM will focus on providing technical support for the validation of the photo-$z$ estimators shortlisted based on the community's letters of recommendation (\S~\ref{sec:lor}), but the community may also consider estimator(s) that were not shortlisted.
+
+Types of commissioning data that might be most useful for scientific validation of photo-$z$ estimators are described in \S~\ref{ssec:pzcoop_commissioning}.
+A preliminary collection of photo-$z$ validation techniques based are presented in Appendix \ref{sec:imp}.
+Documentation regarding the technical aspects of DM's implementation and validation process is considered beyond the scope of this document and will appear elsewhere.
+
+\subsection{Potential Commissioning Data for Photo-$z$ Validation}\label{ssec:pzcoop_commissioning}
 
 The commissioning surveys and their schedule remained subject to change; the examples below will be updated in the future as the situation clarifies.
 
@@ -222,7 +225,7 @@ The commissioning surveys and their schedule remained subject to change; the exa
 DP1 might be useful as preliminary test data during the implementation of the photo-$z$ estimators, and help to test the formats of the input and output data, create visualizations for the validation codes, etc.
 
 {\bf Data Preview 2 (DP2):} The second phase of commissioning with the Science Camera might include, e.g., wide area surveys to the full 10-year depth in addition to a 20-year depth stack and tests of image quality, as in DP1 \citedsp{LSE-79}.
-DP2 is more likely to provide the data set for the photo-$z$ validation data challenge, and also some of the needed training data for LSST photo-$z$ described in Appendix \ref{ssec:dp_calib}.
+DP2 is more likely to provide the data set for photo-$z$ validation, and also some of the needed training data for LSST photo-$z$ described in Appendix \ref{ssec:dp_calib}.
 
 As a side note for LSST users who are interested in doing science with commissioning data: it should not be assumed that any release of data products based on commissioning surveys will include photo-$z$ estimates.
 The release of any photo-$z$ catalogs prior to DR1 remains at the discretion of the DM team.

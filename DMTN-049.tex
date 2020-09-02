@@ -22,7 +22,7 @@ This roadmap proposes three phases for the DM team:
 \item {\bf Phase 0:} Finalize this plan and its timeline (Dec 31 2020).
 \item {\bf Phase 1:} Define the criteria for evaluating photo-$z$ estimators (Aug 31 2021) by soliciting community input regarding their science needs and interests.
 \item {\bf Phase 2:} Prepare a ranked list of community-vetted photo-$z$ estimator(s) by soliciting community "letters of recommendation" (due Apr 31 2022).
-\item {\bf Phase 3:} Facilitate community participation in a "photo-$z$ validation cooperative" based on commissioning data that informs DM's selection of the community-vetted photo-$z$ estimator(s) to be used for DR1.
+\item {\bf Phase 3:} Facilitate community participation in a "Photo-$z$ Validation Cooperative" that will analyze photo-$z$ estimates based on commissioning data, which will inform DM's selection of the community-vetted photo-$z$ estimator(s) to be used for DR1.
 \end{itemize}
 }
 
@@ -87,7 +87,7 @@ The forums would {\it not} be the only way to contribute -- community input will
 \subsection{Phase 0: Finalize Roadmap and Timeline}\label{ssec:time_time}
 
 {\bf Sep 30 2020:} Merge the branch {\tt tickets/DM-6367} of this document to master. Write a solicitation for community input on the roadmap and timeline, and advertise it broadly. \\
-{\bf Oct, Nov 2020:} Hold two LSST Photo-$z$ Forums that focus on gathering project and community input on the proposed roadmap and its timeline. \\
+{\bf Nov, Dec 2020:} Hold two LSST Photo-$z$ Forums that focus on gathering project and community input on the proposed roadmap and its timeline. \\
 {\bf Dec 31 2020:} Incorporate community input into \S~\ref{sec:time} of this document.
 
 \subsection{Phase 1: Define the Minimum Attributes and Evaluation Criteria}\label{ssec:time_mvp}
@@ -104,18 +104,28 @@ The forums would {\it not} be the only way to contribute -- community input will
 {\bf Apr 31 2022:} Acceptance deadline for scientific "Letters of Recommendation".\\
 {\bf Jun 30 2022:} Choose a shortlist of community-vetted estimators to consider during Phase 3, and add the rationale for these choices to \S~\ref{ssec:lor_choice}.
 
-\subsection{Phase 3: Photo-$z$ Validation Cooperative}\label{ssec:time_pzcoop}
+\subsection{Phase 3: Facilitate the Photo-$z$ Validation Cooperative}\label{ssec:time_pzcoop}
 
-{\bf During commissioning:} facilitate community participation in a "Photo-$z$ Validation Cooperative" for the shortlisted estimators based on commissioning data.
+{\bf During commissioning,} the DM team will facilitate community participation in a "Photo-$z$ Validation Cooperative", which will analyze photo-$z$ estimates from the shortlisted estimators based on commissioning data.
 The timeline for this effort remains to be determined, as it is contingent on the commissioning schedule.
 The DM team will make any final decisions regarding which photo-$z$ estimator(s) will be used for DR1 {\it after} this effort. 
 See \S~\ref{sec:pzcoop} for a preliminary description of the cooperative.
 
 \subsection{Rubin Operations}\label{ssec:time_ops}
 
-{\bf During operations:} the Data Production team will produce and validate photo-$z$ for the {\tt Object} catalog using the software and data products delivered by the Construction-era DMS (which may include in-kind contributions, described in Appendix \ref{ssec:opts_inkind}).
+{\bf During operations,} the Data Production team will produce and validate photo-$z$ for the {\tt Object} catalog using the software and data products delivered by the Construction-era DMS (which is likely to include in-kind contributions, described below).
 These photo-$z$ for the {\tt Object} catalog will be available at the time of all data releases, starting with DR1, along with any and all supporting materials such as documentation or spectral templates.
 The Rubin Operations team may solicit and collect community feedback on the photo-$z$ performance, and return to any stage of this process to update the attributes, algorithms, implementation, and/or validation of {\tt Object} catalog photo-$z$ for future data releases.
+
+\subsection{International Partnerships (In-Kind Contributions)}\label{ssec:time_inkind}
+
+{\bf At all stages of this photo-$z$ roadmap,} in-kind program contributions related to photo-$z$ should be included and integrated into the communal efforts to optimize the LSST photo-$z$. 
+These contributions might include, e.g., individuals' expertise; scientific analyses; software algorithms, tools, or infrastructure; computational resources; datasets or observing time.
+These contributions might be directed to the Project (e.g., DM, commissioning team), and/or to the science community (e.g., a Science Collaboration, all data rights holders). 
+
+In-kind teams should expect to work closely with DM on each step of this proposed roadmap, including the solicitation of community input, the process of implementation and validation, and maintaining and evolving their contributions during Rubin Operations (as applicable).
+In-kind contributors should also review the summary of related data products and documentation that might pertain to their contribution (Appendice \ref{sec:dp} and  \ref{sec:docs}), and the example scientific use-cases that the photo-$z$ estimates are expected to support (Appendix \ref{sec:use}).
+For in-kind programs making photo-$z$ related contributions to the project, a Photo-$z$ In-Kind Program Coordination (IPC) group exists to facilitate communications (point of contact: Melissa Graham).
 
 \begin{figure}
 \begin{center}
@@ -206,11 +216,11 @@ Letters could be {\it qualitative} in their evaluation of the photo-$z$ estimato
 \section{Proposed Photo-$z$ Validation Cooperative}\label{sec:pzcoop}
 
 As the scientific community has a considerable wealth of expertise in generating photo-z catalogs, and will be the primary users of the photo-z data product, it is essential that the validation process includes their input.
-Towards this end the DM team plans to facilitate a "photo-$z$ validation cooperative" based on LSST commissioning data.
+Towards this end the DM team plans to facilitate a "Photo-$z$ Validation Cooperative" to analyze photo-$z$ estimates based on LSST commissioning data.
 
 \textbf{Draft:} Functionally this may be similar to a data challenge, but should not be though of as a competition that results in a "winning" estimator.
 Rather, it will serve as a collaborative endeavor between project and community to maximize the scientific utility of the {\tt Object} catalog photo-$z$ data products.
-{\bf It is anticipated that this process will start with open communication about what the science community needs, in terms of commissioning data and access to tools and computational resources, to fully participate in the photo-$z$ cooperative.}
+{\bf It is anticipated that this process will start with open communication about what the science community needs, in terms of commissioning data and access to tools and computational resources, to fully participate in the photo-$z$ co-op.}
 During this process, DM will focus on providing technical support for the validation of the photo-$z$ estimators shortlisted based on the community's letters of recommendation (\S~\ref{sec:lor}), but the community may also consider estimator(s) that were not shortlisted.
 
 Types of commissioning data that might be most useful for scientific validation of photo-$z$ estimators are described in \S~\ref{ssec:pzcoop_commissioning}.
@@ -254,13 +264,7 @@ The release of any photo-$z$ catalogs prior to DR1 remains at the discretion of 
 
 \clearpage
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
-\section{Appendix: Additional Options for {\tt Object} Catalog Photo-$z$}\label{sec:opts}
-
-\subsection{Photo-$z$ as an In-Kind Contribution}\label{ssec:opts_inkind}
-
-The process outlined by this document for Data Management to select, implement, and validate a photo-$z$ estimator in the Data Release pipeline, with input from the science community, would also apply to any international team providing a photo-$z$ software package (or related data products) for the {\tt Object} catalog as an in-kind contribution in exchange for data rights. 
-Such teams should expect to work closely with Data Management on each step of the proposed process in \S~\ref{sec:time}, including the solicitation of community input, the process of implementation and validation, and maintaining and evolving the photo-$z$ estimator during Rubin Operations
-In-kind contributors should also review the summary of related data products and documentation that they would be expected to assemble and maintain (Appendice \ref{sec:dp} and  \ref{sec:docs}), and the example scientific use-cases that the photo-$z$ estimates are expected to support (Appendix \ref{sec:use}).
+\section{Appendix: Options for {\tt Object} Catalog Photo-$z$}\label{sec:opts}
 
 \subsection{Federation of a User-Generated Photo-$z$ Catalog}\label{ssec:opts_ugfed}
 

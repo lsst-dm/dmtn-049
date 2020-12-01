@@ -18,7 +18,7 @@ This roadmap guides the Rubin Observatory Data Management (DM) team's efforts to
 \medskip
 The DR {\tt Object} catalog photo-$z$ estimates will initially be a {\it minimum scientifically-viable product} that serve the {\it widest variety of science applications}.
 DM will select one or more {\it existing, community-vetted algorithms} to generate the DR photo-$z$.
-The selection criteria will include technical considerations imposed by the DM System. 
+The selection criteria will include technical considerations related to the DM System. 
 
 \medskip
 The Rubin science community has a considerable wealth of expertise in generating photo-$z$ catalogs and will be the primary users of the DR {\tt Object} catalog photo-$z$ data products.
@@ -26,12 +26,12 @@ Therefore, the selection, implementation, and validation of the DR {\tt Objects}
 
 \medskip
 \textbf{This roadmap is a living document} to guide this joint venture, and it will evolve over time to incorporate input from the science community.
-\textbf{The primary milestone in this roadmap is DM's call for "letters of recommendation" from the science community regarding photo-$z$ estimators (\S~\ref{sec:lor}; provisional deadline Oct 1 2021).}
-From these letters, DM will generate a shortlist of community-vetted photo-$z$ options that meet both the community's scientific needs for DR {\tt Object} photo-$z$ and the technical directives of the DM System.
+\textbf{The primary milestone in this roadmap is DM's call for "Letters of Recommendation" from the science community regarding photo-$z$ estimators (\S~\ref{sec:lor}; provisional deadline Oct 1 2021).}
+From these letters, DM will generate a shortlist of community-vetted photo-$z$ options that meet both the science community's needs for DR {\tt Object} photo-$z$ and the technical directives of the DM System.
 
 \medskip
 In support of this milestone, starting in early 2021 DM will host a series of "LSST Photo-z Virtual Forums", discussions open to all interested people, which will focus on defining the initial minimum scientific attributes and selection criteria for photo-$z$ estimators (\S~\ref{sec:mvp} \& \ref{sec:eval}).
-As part of DM's process to select, implement, and validate one or more estimator(s) from this shortlist, DM will facilitate community participation in a "Photo-$z$ Validation Cooperative" based on commissioning data (\S~\ref{sec:pzcoop}). 
+As part of DM's process to select, implement, and validate one or more estimator(s) from this shortlist, DM will facilitate science community participation in a "Photo-$z$ Validation Cooperative" based on commissioning data (\S~\ref{sec:pzcoop}). 
 
 \medskip
 This roadmap includes in-kind contributions from international partnerships to {\tt Object} catalog photo-$z$ for DR1 and beyond, as well as potential processes of improving the DR {\tt Object} catalog photo-$z$ and/or federating user-generated photo-$z$ catalogs during Rubin operations.
@@ -75,7 +75,7 @@ Furthermore, it is a requirement\dmreq{0046} that the LSST Data Management Syste
 Research and development of new photometric redshift algorithms for LSST data is beyond the scope of DM (i.e., not part of DM's specialized knowledge base), as it is an active area of current and future LSST research.
 The high-level plan is that one or more existing photo-$z$ estimator(s) be installed into the Data Release (DR) pipeline and run at scale, and/or a user-generated photo-$z$ catalog be ingested and federated with the {\tt Object} catalog.
 
-This roadmap guides the Rubin Observatory DM team's engagement of the scientific community regarding a decision on which \textit{community-vetted} photo-$z$ estimator(s) will be implemented for the DR1 {\tt Object} catalog.
+This roadmap guides the Rubin Observatory DM team's engagement of the scientific community on its path towards a decision on which \textit{community-vetted} photo-$z$ estimator(s) will be implemented for the DR {\tt Object} catalog.
 This is a \textit{\textbf{living document}} that will evolve over time to incorporate input from the science community, which has a considerable wealth of expertise in generating photo-$z$ catalogs and will be the primary users of the photo-$z$ data product.
 
 
@@ -83,52 +83,39 @@ This is a \textit{\textbf{living document}} that will evolve over time to incorp
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
 \section{Proposed Roadmap and Timeline}\label{sec:time}
 
-All items in phases 1, 2, and 3 of this timeline reference {\it actions taken by the Data Management team} in order to engage the community in the roadmap's phases.
-A diagram representing this proposed timeline is provided in Figure \ref{fig:timeline}.
+All items in this timeline reference actions taken by DM to engage the science community.
 
-In the subsections below, several terms are used, for which we provide clarification here. \\
-$\bullet$ {\bf Advertise broadly} means posting to Community.lsst.org, sending emails to Science Collaborations and other lists of potentially interested individuals (e.g., authors of papers containing the terms LSST and photo-$z$), and including in Rubin newsletters. \\
-$\bullet$ {\bf Community} or {\bf science community}, in the context of this document, refers to any individuals or groups of data rights holders who plan to use Rubin data products or services for science -- and, in particular, use the {\tt Object} catalog photo-$z$. \\
-$\bullet$ {\bf LSST Photo-$z$ Virtual Forums} will be informal discussion sessions attended by Rubin project staff and the community, and held virtually at a variety of times so as to enable participation from all timezones. Community input will also be ingested to this roadmap from written postings in the Community Forum (Community.lsst.org\footnote{E.g., in the category "Science - Photometric Redshifts": \url{https://community.lsst.org/c/sci/photoz}.}). \\
+{\bf Jan 1 2021:} Write a summary of this proposed timeline and advertise it broadly.
 
-\begin{figure}
-\begin{center}
-% trim=left bottom right top, clip
-\includegraphics[width=17cm,trim=0cm 6cm 0cm 4cm, clip]{DMTN049_timeline.pdf}
-\caption{A schematic of the proposed timeline of DM activities to engage the community in the roadmap to DR1 photo-$z$. In addition to the virtual forums (stars), community input will be ingested from asynchronus discussions in the Community Forum (Community.lsst.org). \label{fig:timeline}}
-\end{center}
-\end{figure}
+{\bf Jan -- Apr 2021:} Hold four LSST Photo-$z$ Virtual Forums, one per month, which focus on ingesting input from the science community regarding the proposed minimum scientific attributes and evaluation criteria (\S~\ref{sec:mvp} and \S~\ref{sec:eval}). Advertise the forums broadly.
 
-\subsection{Phase 1: Define the Minimum Scientific Attributes and Evaluation Criteria}\label{ssec:time_mvp}
+{\bf May 1 2021:} Write a call for "Letters of Recommendation" from the science community which includes a summary of the minimum scientific attributes and evaluation criteria, and advertise it broadly .
 
-{\bf Jan 1 2021:} Write a solicitation for community input on the initial minimum scientific attributes (\S~\ref{sec:mvp}) and evaluation criteria (\S~\ref{sec:eval}) and advertise it broadly. \\
-{\bf Feb -- Jun 2021:} Hold three LSST Photo-$z$ Virtual Forums that focus on gathering project and community input on the proposed minimum attributes and evaluation criteria. \\
-{\bf mid-Aug 2021:} During the Rubin 2021 Project and Community workshop, hold a breakout session to collect any remaining input and discuss the evaluation criteria. \\
-{\bf Aug 31 2021:} Incorporate community input into \S~\ref{sec:mvp} and \S~\ref{sec:eval} of this document.
+{\bf May -- Aug 2021:} Hold four LSST Photo-$z$ Virtual Forums, one per month, which focus on the science community's efforts to prepare "Letters of Recommendation" that formally express support for certain photo-$z$ estimators (\S~\ref{sec:lor}). Advertise the forums broadly.
 
-\subsection{Phase 2: Prepare a Ranked List of Candidate Photo-$z$ Estimators}\label{ssec:time_wp}
+{\bf Oct 1 2021:} Deadline for "Letters of Recommendation" from the science community.
 
-{\bf Sep 1 2021:} Write a call for "Letters of Recommendation" from the science community that advocate for particular photo-$z$ estimators (\S~\ref{sec:lor}), and advertise it broadly. \\
-{\bf Nov 2021 -- Apr 2022:} Hold four LSST Photo-$z$ Virtual Forums that focus on allowing the project and the community discuss the various merits or drawbacks photo-$z$ estimators. \\
-{\bf Apr 31 2022:} Deadline for the science community's "Letters of Recommendation".\\
-{\bf Jun 30 2022:} Generate a shortlist of community-vetted estimators to consider during Phase 3, and add the rationale for these choices to \S~\ref{ssec:lor_choice}.
+{\bf Before commissioning,} DM will generate a shortlist of community-vetted estimators to consider during commissioning, and add the rationale for these choices to \S~\ref{ssec:lor_choice}. Advertise this update broadly.
 
-\subsection{Phase 3: Facilitate the Photo-$z$ Validation Cooperative}\label{ssec:time_pzcoop}
-
-{\bf During commissioning,} the DM team will facilitate community participation in a "Photo-$z$ Validation Cooperative", which will analyze photo-$z$ estimates from the shortlisted estimators based on commissioning data.
+{\bf During commissioning,} the DM team will facilitate community participation in a "Photo-$z$ Validation Cooperative", which will analyze photo-$z$ estimates from the shortlisted estimators based on commissioning data (\S~\ref{sec:pzcoop}).
 The timeline for this effort remains to be determined, as it is contingent on the commissioning schedule.
-The DM team will make any final decisions regarding which photo-$z$ estimator(s) will be used for DR1 {\it after} this effort.
-See \S~\ref{sec:pzcoop} for a preliminary description of the cooperative.
+
+Several terms are used above, for which we provide clarification here. \\
+$\bullet$ {\bf Advertise broadly} means posting to Community.lsst.org, sending emails to Science Collaborations and other lists of potentially interested individuals (e.g., authors of papers containing the terms LSST and photo-$z$), and including in Rubin newsletters. \\
+$\bullet$ The {\bf science community}, in the context of this document, refers to any individuals or groups of data rights holders who plan to use Rubin data products or services for science -- in particular, the {\tt Object} catalog photo-$z$. \\
+$\bullet$ {\bf LSST Photo-$z$ Virtual Forums} will be informal discussion sessions for Rubin staff and science community members, and held virtually at a variety of times so as to enable people from all timezones to attend at least one. \\
+$\bullet$ {\bf Ingesting input from the science community} means that this document will be updated to include contributions from the science community to (e.g., updating the definitions of the initial minimum scientific attributes in \S~\ref{sec:mvp}).
+Science community input will primarily be ingested from the LSST Photo-$z$ Virtual Forums and also from written discussions in the Community Forum (Community.lsst.org\footnote{E.g., in the category "Science - Photometric Redshifts": \url{https://community.lsst.org/c/sci/photoz}.}).
 
 
-\subsection{Beyond DR1: Rubin Operations}\label{ssec:time_ops}
+\subsection{Evolving DR Object Photo-$z$ During Operations}\label{ssec:time_ops}
 
-{\bf During operations,} the Data Production team will generate photo-$z$ for {\tt Object} catalogs using the software and data products delivered by the Construction-era DMS for DR1, and make available any and all supporting materials such as documentation or spectral templates.
+During operations, the Data Production team will generate photo-$z$ for {\tt Object} catalogs using the software and data products delivered by the Construction-era DMS, and make available any and all supporting materials such as documentation or spectral templates.
 
 The Rubin Operations team may solicit and collect community feedback on the photo-$z$ performance, and return to any stage of this roadmap to update the attributes, algorithms, implementation, and/or validation of {\tt Object} catalog photo-$z$ for future data releases.
 Additionally (or instead of a DMS-provided photo-$z$), the Rubin Operations team might choose to federate a user-generated photo-$z$ catalog, as described below.
 
-\subsubsection{Federation of a User-Generated Photo-$z$ Catalog}\label{ssec:time_ops_ugfed}
+\subsection{Option to Federate a User-Generated Photo-$z$ Catalog}\label{ssec:time_ops_ugfed}
 
 The Construction-era DMS delivered to the Operations Project will provide photo-$z$ with a basic level of scientific capability (\S~\ref{sec:mvp}). 
 If those photo-$z$ are rendered obsolete by community efforts, and a superior user-generated photo-$z$ catalog is validated, {\it and} that catalog's creators are willing to share, then this data product should be ingested ("federated") and served with the {\tt Object} catalog.
@@ -141,7 +128,7 @@ Whether or not to federate user-generated photo-$z$ catalogs remains a decision 
 
 \subsection{International Partnerships (In-Kind Contributions)}\label{ssec:time_inkind}
 
-{\bf At all stages of this photo-$z$ roadmap,} in-kind program contributions related to photo-$z$ should be included and integrated into the communal efforts to optimize the LSST photo-$z$. 
+At all stages of this photo-$z$ roadmap, in-kind program contributions related to photo-$z$ should be included and integrated into the communal efforts to optimize the LSST photo-$z$. 
 These contributions might include, e.g., individuals' expertise; scientific analyses; software algorithms, tools, or infrastructure; computational resources; datasets or observing time.
 These contributions might be directed to the Project (e.g., DM, commissioning team), and/or to the science community (e.g., a Science Collaboration, all data rights holders). 
 
@@ -154,9 +141,14 @@ For in-kind programs making photo-$z$ related contributions to the project, a Ph
 
 \clearpage
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
-\section{Data Management Constraints on the Photo-$z$ Estimator(s)}\label{sec:dmcon}
+\section{Technical Directives from the DM System}\label{sec:dmcon}
 
-\textit{This is where DM must write down the constraints on the photo-$z$ estimators, in order to provide the community with some boundaries and expectations. Compliance with these constraints is one of the proposed evaluation criteria in \S~\ref{sec:eval}.}
+The following is a \textbf{\textit{preliminary draft}} set of {\it initial} technical directives for potential photo-$z$ estimators to be implemented in the DM System.
+Community input on the feasibility or challenges of these directives is solicited, and this topic will be open for discussion during the LSST Photo-$z$ Virtual Forum series.
+The DM team endeavors to be clear about the rigidity of these technical directives, but the following is subject to change as the DM System evolves.
+Compliance with these constraints is one of the proposed evaluation criteria in \S~\ref{sec:eval}.
+
+\textit{This is where DM must write down the constraints on the photo-$z$ estimators, in order to provide the community with some boundaries and expectations. Here are some examples.}
 
 \textbf{Supported Languages: } \textit{Does the code have to be in, e.g., C or Python?} <-- It was suggested in DM-SST that this doesn't matter at all, so long as it can be run at scale.
 
@@ -267,7 +259,7 @@ Towards this end the DM team plans to facilitate a "Photo-$z$ Validation Coopera
 This is intended to be a collaborative endeavor between project and community to maximize the scientific utility of the {\tt Object} catalog photo-$z$ data products.
 
 It is anticipated that this process will start with open communication about what the science community needs to fully participate in the photo-$z$ co-op (e.g., commissioning data, access to tools, computational resources).
-During this process, DM will focus on providing technical support for the validation of the photo-$z$ estimators using commissioning data, especially those shortlisted based on the community's letters of recommendation (\S~\ref{sec:lor}), but the community may also consider estimator(s) that were not shortlisted.
+During this process, DM will focus on providing technical support for the validation of the photo-$z$ estimators using commissioning data, especially those shortlisted based on the community's "Letters of Recommendation" (\S~\ref{sec:lor}), but the community may also consider estimator(s) that were not shortlisted.
 It is expected that the community will be focused on assembling training sets and validation metrics and applying them to the commissioning data, and documenting and sharing the results.
 The mode of communication during this time (e.g., an extension of the "Photo-$z$ Virtual Forums") remains to be determined.
 

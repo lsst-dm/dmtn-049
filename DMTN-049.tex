@@ -13,26 +13,28 @@
 \setDocStatus{draft}
 
 \setDocAbstract{
-This roadmap guides the Rubin Observatory Data Management (DM) team's efforts to engage with the scientific community of data-rights holders in order to validate and implement one or more existing photometric redshift (photo-$z$) estimators into the Data Release (DR) processing pipeline, and serve the resulting photo-$z$ data products for the first DR {\tt Object} catalog (and beyond).
+This roadmap guides the Rubin Observatory Data Management (DM) team's efforts to engage with the scientific community of data-rights holders in order to validate and implement one or more existing photometric redshift (photo-$z$) estimators into the Data Release (DR) processing pipeline, and serve the resulting photo-$z$ data products for the DR {\tt Object} catalogs.
 
 \medskip
-The DM-generated photo-$z$ estimates will initially be a {\it minimum scientifically-viable product} that serves the {\it widest variety of science applications}.
-One or more {\it existing, community-vetted algorithms} will be adopted; this selection will be subject to constraints imposed by the DM System (e.g., compute resources). 
+The DR {\tt Object} catalog photo-$z$ estimates will initially be a {\it minimum scientifically-viable product} that serve the {\it widest variety of science applications}.
+DM will select one or more {\it existing, community-vetted algorithms} to generate the DR photo-$z$.
+The selection criteria will include technical considerations imposed by the DM System. 
 
 \medskip
 The Rubin science community has a considerable wealth of expertise in generating photo-$z$ catalogs and will be the primary users of the DR {\tt Object} catalog photo-$z$ data products.
-Thus, the processes to define the estimator(s) minimum attributes, selection criteria, and validation metrics, and to scientifically validate the estimator(s) with commissioning data, will be a joint community-project venture.
+Therefore, the selection, implementation, and validation of the DR {\tt Objects} photo-$z$ estimator(s) will be a joint venture between the Rubin construction team and the Rubin science community. 
 
 \medskip
-This roadmap is a \textit{\textbf{living document}} to guide these processes, and it will evolve over time to incorporate input from the science community.
-DM's activities in this regard are divided into three phases:
-\begin{itemize}
-\item {\bf Phase 1:} Define the initial minimum scientific attributes and selection criteria for photo-$z$ estimators (\S~\ref{sec:mvp} \& \ref{sec:eval}) by soliciting community input regarding their science needs and interests. (End: Aug 31 2021).
-\item {\bf Phase 2:} Solicit formal community "letters of recommendation" regarding photo-$z$ estimators (\S~\ref{sec:lor}; due: Apr 31 2022) in order to generate a shortlist of community-vetted photo-$z$ estimator(s) to use for Phase 3.
-\item {\bf Phase 3:} Facilitate community participation in a "Photo-$z$ Validation Cooperative" based on commissioning data (\S~\ref{sec:pzcoop}), which will inform DM's selection of community-vetted photo-$z$ estimator(s) for DR1. (Dates to be determined).
-\end{itemize}
+\textbf{This roadmap is a living document} to guide this joint venture, and it will evolve over time to incorporate input from the science community.
+\textbf{The primary milestone in this roadmap is DM's call for "letters of recommendation" from the science community regarding photo-$z$ estimators (\S~\ref{sec:lor}; provisional deadline Oct 1 2021).}
+From these letters, DM will generate a shortlist of community-vetted photo-$z$ options that meet both the community's scientific needs for DR {\tt Object} photo-$z$ and the technical directives of the DM System.
 
-This roadmap includes in-kind contributions from international partnerships to {\tt Object} catalog photo-$z$ for DR1 and beyond, as well as potential processes of improving and evolving the DR {\tt Object} catalog photo-$z$ and/or of ingesting and federating user-generated photo-$z$ catalogs during Operations.
+\medskip
+In support of this milestone, starting in early 2021 DM will host a series of "LSST Photo-z Virtual Forums", discussions open to all interested people, which will focus on defining the initial minimum scientific attributes and selection criteria for photo-$z$ estimators (\S~\ref{sec:mvp} \& \ref{sec:eval}).
+As part of DM's process to select, implement, and validate one or more estimator(s) from this shortlist, DM will facilitate community participation in a "Photo-$z$ Validation Cooperative" based on commissioning data (\S~\ref{sec:pzcoop}). 
+
+\medskip
+This roadmap includes in-kind contributions from international partnerships to {\tt Object} catalog photo-$z$ for DR1 and beyond, as well as potential processes of improving the DR {\tt Object} catalog photo-$z$ and/or federating user-generated photo-$z$ catalogs during Rubin operations.
 }
 
 \setDocChangeRecord{%
@@ -144,7 +146,7 @@ These contributions might include, e.g., individuals' expertise; scientific anal
 These contributions might be directed to the Project (e.g., DM, commissioning team), and/or to the science community (e.g., a Science Collaboration, all data rights holders). 
 
 In-kind teams should expect to work closely with the project (e.g., DM) and other Rubin community members on each step of this proposed roadmap, including the solicitation of input from the science community, the process of implementation and validation, and maintaining and evolving their contributions during Rubin Operations (as applicable).
-In-kind contributors should also review the summary of related data products and documentation that might pertain to their contribution (Appendice \ref{sec:dp} and  \ref{sec:docs}), and the example scientific use-cases that the photo-$z$ estimates are expected to support (Appendix \ref{sec:use}).
+In-kind contributors should also review the summary of related data products and documentation that might pertain to their contribution (Appendices \ref{sec:dp} and  \ref{sec:docs}), and the example scientific use-cases that the photo-$z$ estimates are expected to support (Appendix \ref{sec:use}).
 
 For in-kind programs making photo-$z$ related contributions to the project, a Photo-$z$ In-Kind Program Coordination (IPC) group exists to facilitate communications (point of contact: Melissa Graham). See this post in the Community Forum for more information: \url{https://community.lsst.org/t/about-the-photo-z-in-kind-coordination-group}.
 
@@ -156,13 +158,13 @@ For in-kind programs making photo-$z$ related contributions to the project, a Ph
 
 \textit{This is where DM must write down the constraints on the photo-$z$ estimators, in order to provide the community with some boundaries and expectations. Compliance with these constraints is one of the proposed evaluation criteria in \S~\ref{sec:eval}.}
 
-\textbf{Supported Languages: } \textit{Does the code have to be in, e.g., C or Python?}
+\textbf{Supported Languages: } \textit{Does the code have to be in, e.g., C or Python?} <-- It was suggested in DM-SST that this doesn't matter at all, so long as it can be run at scale.
 
 \textbf{Storage Constraints: } \textit{Maximum storage space for: inputs such as spectral templates or training sets (Appendix \ref{ssec:dp_calib}); inputs such as photometric measurements, and they must already exist in the {\tt Object} catalog (Appendix \ref{ssec:dp_objvals}); outputs such as posteriors (Appendix \ref{ssec:dp_pz}).}
 
-\textbf{Computational Processing Constraints: } \textit{What is the maximum processing load? If outputs are going to be compressed (Appendix \ref{ssec:dp_store}), what are the constraints on doing this compression?}
+\textbf{Computational Processing Constraints: } \textit{What is the maximum processing load? If outputs are going to be compressed (Appendix \ref{ssec:dp_store}), what are the constraints on doing this compression?} Must be able to be run 'at scale'.
 
-\textbf{Other: } \textit{?}
+\textbf{Input and Output Formats: } \textit{?}
 
 
 

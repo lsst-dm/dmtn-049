@@ -1,7 +1,7 @@
 .. image:: https://img.shields.io/badge/dmtn--049-lsst.io-brightgreen.svg
    :target: https://dmtn-049.lsst.io
-.. image:: https://github.com/lsst/LSE-489/workflows/CI/badge.svg
-   :target: https://github.com/lsst/LSE-489/actions/
+.. image:: https://github.com/lsst-dm/dmtn-049/workflows/CI/badge.svg
+   :target: https://github.com/lsst-dm/dmtn-049/actions/
 
 ################################################
 LSST DRP (Level 2) Catalog Photometric Redshifts

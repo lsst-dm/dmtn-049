@@ -284,28 +284,35 @@ A preliminary collection of photo-$z$ validation techniques based are presented 
 
 Documentation regarding the technical aspects of the implementation and validation process is considered beyond the scope of this document and will appear elsewhere in future.
 
+% LSE-79 is very out of date and needs updating before we reference it here. 
 \subsection{Potential Commissioning Data for Photo-$z$ Validation}\label{ssec:pzcoop_commissioning}
 
-The commissioning surveys and their schedule remain subject to change; the examples below will be updated in the future as the situation clarifies.
-Data Preview 1 (DP1) and Data Preview 2 (DP2)will be based on data taken during Rubin Observatory commissioning.
+The commissioning surveys and their schedule remain subject to change; the information in this section will be updated in the future as the situation clarifies.
+At this time, the commissioning schedule comprises 3 phases: 
 
-{\bf Data Preview 1 (DP1):} The first phase of commissioning comprises 3 months of technical integration and test with the Rubin Observatory Commissioning Camera (ComCam) and might include, e.g., tests of the scheduler; tests of image quality, depth, astrometry, and photometry; 
-% descoped in LCR-2045
-% and a 20-year depth test to stack images over a range of conditions 
-% Very out of date - 2018. Remove until Chuck updates
-% \citedsp{LSE-79}.
-DP1 might be useful as preliminary test data during the implementation of the photo-$z$ estimators, and help to test the formats of the input and output data, create visualizations for the validation codes, etc.
+{\bf Early System Integration \& Test:}
+The first phase of commissioning comprises 3 months of technical integration and test (I\&T) with the Rubin Observatory Commissioning Camera (ComCam).
+% and might include, e.g., tests of the scheduler, tests of image quality, single-visit depth, astrometry, and photometry.
+The originally planned Key Performance Metrics (KPMs) and 20-year Depth Test and Schedule tests during this phase have since been descoped. 
+During this phase, we expect to deliver modest amounts of science-quality imaging (e.g., few hours to few nights) with which tests of image quality, single-visit depth, astrometry, and photometry might be possible, depending on the quality of the data.  
+Data Preview 1 (DP1) will be based on data taken during this phase and processed with the Rubin Science Pipelines. 
+This data might be useful as preliminary test data during the implementation of the photo-$z$ estimators, and help to test the formats of the input and output data, create visualizations for the validation codes, etc.
 
-{\bf Data Preview 2 (DP2):} The second phase of commissioning with the LSST Camera (LSSTCam) \textemdash \,the science instrument for Rubin Observatory,  might include, e.g., wide area surveys to the full 10-year depth in addition to a 20-year depth stack and tests of image quality, as in DP1 
-\citedsp{LSE-79}.
-DP2 is more likely to provide the data set for photo-$z$ validation, and also some of the needed training data for LSST photo-$z$ described in Appendix \ref{ssec:dp_calib}.
-Covering well-studied fields during DP2 (e.g., COSMOS) would facilitate photo-$z$ validation; note that the effort to collect community input on the commissioning fields is underway\footnote{\url{https://community.lsst.org/t/community-input-to-the-on-sky-observing-strategy-during-commissioning}}.
+{\bf Full System Integration \& Test with LSSTCam:}
+The second phase of commissioning comprises 3 months of of technical integration and test (I\&T) with  the LSST Camera (LSSTCam) \textemdash \,the science instrument for Rubin Observatory. 
+The originally planned Key Performance Metrics (KPMs), 20-year Depth Test during this phase have since been descoped. 
+During this phase, we expect to deliver modest amounts of science-quality imaging (e.g., few hours to few nights), with which tests of image quality, single-visit depth, astrometry, and photometry might be possible, depending on the quality of the data. 
 
-As a side note for LSST users who are interested in doing science with commissioning data: it should not be assumed that any release of data products based on commissioning surveys will include photo-$z$ estimates.
+{\bf Science Verification \& Validation:}
+The third and final phase of commissioning will be focused on science verification and validation of the integrated system and will include both wide-area surveys and a full 10-year depth survey in selected reference fields for which external imaging and spectroscopy is available. 
+This phase will last for 2 months. 
+
+Data Preview 2 (DP2) will be based on data taken during the second and third phases of commissioning and processed with the Rubin Science Pipelines. 
+DP2 is more likely to provide a preliminary data set for photo-$z$ validation and possibly some of the needed training data for LSST photo-$z$ described in Appendix \ref{ssec:dp_calib}. 
+Covering well-studied fields with DP2 data (e.g., COSMOS) would facilitate photo-$z$ validation; note that the effort to collect community input on the commissioning fields is underway\footnote{\url{https://community.lsst.org/t/community-input-to-the-on-sky-observing-strategy-during-commissioning}}.
+
+As a side note for LSST users who are interested in doing science with commissioning data, it should not be assumed that any release of data products based on commissioning surveys will include photo-$z$ estimates.
 The release of any photo-$z$ catalogs prior to DR1 remains at the discretion of the DM team.
-
-
-
 
 \clearpage
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %

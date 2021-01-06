@@ -172,6 +172,22 @@ Additional storage may be required for ancillary input data such as spectral tem
 Storage for outputs defined in the the DPDD \cite{LSE-163} has already been budgeted for by DM and is presented in Appendix~\ref{ssec:dp_objvals}. 
 Letters of recommendation for photo-$z$ estimators should list all necessary ancillary data together with an estimate of the storage required.
 
+\textbf{Training and Iterative Development:}
+Photo-$z$ estimators often require training of some kind before use on a particular dataset, or even a particular reprocessing of a particular dataset, in order to accurately relate the detailed properties and tendencies of the input photometric measurements to external data.
+This is rarely something that can be fully automated.
+Our ideal scenario is a ``pre-trained'' estimator that can be run at scale on the full {\tt Object} catalog with no human intervention.
+This would typically include both software and auxilliary data that represents (and probably condenses) the results of any training procedure.
+
+To construct such an estimator, we understand that it will probably be necessary to actually train it with photometry that is representative of the target data release, on fields that include at least some of the spectroscopic or external many-band photometry the estimator is trained against.
+We plan to perform preliminary processing of small areas of sky prior to beginning full data release processing in earnest, in order to validate the software to be used in that processing.
+We expect to make the photometry from this processing available to photo-$z$ collaborators to provide an opportunity for interactive training and tuning before the estimator and its auxiliary data are finalized.
+The time window for this work will be short, however, and coverage of important fields may be missing, incomplete, or not representative of the survey as a whole.
+While the needs of the photo-$z$ estimator will play a role in what preliminary processing is performed, these will need to be balanced with time constraints, our ability to use that processing for validation, and possibly data rights considerations as well.
+Having a photo-$z$ estimator that can operate robustly in the presence of these limitations is thus extremely important (and more important, for our purposes, than the quality of the estimator under more ideal conditions).
+
+Photo-$z$ estimators that cannot work well under these conditions may of course still be extremely valuable for LSST science, but it probably makes more sense to run these after a data release has gone out, and federate them with it later, to provide enough time for more complete training and validation.
+
+If DM is unable to identify an algorithm (and collaborators) for which fast-turnaround, limited-input training is viable, we may simply run an off-the-shelf algorithm with no training at all, to serve as a placeholder until a better post-DR, community-built federated catalog becomes available.
 \textbf{Computational Processing Constraints:}
 Photo-$z$ estimators are expected to have a low-memory-footprint and to operate only on measurements in the LSST {\tt Object} catalog (See Appendix \ref{ssec:dp_objvals}). 
 DM has budgeted for currently known algorithms and continues to revise estimates based on benchmarking of the codebase as development progresses, updating estimates for future processing based on current benchmarking results.  

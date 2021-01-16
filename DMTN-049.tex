@@ -172,6 +172,7 @@ Training of estimators such that they can be run at scale on the full {\tt Objec
 Data Management will work with the LSST science community to identify teams who will support the short-listed estimators.
 
 All estimators must be provided pre-trained to run within the LSST science pipelines. 
+This should include both software and auxilliary data that represents (and probably condenses) the results of any training procedure.
 To construct such an estimator, it is usually necessary to train it with photometry that is representative of the target data release, on fields that include at least some of the spectroscopic or external many-band photometry the estimator is trained against.
 We plan to perform preliminary processing of small areas of sky prior to beginning full data release processing, in order to validate the software to be used in that processing.
 We will make the {\tt Object} catalog from this processing available to photo-$z$ collaborators to provide an opportunity for interactive training and tuning before the estimator and its auxiliary data are finalized.
@@ -182,15 +183,14 @@ Having a photo-$z$ estimator that can operate robustly in the presence of these 
 
 The infrastructure necessary to pre-train all estimators, as well as technical support to the teams will be provided by the project. 
 Access to these preliminary processed data products will be subject to the Rubin Data Rights Policy as for all Data Release Data Products. \citeds{RDO-013}
+
+
  
 \textbf{Computational Processing Constraints:}
 Photo-$z$ estimators are expected to have a low-memory-footprint and to operate only on measurements in the LSST {\tt Object} catalog (See Appendix \ref{ssec:dp_objvals}). 
 DM has budgeted for currently known algorithms and continues to revise estimates based on benchmarking of the codebase as development progresses, updating estimates for future processing based on current benchmarking results.  
 Shortlisted community-vetted photo-z estimators will be similarly benchmarked to enable DM to accurately revise budget estimates. 
 The DM sizing model through the end of the construction project is described in \cite{dmtn-135}.
-
-All software and auxiliary data resulting from the any training procedure should be made available to the Data Management team together with the estim
-This should include both software and auxilliary data that represents (and probably condenses) the results of any training procedure.
 
 \textbf{Implementation Language:}
 The Rubin Science Pipelines are written in a combination of C++ and Python. 

@@ -69,7 +69,7 @@ Since it will be impossible to obtain spectra for the billions of galaxies that 
 Typically, photometric redshift estimators either fit template spectra to the observed photometry or match photometry to a training set of galaxies with spectroscopic redshifts. 
 The latter is often done with machine learning codes;  hybrid photo-$z$ estimators also exist. 
 Some photo-$z$ estimators are more appropriate for some science goals than others, due to the quality or type of results they produce (e.g., point estimates, full posterior probability density functions, or redshift distributions in tomographic bins).
-For this reason, several research groups in the science community are already planning to generate multiple kinds of photo-$z$. %(e.g., the Dark Energy Science Collaboration).
+For this reason, several research groups in the science community are already planning to generate multiple kinds of photo-$z$.
 
 It would be scientifically prohibitive if all users of LSST data had to generate their own photo-$z$ estimates, as this is a computationally intensive calculation.
 Furthermore, it is a requirement\dmreq{0046} that the LSST Data Management System (DMS) compute a photometric redshift for all detected {\tt Objects}, to be stored in the {\tt Object} catalog. 
@@ -271,7 +271,7 @@ It is understood that "Letters of Recommendation" from members of the science co
 However, "Letters of Recommendation" from teams who also plan to support the validation and implementation of one or more estimators during the commissioning-era Photo-$z$ Validation Cooperative (and beyond, to operations) should also please address the following technical considerations as best they can (summarized from Section \ref{sec:dmcon}):
 
 \begin{itemize}
-\item scalability to $\sim$ 37 {\tt Objects}
+\item scalability to $\sim$ 37 billion {\tt Objects}
 \item input measured quantities not currently in the DR {\tt Object} schema
 \item estimator outputs not currently in the DR {\tt Object} schema
 \item list of auxiliary data (and estimate storage requirements)
@@ -313,14 +313,14 @@ At this time, the commissioning schedule comprises 3 phases:
 {\bf Early System Integration \& Test:}
 The first phase of commissioning comprises 3 months of technical integration and test (I\&T) with the Rubin Observatory Commissioning Camera (ComCam).
 The originally planned Key Performance Metrics (KPMs) and 20-year Depth Test and Schedule tests during this phase have since been descoped. 
-During this phase, we expect to deliver modest amounts of science-quality imaging (e.g., few hours to few nights) with which tests of image quality, single-visit depth, astrometry, and photometry might be possible, depending on the quality of the data.  
+This phase is expected to deliver modest amounts of science-quality imaging (e.g., few hours to few nights) with which tests of image quality, single-visit depth, astrometry, and photometry might be possible, depending on the quality of the data.  
 Data Preview 1 (DP1) will be based on data taken during this phase and processed with the Rubin Science Pipelines. 
 This data might be useful as preliminary test data during the implementation of the photo-$z$ estimators, and help to test the formats of the input and output data, create visualizations for the validation codes, etc.
 
 {\bf Full System Integration \& Test with LSSTCam:}
 The second phase of commissioning comprises 3 months of of technical integration and test (I\&T) with  the LSST Camera (LSSTCam) \textemdash \,the science instrument for Rubin Observatory. 
 The originally planned Key Performance Metrics (KPMs), 20-year Depth Test during this phase have since been descoped. 
-During this phase, we expect to deliver modest amounts of science-quality imaging (e.g., few hours to few nights), with which tests of image quality, single-visit depth, astrometry, and photometry might be possible, depending on the quality of the data. 
+This phase is expected to deliver modest amounts of science-quality imaging (e.g., few hours to few nights), with which tests of image quality, single-visit depth, astrometry, and photometry might be possible, depending on the quality of the data. 
 
 {\bf Science Verification \& Validation:}
 The third and final phase of commissioning will be focused on science verification and validation of the integrated system and will include both wide-area surveys and a full 10-year depth survey in selected reference fields for which external imaging and spectroscopy is available. 
@@ -572,7 +572,8 @@ Given the uncertainties on the actual construction schedule and commissioning pe
 The actual state of science verification (SV) and system completeness at handover to Operations will determine the most appropriate course of action to take regarding early science. 
 
 In the event that SV is completely successful and the project moves quickly to the LSST cadence and DR1 (Plan "A"), estimators that  meet the criteria defined in \S~\ref{sec:eval} and that have been fully validated during the commissioning period will be prioritized. 
-If however the commissioning SV period is cut short, an {\it Early Science Period} of $\approx$3\,\textendash\,6 months that is different to regular survey operations may be enacted (Plan "B"). During this period, we envisage that estimators that meet the criteria defined in \S~\ref{sec:eval} could continue to work on validation during this {\it Early Science Period}, and that a decision would be taken on which estimator(s) to run for DR1 prior to reverting to the LSST cadence and DR1. 
+If, however, the commissioning SV period is cut short, an {\it Early Science Period} of $\approx$3\,\textendash\,6 months that is different to regular survey operations may be enacted (Plan "B").
+During this period, it is envisaged that estimators that meet the criteria defined in \S~\ref{sec:eval} could continue to work on validation during this {\it Early Science Period}, and that a decision would be taken on which estimator(s) to run for DR1 prior to reverting to the LSST cadence and DR1. 
 If a further shakedown of operations procedures and data taking is still required at handover to Operations (Plan "C"), the implications for photo-$z$ estimators will be reviewed at that time based on the actual state of the system to determine the best course of action for photo-$z$ estimators. 
 
 In any of these scenarios,  estimators that will return the most accurate photo-$z$ as early in the survey as possible may be prioritized.

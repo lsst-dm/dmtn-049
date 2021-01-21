@@ -229,7 +229,7 @@ A list of the photo-$z$ outputs (and associated documentation) is put forth in A
 {\bf Draft: Scientific Performance --} 
 Based on the science use-cases in Appendix \ref{sec:use}, the {\tt Object} catalog photo-$z$ could have a point-estimate accuracy of $\sim10\%$ and still meet the basic science needs.
 The photo-$z$ results should result in a standard deviation of $z_{\rm true}-z_{\rm phot}$ of $\sigma_z < 0.05(1+z_{\rm phot})$, and a catastrophic outlier fraction of $f_{\rm outlier} < 10\%$, over a redshift range of $0.0 < z_{\rm phot} < 2.0$ for galaxies with $i<25$ mag galaxies.
-Note that this preliminary proposed performance has been shown to be achievable for simulated LSST data with existing photo-$z$ estimators \citep[e.g.,][]{2018AJ....155....1G,2020arXiv200103621S}.
+Note that this preliminary proposed performance has been shown to be achievable for simulated LSST data with existing photo-$z$ estimators \citep[e.g.,][]{2018AJ....155....1G,2020MNRAS.499.1587S}.
 
 {\bf Draft: User Experience --}
 It is beneficial if estimators have broad community adoption and have demonstrated success with other wide-field optical surveys, especially for surveys that overlap with LSST (for results comparisons).
@@ -377,7 +377,7 @@ Catalogs of true redshifts can be obtained by withholding some fraction of the t
 $L(\Delta z) = 1 - \left(1+ \left(\frac{\Delta z}{\gamma} \right)^2 \right)^{-1}$, 
 where $\gamma$ is a characteristic threshold (e.g., $0.15$), and:\\
 $R(z_{\rm phot}) = \int P(z)\,L(z_{\rm phot},z)\,dz$, as described in \citet{2018PASJ...70S...9T}
-\item the conditional density estimation (CDE) loss as described in Section 4.2 of \citet{2020arXiv200103621S}. (Note that the CDE does not strictly require the true posterior be known.)
+\item the conditional density estimation (CDE) loss as described in Section 4.2 of \citet{2020MNRAS.499.1587S}. (Note that the CDE does not strictly require the true posterior be known.)
 \end{itemize}
 
 {\bf Sanity Checks--} 
@@ -408,7 +408,7 @@ The following might not be included in the formal validation process, but repres
 \item \citet{2013ApJ...775...93D} tested 11 different photo-$z$ codes on the CANDLES data set ($U$-band through infrared photometry) and also find that no method stands out as the "best'', and that most of the photo-$z$ codes underestimate their redshift errors.
 \item \citet{2014MNRAS.445.1482S} used the science verification data (200 square degrees of $grizY$ photometry to a depth of $i_{AB}=24$ magnitudes) of the Dark Energy Survey (DES) to evaluate several photometric redshift estimators. They found that the Trees for Photo-$z$ code (TPZ; \citet{2013ascl.soft04011C}) provided the most accurate results with the highest redshift resolution, and that template-fitting methods also performed well -- especially with priors -- but that in general there was no clear "winner.''
 \item \citet{2018PASJ...70S...9T} provides a comparative analysis of several photo-$z$ estimators applied to their data set from the HSC Strategic Program. Their website\footnote{\url{https://hsc-release.mtk.nao.ac.jp/doc/index.php/photometric-redshifts/}} provides comparative analysis plots for each of them.
-\item \citet{2020arXiv200103621S} statistically compare the posterior probability distribution functions produced by 12 photo-$z$ estimators for a mock data set that is representative of the LSST, identifying some biases and shortfalls in both the produced PDFs and the evaluation methods used to analyze them.
+\item \citet{2020MNRAS.499.1587S} statistically compare the posterior probability distribution functions produced by 12 photo-$z$ estimators for a mock data set that is representative of the LSST, identifying some biases and shortfalls in both the produced PDFs and the evaluation methods used to analyze them.
 \end{itemize}
 
 \section{Appendix: Data Products Related to LSST Photo-$z$}\label{sec:dp}
@@ -484,7 +484,7 @@ Appropriate types of documentation might include published journal articles, Git
 
 The stored values related to photo-$z$ are subject to the storage space allotted in the {\tt Objects} table as described in \S~\ref{sec:dp}.
 Both the posteriors and point estimates from several different photo-$z$ estimators could be compressed and stored in this allotted space.
-Given the variety of use-cases and the fact that different photo-z estimators produce different results \citep{2020arXiv200103621S}, the option to compute, compress, and store estimates from multiple estimators in the $2\times95$ float might be scientifically desirable.
+Given the variety of use-cases and the fact that different photo-z estimators produce different results \citep{2020MNRAS.499.1587S}, the option to compute, compress, and store estimates from multiple estimators in the $2\times95$ float might be scientifically desirable.
 
 Efficient $P(z)$ compression algorithms are in development, such as \citet{2014MNRAS.441.3550C} and \citet{2018AJ....156...35M}.
 \citet{2014MNRAS.441.3550C} present an algorithm for sparse representation, for which {\it "an entire PDF can be stored by using a 4-byte integer per basis function''} and {\it "only ten to twenty points per galaxy are sufficient to reconstruct both the individual PDFs and the ensemble redshift distribution, $N(z)$, to an accuracy of 99.9\% when compared to the one built using the original PDFs computed with a resolution of $\delta z = 0.01$, reducing the required storage of two hundred original values by a factor of ten to twenty.''} 

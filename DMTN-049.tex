@@ -123,14 +123,23 @@ Facilitating multiple teams sharing their photo-$z$ catalogs might involve hosti
 
 \subsection{International Partnerships (In-Kind Contributions)}\label{ssec:time_inkind}
 
-All in-kind program contributions related to photo-$z$ will be subject to the processes outlined in this roadmap and will be included and integrated into the communal efforts to optimize the LSST photo-$z$.
-These contributions might include, e.g., individuals' expertise; scientific analyses; software algorithms, tools, or infrastructure; computational resources; datasets or observing time.
-These contributions might be directed to the Project (e.g., DM, commissioning team), and/or to the science community (e.g., a Science Collaboration, all data rights holders). 
+As the process for International Partnerships with Rubin Observatory via in-kind contributions evolved, photometric redshifts emerged as an area in which (1) multiple teams propose to provide different types of contributions and (2) optimizing the LSST scientific returns on these contributions requires the coordination across the Rubin community: the in-kind teams, Rubin staff, the Science Collaborations, and the broad community of data rights holders
 
-In-kind teams should expect to work closely with the project (e.g., DM) and other Rubin community members on each step of this roadmap, including the solicitation of input from the science community, the process of implementation and validation, and maintaining and evolving their contributions during Rubin Operations (as applicable).
-In-kind contributors should also review the summary of related data products and documentation that might pertain to their contribution (Appendix \ref{sec:dp}), and the example scientific use-cases that the photo-$z$ estimates are expected to support (Appendix \ref{sec:use}).
+This stages of this roadmap were developed with the in-kind contributions in mind, to create a timeline and communication methods that will assist with the inclusion and integration of the in-kind program contributions related to photo-$z$.
+At the time of Version 4 of this document, the proposed contributions included, e.g., individuals' expertise; scientific analyses; software algorithms, tools, or infrastructure; computational resources; datasets or observing time.
+The proposals specify the recipients for these contributions as either the Rubin Observatory project (e.g., DM, commissioning) or the science community (e.g., a Science Collaboration, all data rights holders).
 
-For in-kind programs making photo-$z$ related contributions to the project, a Photo-$z$ In-Kind Program Coordination (IPC) group exists to facilitate communications (point of contact: Melissa Graham). See this post in the Community Forum for more information: \url{https://community.lsst.org/t/about-the-photo-z-in-kind-coordination-group}.
+For in-kind programs making photo-$z$ related contributions to the project, a Photo-$z$ In-Kind Program Coordination (IPC) group exists to facilitate communications (point of contact: Melissa Graham).
+See this post in the Community Forum for more information: \url{https://community.lsst.org/t/about-the-photo-z-in-kind-coordination-group}.
+
+However, this IPC group is not entirely a separate process to this roadmap.
+Participation level would vary between in-kind teams depending on their type of contribution.
+For example, in-kind teams proposing to contribute photo-$z$ related directable effort or software packages to Rubin Observatory might be helping DM to evaluate the "Letters of Recommendation", or to set up infrastructure to run the "Photo-z Validation Cooperative".
+In-kind teams proposing to contribute data or software to the Science Collaborations might be more focused on preparing "Letters of Recommendation", writing photo-$z$ algorithms, and then participating in the "Photo-z Validation Cooperative".
+
+Throughout 2021, participation in the "LSST Photo-z Virtual Forums" from all groups related to photo-$z$ will help to clarify the various activities.
+As this is a living document, this section can be updated as the role of the in-kind contributors clarifies after the review process concludes.
+
 
 \section{Technical Considerations from the DM System}\label{sec:dmcon}
 
@@ -163,6 +172,11 @@ Any input measured quantities or outputs that are needed by proposed photo-$z$ e
 Additional storage may be required for auxiliary input data such as spectral templates, calibration data or training sets (See Appendix \ref{ssec:dp_calib}). 
 Storage for outputs defined in the the DPDD \cite{LSE-163} has already been budgeted for by DM and is presented in Appendix~\ref{ssec:dp_objvals}. 
 "Letters of Recommendation" for photo-$z$ estimators should list all necessary auxiliary data together with an estimate of the storage required.
+
+\textbf{External Data Sets:}
+The assembly of vetted training sets (e.g., compilations of spectroscopic and many-band photometric redshifts) is a separate but related aspect with its own technical considerations.
+Any such external data sets that would be required for a photo-$z$ estimator to run on the LSST data must exist by the time of commissioning so that the algorithms can be trained, run, and validated.
+These external data sets should also be in the public domain and formatted to be ingested by the estimator.
 
 \textbf{Estimator Training and Iterative Development:}
 Photo-$z$ estimators often require training in order to accurately relate the detailed properties and tendencies of the input photometric measurements to external data.
@@ -199,7 +213,7 @@ For estimators not written in either C++ or Python, "Letters of Recommendation" 
 
 The effort required not only to integrate and run a photo-$z$ estimator as part of the Rubin Science Pipelines, but also to support it over the long term in the operations era will need to be understood. 
 Plans for long term maintenance of a photo-$z$ estimator should be addressed in the "Letters of Recommendation". 
-For further details on Data Management's development practices, consult the DM Developer Guide. \cite{DevGuide} 
+For further details on Data Management's development practices, consult the DM Developer Guide \cite{DevGuide}.
 
 
 \section{Proposed Evaluation Criteria} \label{sec:eval}
@@ -318,7 +332,7 @@ Data Preview 1 (DP1) will be based on data taken during this phase and processed
 This data might be useful as preliminary test data during the implementation of the photo-$z$ estimators, and help to test the formats of the input and output data, create visualizations for the validation codes, etc.
 
 {\bf Full System Integration \& Test with LSSTCam:}
-The second phase of commissioning comprises 3 months of of technical integration and test (I\&T) with  the LSST Camera (LSSTCam) \textemdash \,the science instrument for Rubin Observatory. 
+The second phase of commissioning comprises 3 months of technical integration and test (I\&T) with  the LSST Camera (LSSTCam) \textemdash \,the science instrument for Rubin Observatory. 
 The originally planned Key Performance Metrics (KPMs), 20-year Depth Test during this phase have since been descoped. 
 This phase is expected to deliver modest amounts of science-quality imaging (e.g., few hours to few nights), with which tests of image quality, single-visit depth, astrometry, and photometry might be possible, depending on the quality of the data. 
 
@@ -380,7 +394,7 @@ $R(z_{\rm phot}) = \int P(z)\,L(z_{\rm phot},z)\,dz$, as described in \citet{201
 \item the conditional density estimation (CDE) loss as described in Section 4.2 of \citet{2020MNRAS.499.1587S}. (Note that the CDE does not strictly require the true posterior be known.)
 \end{itemize}
 
-{\bf Sanity Checks--} 
+{\bf Basic Checks--} 
 These are tests that can be done using all LSST {\tt Objects} and do not require a truth catalog.
 \vspace{-15pt}
 \begin{itemize}
@@ -435,8 +449,9 @@ Additionally, measured quantities such as the galaxy size, shape, radial profile
 
 \subsection{Training and Calibration Data}\label{ssec:dp_calib}
 
-{\bf Spectroscopic Redshifts --}
+{\bf Spectroscopic (or Many-Band) Redshifts --}
 Deep multi-band LSST photometry for spectroscopic fields like COSMOS, and/or WFD-depth LSST photometry that overlaps multiplexed spectroscopic surveys like DESI/4MOST, which is obtained either during commissioning or early in Operations year 1, will likely be necessary to produce photo-$z$ for DR1.
+Alternatively, redshifts based on many-band photometry can be used.
 
 {\bf Wide Area Imaging --} 
 Some photo-$z$ methods have requirements other than spec-$z$ fields: e.g., \citet{2019MNRAS.483.2801S} use clustering information to obtain photo-$z$ and this requires wider, shallower field coverage and not a single deep pointing like a spec-$z$ field would have. 

@@ -229,85 +229,126 @@ Plans for long term maintenance of a photo-$z$ estimator should be addressed in 
 For further details on Data Management's development practices, consult the DM Developer Guide \cite{DevGuide}.
 
 
-\section{Proposed Evaluation Criteria} \label{sec:eval}
+\section{Evaluation Criteria} \label{sec:eval}
 
-The following is a \textbf{\textit{preliminary draft}} set of \textbf{\textit{proposed}} evaluation criteria for the estimators to be used to generate  {\tt Object} catalog photo-$z$.
-\textbf{Community input on these evaluation criteria is solicited}, as is input on the supporting material that motivates these attributes (Appendices \ref{sec:imp}, \ref{sec:dp} and \ref{sec:use}).
-The following will be updated to reflect community input.
-
-These evaluation criteria will guide the contents of the community's "Letters of Recommendation" (\S~\ref{sec:lor}).
+The following set of proposed evaluation criteria will be used first as a guide for the Letters of Recommendation (\S~\ref{sec:lor}), and then to select which photo-$z$ estimator(s) will be used by DM to generate the {\tt Object} catalog photo-$z$.
+These criteria were assembled by the authors and include input from the science community who attended the Photo-$z$ Virtual Forums in early 2021.
+These criteria will continue to evolve -- and to become more detailed -- during the later stages of this Roadmap, which will further clarify what the community needs and what existing photo-$z$ estimators can deliver.
+Some supporting material that provides background motivation for these criteria can be found in (Appendices \ref{sec:imp}, \ref{sec:dp} and \ref{sec:use}.
 These criteria would also apply to any user-generated catalogs to be federated with the {\tt Object} table (Appendix \ref{ssec:time_ops_ugfed}).
 
-{\bf Draft: Scientific Utility --}
-The DMS-generated {\tt Object} photo-$z$ should meet the basic science needs for communities which will not or cannot generate custom photo-$z$, and serve as wide a variety of science needs as possible (Appendix \ref{sec:use}).
-In particular, the adopted estimator(s) should enable early science (Appendix \ref{ssec:use_LOY1}).
-A {\it basic} science need would not include, for example, photo-$z$ of the quality required for major cosmological advances.
-The development of such photo-$z$ algorithms is an active research topic within the Dark Energy Science Collaboration \citep{2018arXiv180901669T}, and is a significant effort which the Rubin Observatory staff should not attempt to replicate. 
+\subsection{Scientific Utility}
+\begin{itemize}
+\item \textbf{Meeting Basic Science Needs -- } 
+The {\tt Object} photo-$z$ should meet the basic science needs of the community.
+A {\it basic} science need would not include, for example, photo-$z$ of the quality required for major cosmological advances. 
+The development of such advanced photo-$z$ algorithms is an active research topic within the Dark Energy Science Collaboration \citep{2018arXiv180901669T}, and is a significant effort which the Rubin Observatory staff should not attempt to replicate. 
+\item \textbf{Serving Diverse Science Needs -- }
+The {\tt Object} photo-$z$ should serve as wide a variety of scientists as possible, especially those who would or could not generate custom photo-$z$ (Appendix \ref{sec:use}). 
+Photo-$z$ estimators that can return reliable results not just for galaxies but also for, e.g., AGN and quasars, and/or can also classify stellar types, should be prioritized.
+\item \textbf{Demonstrated Success -- }
+Photo-$z$ estimators which have broad community adoption and demonstrated success with other wide-field optical surveys should be prioritized, especially if the past surveys overlap with LSST (to enable comparisons).
+Photo-$z$ estimators should already have publicly accessible documentation (e.g., journal article, website, schema) that are already in frequent use by the science community.
+The estimators' data products should be straightforward to understand and easy to access (Appendix \ref{ssec:dp_pz}).
+\end{itemize}
 
-{\bf Draft: Type of Estimator --} 
-The {\tt Object} catalog photo-$z$ estimates should be based on a template-fitting algorithm {\it and then also} a machine-learning algorithm, if multiple results can be stored (see Appendix \ref{ssec:dp_store}).
-The main motivation for this is galaxies-related science (Appendix \ref{sssec:use_sci_gal}) and internal (Appendix \ref{ssec:use_dm}) use-cases, which would use the best-fit template to derive additional galaxy properties.
+\subsection{Output Data Products} 
+\begin{itemize}
+\item \textbf{Photo-$z$ Estimates -- } 
+The {\tt Object} photo-$z$ data products should include full posterior distribution functions and derived point estimates with statistics (e.g., mode, mean, standard deviation, skewness, kurtosis; Appendix \ref{ssec:dp_pz}).
+\item \textbf{Photo-$z$ Uncertainties -- }
+The {\tt Object} catalog photo-$z$ should provide users with accurate uncertainties for photo-$z$ point estimates.
+Estimators which can separate sources of error, e.g., calibration of the input data vs. systematics from templates or spec-z training sets, provide more information to scientists and this should be considered as a priority.
+\item \textbf{Flag Parameters -- }
+Estimators should provide flags parameters, often type boolean or integer, that provide an indication of, e.g., algorithm failure modes, result reliability, input abnormality.
+Flags (and uncertainties, above) are especially useful to help the novice user avoid misinterpreting the results or overestimating their significance.
+\item \textbf{Galaxy Properties -- }
+Estimators which can provide galaxy properties other than photo-$z$, such as stellar mass or star formation rate, would provide more information to scientists and should be considered a priority.
+For template-fit photo-$z$ results, an identifier for the best-fit template should be included in the outputs, and those templates should be publicly accessible.
+\end{itemize}
 
-{\bf Draft: Output Data Products --} 
-The {\tt Object} catalog photo-$z$ should include the posterior distribution function and a point estimate with an uncertainty, as well as reliable uncertainties and/or flags to help the novice user avoid misinterpreting the results or overestimating their significance.
-For template-fit photo-$z$ results, an identifier for the best-fit template should be provided, and those templates be made publicly accessible.
-A list of the photo-$z$ outputs (and associated documentation) is put forth in Appendix \ref{ssec:dp_pz}.
+\subsection{Scientific Performance}
 
-{\bf Draft: Scientific Performance --} 
+The {\tt Object} photo-$z$ should meet a minimum quality in order to serve the basic science needs of the community.
+As described below it is already likely that many existing photo-$z$ estimators can easily meet a fiducial minimum quality.
+Of course, from this fiducial minimum there is room for optimization.
+During the Photo-$z$ Validation Cooperative, metrics to quantitatively evaluate the shortlisted estimators will be developed and used to inform the decision of which estimator to select to provide the {\tt Object} catalog photo-$z$.
+
+\textbf{Proposed minimum performance targets --} 
 Based on the science use-cases in Appendix \ref{sec:use}, the {\tt Object} catalog photo-$z$ could have a point-estimate accuracy of $\sim10\%$ and still meet the basic science needs.
 The photo-$z$ results should result in a standard deviation of $z_{\rm true}-z_{\rm phot}$ of $\sigma_z < 0.05(1+z_{\rm phot})$, and a catastrophic outlier fraction of $f_{\rm outlier} < 10\%$, over a redshift range of $0.0 < z_{\rm phot} < 2.0$ for galaxies with $i<25$ mag galaxies.
 Note that this preliminary proposed performance has been shown to be achievable for simulated LSST data with existing photo-$z$ estimators \citep[e.g.,][]{2018AJ....155....1G,2020MNRAS.499.1587S}.
 
-{\bf Draft: User Experience --}
-It is beneficial if estimators have broad community adoption and have demonstrated success with other wide-field optical surveys, especially for surveys that overlap with LSST (for results comparisons).
-The estimators' data products should be straightforward to understand and easy to access (as described further in Appendix \ref{ssec:dp_pz}).
-Estimators must have publicly accessible documentation (e.g., journal article, website, schema) to facilitate community use that can be incorporated into the LSST official Data Release documentation. 
+\subsection{Technical Considerations}
 
-{\bf Draft: Technical Aspects --}
-The computational processing and storage needs of the estimator must fit within the available resources of the data facility, and it must be able to run within the DR pipelines, meeting all technical directives defined in \S~\ref{sec:dmcon}. 
-The estimator should also serve any and all of DM's internal use-cases (\S~\ref{sec:use}).
-New algorithmic development is beyond the scope of DM, and the estimators should not need any expansion or maturation prior to integration with the Rubin LSST Science Pipelines.
-Estimators should take as inputs those quantities that the LSST pipelines are planning to produce (Appendix \ref{ssec:dp_objvals}).
-The implementation process should be straightforward (Appendix \ref{sec:imp}).
-The necessary data -- from LSST or elsewhere -- for training, calibration, and validation must exist during the Rubin Observatory commissioning phase and be available for the "Photo-$z$ Validation Cooperative" (Appendix \ref{ssec:dp_calib}).
+Photo-$z$ estimators should meet the technical considerations described in Section \ref{sec:dmcon}.
+
+
 
 \section{Letters of Recommendation} \label{sec:lor}
 
-\textbf{This preliminary draft call for "Letters of Recommendation" will be updated based on community input.} Letters will be due 2021-09-30.
+This call for Letters of Recommendation (LOR) for the LSST Object PZ Data Products will be advertised broadly starting May 1 2021.
+Letters should be sent to mlg3k@uw.edu by Sep 30 2021, with a subject line beginning ?LSST Object PZ LOR?.
 
-\textbf{Draft:} \\
-It is recognized that the Rubin community has a considerable depth of expertise regarding photometric redshifts and the potential scientific impacts of the choice of estimator(s).
-The "Letters of Recommendation" are a formal chance for the science community to state their scientific needs regarding {\tt Object} catalog photo-$z$.
+\textbf{Introduction:} 
+The Rubin Observatory Data Management (DM) team is tasked with constructing LSST Science Pipelines that produce science-ready data products, and this includes photometric redshift (PZ) estimates for the LSST data release (DR) Object catalog (e.g., ls.st/dpdd).
+As described in the LSST PZ Roadmap (ls.st/dmtn-049), DM will select one or more existing, community-vetted algorithms to generate Object PZ which, at least initially, meet a set of minimum scientific attributes and serve the widest variety of science applications.
 
-The goal is for DM to create a shortlist of several community-vetted photo-$z$ estimator(s) that will serve as broad a range of LSST science goals as possible, and also meet the technical considerations (\S~\ref{sec:dmcon}) and the evaluation criteria (\S~\ref{sec:eval}).
-This shortlist would then serve to coalesce the joint efforts of DM and the community during the  "Photo-$z$ Validation Cooperative", which will be based on commissioning data (\S~\ref{sec:pzcoop}). 
+\textbf{LOR Purpose:}
+The Rubin science community has a considerable wealth of expertise in generating PZ catalogs and will be the primary users of the Object PZ data products.
+These letters provide a formal opportunity for the science community to define their minimum scientific needs regarding the LSST Object PZ data product. 
 
-Based on the above goals, these "Letters of Recommendation":
+\textbf{LOR Writers:}
+Any group or individual who would use the LSST Object PZ for their future scientific analyses, and/or are developers of potentially suitable PZ estimators, are encouraged to submit an letter.
+The DM team is especially interested in hearing the needs of scientists who plan to use the LSST Object catalog but who would/could not generate custom PZ estimates.
+
+\textbf{LOR Scope:}
+Letters should recommend minimum attributes of the LSST PZ data product that would enable basic LSST science, or describe the science that the LSST PZ data product should enable, and/or qualitatively recommend a certain PZ estimator (or type of estimator).
+Quantitative analyses are beyond the scope of these letters, as are discussions on the research and development of new or improved algorithms.
+
+\textbf{Beyond the LORs:}
+The Rubin DM team will use these letters to inform the evaluation criteria used to select PZ estimators, and to assemble a shortlist of viable PZ estimators to be evaluated quantitatively using Rubin Commissioning data during the ?PZ Validation Cooperative? phase of the PZ Roadmap.
+Writing an letter is not required (and will not be construed as a commitment) to participate in the PZ Validation Cooperative. 
+
+\textbf{Guidelines for PZ LORs:}
 \begin{itemize}
-\item should address the technical considerations in \S~\ref{sec:dmcon}
-\item should address the evaluation criteria in  \S~\ref{sec:eval}
-\item should be short (i.e., 1-3 pages, ideally), and should not constitute an onerous task
-\item could focus on many, a few, or just one estimator(s) or science goal(s)
-\item could be primarily {\it qualitative} in their evaluation of the photo-$z$ estimators
-\item could include or reference {\it quantitative} analyses of simulated LSST data, or data from other facilities
-\item will be openly shared in the Rubin community
+\item Keep scope in mind: to identify the minimum scientific attributes, a wide set of science applications, and established PZ estimators for the LSST Object PZ data products.
+\item Follow the template. It?s okay to skip some sections, but do not add new ones.
+\item Make it short (1-3 pages ideally) -- a lot of detail is not needed at this time.
+\item Be qualitative -- quantitative analyses will be the focus of the PZ Validation Cooperative.
 \end{itemize}
 
-It is understood that "Letters of Recommendation" from members of the science community who are future users of the {\tt Object} catalog photo-$z$, but who are not developers of photo-$z$ estimators, would focus on recommending third-party software based on their science needs, and might not be able to fully address the technical considerations.
+\subsection{LOR Template}
 
-However, "Letters of Recommendation" from teams who also plan to support the validation and implementation of one or more estimators during the commissioning-era Photo-$z$ Validation Cooperative (and beyond, to operations) should also address the following technical considerations as best they can (summarized from Section \ref{sec:dmcon}):
+\textbf{Title:} E.g., ?LOR on behalf of X science?, or ?LOR for the X PZ Estimator?. \\
+\textbf{Contributors:} Names and affiliations of the letter writers. \\
+\textbf{Co-signers:} If applicable, the names and affiliations of co-signers.
 
-\begin{itemize}
-\item scalability to $\sim$ 37 billion {\tt Objects}
-\item input measured quantities not currently in the DR {\tt Object} schema
-\item estimator outputs not currently in the DR {\tt Object} schema
-\item list of auxiliary data (and estimate of storage requirements)
-\item community support for training, validation, and maintenance
-\item implementation language and adaptation to a Python harness if needed
-\end{itemize}
-
-
-
+\begin{enumerate}
+\item Summary Statement -- 
+\textit{Provide a short statement that introduces the writers and the letter?s main recommendation(s).
+Include the citations for any software discussed.
+}
+\item Scientific Utility -- 
+Rubin DM seeks to understand LSST PZ-related science cases in order to ensure that the LSST Object PZ data products will be scientifically useful for a wide variety of communities, especially those which would/could not generate custom PZ. 
+\textit{Describe how you would use the PZ data products for your LSST science, or the LSST science enabled by the PZ estimator(s) you are recommending.
+Examples from past experiences would be useful here.
+}
+\item Outputs -- 
+Rubin DM seeks to ensure that the selected LSST Object PZ estimator generates science-ready outputs that serve a wide variety of the community?s minimum scientific needs. 
+\textit{If possible, describe the minimum set of PZ outputs that are required for your science, or the outputs generated by the PZ estimator(s) you are recommending.
+E.g., full posteriors, point estimates, statistics (mode, mean, standard deviation, skewness, kurtosis), best-fit templates, and/or flags (e.g., quality, failure modes).
+}
+\item Performance -- 
+Rubin DM seeks a general understanding of the minimum quality of PZ estimates needed to meet the basic PZ-related science goals of the community.
+\textit{If possible, describe the minimum PZ quality that would enable your LSST science (e.g., the minimum point-estimate error at intermediate redshifts, or whatever is relevant to your science goals), or the predicted minimum quality of the PZ estimator(s) you are recommending.
+It is understood that this information might not be available at this time.
+}
+\item Technical Aspects -- 
+Rubin DM has a set of technical considerations for PZ estimators, regarding their scalability, inputs, outputs, language, external data sets, training, storage, and compute resources.
+\textit{If possible -- and this is probably only possible for letters being prepared by PZ algorithm developers -- please briefly address the technical considerations described in Section 3 of the PZ Roadmap (ls.st/dmtn-049).
+Details are not necessary, but an evaluation of the technical considerations at the level of ?will meet?, ?will probably meet?, ?probably will not meet?, ?will not meet? would be most helpful at this time.
+}
 
 \subsection{Shortlisted Photo-$z$ Estimator(s)} \label{ssec:lor_choice}
 

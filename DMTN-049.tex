@@ -44,6 +44,7 @@ This roadmap includes possible in-kind contributions from international partners
 \addtohist{3.2}{2020-12-23}{Added Section 3: Technical Considerations; revised Appendix C4: Early Science and Section 6: Commissioning; and other minor revisions.}{Leanne Guy}
 \addtohist{3.3}{2021-01-01}{Updates to Section 3: Technical Considerations.}{Jim Bosch, Leanne Guy}
 \addtohist{4.}{2021-01-20}{Released, merged to master branch.}{Melissa Graham, Jim Bosch, Leanne Guy}
+\addtohist{4.1}{2021-05-01}{Updated Evaluation Criteria and the call for Letters of Recommendation to incorporate community input (tickets/DM-29784). Merged to master branch.}{Melissa Graham}
 }
 
 \begin{document}
@@ -234,43 +235,45 @@ For further details on Data Management's development practices, consult the DM D
 The following set of proposed evaluation criteria will be used first as a guide for the Letters of Recommendation (\S~\ref{sec:lor}), and then to select which photo-$z$ estimator(s) will be used by DM to generate the {\tt Object} catalog photo-$z$.
 These criteria were assembled by the authors and include input from the science community who attended the Photo-$z$ Virtual Forums in early 2021.
 These criteria will continue to evolve -- and to become more detailed -- during the later stages of this Roadmap, which will further clarify what the community needs and what existing photo-$z$ estimators can deliver.
-Some supporting material that provides background motivation for these criteria can be found in (Appendices \ref{sec:imp}, \ref{sec:dp} and \ref{sec:use}.
+Some supporting material that provides background motivation for these criteria can be found in Appendices \ref{sec:imp}, \ref{sec:dp} and \ref{sec:use}.
 These criteria would also apply to any user-generated catalogs to be federated with the {\tt Object} table (Appendix \ref{ssec:time_ops_ugfed}).
 
 \subsection{Scientific Utility}
 \begin{itemize}
 \item \textbf{Meeting Basic Science Needs -- } 
-The {\tt Object} photo-$z$ should meet the basic science needs of the community.
+The selected photo-$z$ estimator(s) should, at minimum, meet the basic science needs of the community.
 A {\it basic} science need would not include, for example, photo-$z$ of the quality required for major cosmological advances. 
 The development of such advanced photo-$z$ algorithms is an active research topic within the Dark Energy Science Collaboration \citep{2018arXiv180901669T}, and is a significant effort which the Rubin Observatory staff should not attempt to replicate. 
 \item \textbf{Serving Diverse Science Needs -- }
-The {\tt Object} photo-$z$ should serve as wide a variety of scientists as possible, especially those who would or could not generate custom photo-$z$ (Appendix \ref{sec:use}). 
-Photo-$z$ estimators that can return reliable results not just for galaxies but also for, e.g., AGN and quasars, and/or can also classify stellar types, should be prioritized.
+The selected photo-$z$ estimator(s) should serve as wide a variety of scientists as possible, especially those who would or could not generate custom photo-$z$ for themselves (Appendix \ref{sec:use}). 
+Photo-$z$ estimators that can return reliable results not just for galaxies but also for, e.g., AGN and quasars, and/or that can also classify stellar types, should be prioritized.
 \item \textbf{Demonstrated Success -- }
-Photo-$z$ estimators which have broad community adoption and demonstrated success with other wide-field optical surveys should be prioritized, especially if the past surveys overlap with LSST (to enable comparisons).
-Photo-$z$ estimators should already have publicly accessible documentation (e.g., journal article, website, schema) that are already in frequent use by the science community.
-The estimators' data products should be straightforward to understand and easy to access (Appendix \ref{ssec:dp_pz}).
+The selected photo-$z$ estimator(s) should have broad community adoption and demonstrated success with other wide-field optical surveys.
+It is especially beneficial if those past surveys overlap with the LSST Main Survey, to enable comparisons.
+The selected photo-$z$ estimator(s) should have publicly accessible documentation (e.g., journal article, website, schema) that has been used by the science community.
+Its output data products should be straightforward to understand and easy to access (Appendix \ref{ssec:dp_pz}).
 \end{itemize}
 
 \subsection{Output Data Products} 
 \begin{itemize}
 \item \textbf{Photo-$z$ Estimates -- } 
-The {\tt Object} photo-$z$ data products should include full posterior distribution functions and derived point estimates with statistics (e.g., mode, mean, standard deviation, skewness, kurtosis; Appendix \ref{ssec:dp_pz}).
+The selected photo-$z$ estimator(s) should produce data products that include full posterior distribution functions, and for which derived point estimates with statistics (e.g., mode, mean, standard deviation, skewness, kurtosis; Appendix \ref{ssec:dp_pz}) can be derived.
 \item \textbf{Photo-$z$ Uncertainties -- }
-The {\tt Object} catalog photo-$z$ should provide users with accurate uncertainties for photo-$z$ point estimates.
-Estimators which can separate sources of error, e.g., calibration of the input data vs. systematics from templates or spec-z training sets, provide more information to scientists and this should be considered as a priority.
+The selected photo-$z$ estimator(s) should provide data products with accurate uncertainties.
+Photo-$z$ estimators that can separate sources of error, e.g., calibration of the input data vs. systematics from templates or spec-z training sets, provide more information to scientists and should be prioritized.
 \item \textbf{Flag Parameters -- }
-Estimators should provide flags parameters, often type boolean or integer, that provide an indication of, e.g., algorithm failure modes, result reliability, input abnormality.
+The selected photo-$z$ estimator(s) should provide flags parameters.
+Flags are often type boolean or integer, and they provide an indication of, e.g., algorithm failure modes, result reliability, input abnormality.
 Flags (and uncertainties, above) are especially useful to help the novice user avoid misinterpreting the results or overestimating their significance.
 \item \textbf{Galaxy Properties -- }
-Estimators which can provide galaxy properties other than photo-$z$, such as stellar mass or star formation rate, would provide more information to scientists and should be considered a priority.
+Photo-$z$ estimators that can provide galaxy properties other than photo-$z$, such as stellar mass or star formation rate, would provide more information to scientists and should be prioritized.
 For template-fit photo-$z$ results, an identifier for the best-fit template should be included in the outputs, and those templates should be publicly accessible.
 \end{itemize}
 
 \subsection{Scientific Performance}
 
-The {\tt Object} photo-$z$ should meet a minimum quality in order to serve the basic science needs of the community.
-As described below it is already likely that many existing photo-$z$ estimators can easily meet a fiducial minimum quality.
+The selected photo-$z$ estimators should, at least initially, meet a minimum quality in order to serve the basic science needs of the community.
+As described below, it is likely that many existing photo-$z$ estimators can easily meet a fiducial minimum quality.
 Of course, from this fiducial minimum there is room for optimization.
 During the Photo-$z$ Validation Cooperative, metrics to quantitatively evaluate the shortlisted estimators will be developed and used to inform the decision of which estimator to select to provide the {\tt Object} catalog photo-$z$.
 
@@ -281,7 +284,7 @@ Note that this preliminary proposed performance has been shown to be achievable 
 
 \subsection{Technical Considerations}
 
-Photo-$z$ estimators should meet the technical considerations described in Section \ref{sec:dmcon}.
+The selected photo-$z$ estimator(s) should meet the technical considerations described in Section \ref{sec:dmcon}.
 
 
 

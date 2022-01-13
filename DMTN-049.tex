@@ -29,11 +29,6 @@ Therefore, the evaluation, implementation, and validation of the DR {\tt Objects
 In 2021, community input regarding the evaluation criteria for photo-$z$ estimators, and which kind of photo-$z$ estimator(s) should be selected, was gathered via DM's series of "LSST Photo-z Virtual Forums" and photo-$z$ "Letters of Recommendation" (LOR).
 This input has been incorporated into \S~\ref{sec:eval} and \ref{sec:lor}.
 
-%\textbf{The primary milestone in this roadmap is DM's call for "Letters of Recommendation" from the science community regarding photo-$z$ estimators (deadline 2021-09-30).}
-%From these letters, DM will generate a shortlist of community-vetted photo-$z$ options that meet both the science community's needs for DR {\tt Object} photo-$z$ and the technical directives of the DM System.
-
-%In support of this milestone, starting in early 2021, DM will host a series of "LSST Photo-z Virtual Forums", discussions open to all interested people, which will focus on defining the evaluation criteria for photo-$z$ estimators (\S~\ref{sec:eval}) and facilitating the development of "Letters of Recommendation" (\S~\ref{sec:lor}).
-
 \medskip
 Further on in this roadmap DM will facilitate science community participation in a "Photo-$z$ Validation Cooperative" based on commissioning data for the shortlisted estimators (\S~\ref{sec:pzcoop}; dates TBD). 
 
@@ -189,15 +184,9 @@ Exact schema definitions for the output user-facing data products are stored in 
 This repository represents the source of truth for the schema definitions for user-facing data products.
 A detailed description of schema management in DM is presented in \cite{dmtn-153}. 
 
-%Community input on the currently defined defined inputs and outputs is solicited and this topic will be open for discussion during the LSST Photo-$z$ Virtual Forum series. 
-
-%Any input measured quantities or outputs that are needed by proposed photo-$z$ estimators and that are not part of the current DR {\tt Object} catalog baseline should be presented for discussion during the LSST Photo-$z$ Virtual Forum series and detailed in the "Letters of Recommendation" for photo-$z$ estimators. 
-
 \textbf{Storage Constraints:}
 Additional storage may be required for auxiliary input data such as spectral templates, calibration data or training sets (See Appendix \ref{ssec:dp_calib}). 
 Storage for outputs defined in the the DPDD \cite{LSE-163} has already been budgeted for by DM and is presented in Appendix~\ref{ssec:dp_objvals}. 
-
-%"Letters of Recommendation" for photo-$z$ estimators should list all necessary auxiliary data together with an estimate of the storage required.
 
 \textbf{External Data Sets:}
 The assembly of vetted training sets (e.g., compilations of spectroscopic and many-band photometric redshifts) is a separate but related aspect with its own technical considerations.
@@ -237,10 +226,6 @@ Most photo-$z$ estimators are expected to fall into the latter category.
 Estimators written in either C++ or Python should be easy to adapt to run in the LSST science pipelines. 
 The effort required not only to integrate and run a photo-$z$ estimator as part of the Rubin Science Pipelines, but also to support it over the long term in the operations era will need to be understood. 
 For further details on Data Management's development practices, consult the DM Developer Guide \cite{DevGuide}.
-
-%For estimators not written in either C++ or Python, "Letters of Recommendation" should include a description of how the code would be adapted to run from a Python harness.
-
-%Plans for long term maintenance of a photo-$z$ estimator should be addressed in the "Letters of Recommendation". 
 
 
 \section{Evaluation Criteria} \label{sec:eval}
@@ -311,12 +296,42 @@ Furthermore, the selected photo-$z$ estimator(s) should be able to meet these te
 
 The original call for photo-$z$ "Letters of Recommendation" (LOR) and the template provided with the call have been moved to Appendix~\ref{sec:orig_LOR}.
 
-\subsection{Summary of the Letters Submitted}\label{ssec:lor_sub}
+\subsection{Summary of the Letters Submitted (and DM's Shortlist)} \label{ssec:lor_choice}
 
+The Rubin Observatory Data Management (DM) team sincerely thank everyone who engaged with the PZ LOR process.
 
-\subsection{Shortlisted Photo-$z$ Estimator(s)} \label{ssec:lor_choice}
+In total, there were 20 submissions: 19 LOR and 1 "non-LOR" describing DESC?s photo-z activities. 
 
-\textit{TBD: This section will summarize the "Letters of Recommendation" and describe which community-vetted photo-$z$ estimator(s) have been shortlisted for the photo-$z$ validation cooperative, and why.}
+Of the 19 LOR, 12 advocated for particular algorithms, 6 presented scientific use cases, and 1 was a notification of future software development (deep probabilistic networks).
+
+Of the 6 LOR describing scientific use cases:
+\begin{itemize}
+\item1 focused on galaxies
+\item2 focused on dark energy
+\item3 focused on active galactic nuclei
+\end{itemize}
+
+The scientific recommendations made by these 6 LOR have been incorporated into \S~\ref{sec:eval}.
+
+Of the 12 LOR advocating for particular algorithms:
+\begin{itemize}
+\item 4 were machine-learning (ML) based codes (GPz; DEmP; PZFlow; DNF)
+\item 3 were template-fitting (TF) based codes (LePhare; Phosphoros, BPZ)
+\item 2 were hybrid ML+TF codes (Delight, ML-accelerated hierarchical SPS models)
+\item 3 were for codes which performed ?post-processing? to enhance PZ estimates (e.g., combine PZ estimates, recalibrate PDFs, refine outlier flags)
+\end{itemize}
+
+The LORs for five of the PZ estimators demonstrated that the software was established and would (or would likely) be capable of meeting the scientific, performance, and technical aspects as described in the call for LORs: GPz, DEmP, DNF, LePhare, and BPZ.
+The LORs for three of the PZ estimators which are still in development also demonstrated that the software would (or would likely) be capable of meeting these aspects: PZFlow, Delight, and Phosphoros. 
+
+\textbf{Thus, these eight PZ estimators comprise DM?s formal initial shortlist} for potential codes to generate PZ for the LSST Objects catalog: GPz, DEmP, DNF, LePhare, BPZ, PZFlow, Delight, and Phosphoros.
+
+The LOR for the in-development estimator based on ML-accelerated hierarchical SPS models was, due to the newness of the method, unclear about whether it would likely meet the technical aspects defined in \S~\ref{sec:dmcon}, but seems very promising.
+The three LOR for the post-processing codes established their potential positive impacts.
+
+Furthermore, the DM team is aware that additional PZ Estimators, such as those analyzed in \cite{2020MNRAS.499.1587S}, would likely be appropriate for the task of generating PZ for LSST Objects: e.g., ANNz2, EAZY, FlexZBoost, METAPhoR, SkyNet, and TPZ.
+
+\textbf{In summary, the DM team would like to see the science community apply all of these PZ estimators (and post-processing codes) to commissioning data from the Data Previews during the Photo-z Validation Cooperative (PVC) phase of the PZ Roadmap.}
 
 
 

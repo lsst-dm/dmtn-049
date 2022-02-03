@@ -13,7 +13,7 @@
 \setDocStatus{draft}
 
 \setDocAbstract{
-This roadmap guides the Rubin Observatory Data Management (DM) team's efforts to engage with the scientific community of data-rights holders in order to validate and implement one or more existing photometric redshift (photo-$z$) estimators into the Data Release (DR) processing pipeline, and serve the resulting photo-$z$ data products for the DR {\tt Object} catalogs.
+This roadmap guides the Rubin Observatory Data Management (DM) team's efforts to engage with the scientific community of data-rights holders in order to implement and validate one or more existing photometric redshift (photo-$z$) estimators into the Data Release (DR) processing pipeline, and serve the resulting photo-$z$ data products for the DR {\tt Object} catalogs.
 
 \medskip
 The DR {\tt Object} catalog photo-$z$ estimates will initially meet a set of {\it minimum scientific attributes} and serve the {\it widest variety of science applications}.
@@ -317,33 +317,34 @@ Of the 12 LOR advocating for particular algorithms:
 \item 4 were machine-learning (ML) based codes (GPz; DEmP; PZFlow; DNF)
 \item 3 were template-fitting (TF) based codes (LePhare; Phosphoros, BPZ)
 \item 2 were hybrid ML+TF codes (Delight, ML-accelerated hierarchical SPS models)
-\item 3 were for codes which performed ?post-processing? to enhance PZ estimates (e.g., combine PZ estimates, recalibrate PDFs, refine outlier flags)
+\item 3 were for codes which performed "post-processing" to enhance PZ estimates (e.g., combine PZ estimates, recalibrate PDFs, refine outlier flags)
 \end{itemize}
 
 The LORs for five of the PZ estimators demonstrated that the software was established and would (or would likely) be capable of meeting the scientific, performance, and technical aspects as described in the call for LORs: GPz, DEmP, DNF, LePhare, and BPZ.
 The LORs for three of the PZ estimators which are still in development also demonstrated that the software would (or would likely) be capable of meeting these aspects: PZFlow, Delight, and Phosphoros. 
 
 \textbf{Thus, these eight PZ estimators comprise DM's formal initial shortlist} for potential codes to generate PZ for the LSST Objects catalog: GPz, DEmP, DNF, LePhare, BPZ, PZFlow, Delight, and Phosphoros.
+Given that DM's ability to support the implementation and validation of PZ estimators during commissioning will be limited, the five more established estimators (GPz, DEmP, DNF, LePhare, BPZ) would be prioritized.
+Further prioritization would be left to the discretion and expertise of the individuals handling the implementation (\S~\ref{ssec:pzcoop_ct}).
 
 The LOR for the in-development estimator based on ML-accelerated hierarchical SPS models was, due to the newness of the method, unclear about whether it would likely meet the technical aspects defined in \S~\ref{sec:dmcon}, but seems very promising.
-The three LOR for the post-processing codes established their potential positive impacts.
+The three LORs for the post-processing codes established their potential positive impacts.
 Furthermore, the DM team is aware that additional PZ Estimators, such as those analyzed in \cite{2020MNRAS.499.1587S}, would likely be appropriate for the task of generating PZ for LSST Objects: e.g., ANNz2, EAZY, FlexZBoost, METAPhoR, SkyNet, and TPZ.
 
-\textbf{In summary, the DM team would like to see the science community apply all of these PZ estimators (and post-processing codes) to commissioning data from the Data Previews during the Photo-$z$ Validation Cooperative (PVC) phase of the PZ Roadmap.}
-
-
+%\textbf{In summary, the DM team would like to see the science community apply all of these PZ estimators (and post-processing codes) to commissioning data from the Data Previews during the Photo-$z$ Validation Cooperative (PVC) phase of the PZ Roadmap.}
 
 
 \section{Photo-$z$ Validation Cooperative}\label{sec:pzcoop}
 
 As the scientific community has a considerable wealth of expertise in generating photo-$z$ catalogs, and will be the primary users of the photo-$z$ data product, they are the best suited to scientifically validate the {\tt Object} catalog photo-$z$.
 
-Towards this end the DM team plans to facilitate the ``Photo-$z$ Validation Cooperative", during which DM will focus on providing technical support for the implementation of the photo-$z$ estimators that were shortlisted based on the community's ``Letters of Recommendation" (\S~\ref{sec:lor}; but the community may also consider other estimators).
+Towards this end the DM team plans to facilitate the ``Photo-$z$ Validation Cooperative", during which DM will focus on providing technical support for the implementation of the eight photo-$z$ estimators that were shortlisted based on the community's ``Letters of Recommendation" (\S~\ref{sec:lor}; but the community may also consider other estimators).
+As the DM team is very limited in terms of the support it can provide for implementation, several spots on the Rubin Commissioning Team are being made available to individuals with relevant expertise who commit to implementing the shortlisted PZ estimators, to using the unreleased commissioning data for early tests, and to helping guide the science community's validation efforts with the released commissioning data (\S~\ref{ssec:pzcoop_ct}).
 
 During the ``Photo-$z$ Validation Cooperative", the science community would focus on:
 \begin{itemize}
 \item assembling training sets and validation metrics,
-\item implementing photo-$z$ estimators with the LSST Science Pipelines,
+\item helping to implement photo-$z$ estimators with the LSST Science Pipelines,
 \item using the data previews to validate the estimators' performance, and
 \item documenting, evaluating, and sharing the results.
 \end{itemize}
@@ -357,16 +358,40 @@ Documentation regarding the technical aspects of the implementation and validati
 The ``Photo-$z$ Coordination Group" will be the communications hub for the ``Photo-$z$ Validation Cooperative". 
 
 
-\subsection{Seeking Photo-$z$ Expertise for the Rubin Commissioning Team}
+\subsection{Seeking Photo-$z$ Expertise for the Rubin Commissioning Team}\label{ssec:pzcoop_ct}
 
 It is expected that \textit{most} of the science community participating in the ``Photo-$z$ Validation Cooperative" will use the commissioning data that is released as part of Data Preview 1 and 2 (DP1 and DP2), and will not need to formally join the Rubin Commissioning Team and have access to the unreleased commissioning data.
 
-However, as described in \cite{sitcomtn-010}, Rubin Observatory seeks to identify a small group of $\sim$10 individuals who have expertise with photo-$z$ estimators to join the Rubin Commissioning team.
-These individuals would work closely with DM, taking the lead on guiding implementation and performing science validation for the shortlisted photo-$z$ estimators, which will help the science community make use of DP1 and DP2 when they are released.
+However, as mentioned above (and as described in \cite{sitcomtn-010}), the DM team is very limited in terms of the support it can provide for implementation.
+Rubin Observatory is thus seeking to identify a small group of $\sim$5-10 individuals who have expertise with photo-$z$ estimators to join the Rubin Commissioning Team.
+In exchange for access to the unreleased commissioning data and Commissioning Team membership, these individuals would commit to implementing the shortlisted PZ estimators and to leading the science community's validation efforts during DP1 and DP2.
+Example components of the implementation process which these individuals would be committing to are provided below (see also Appendix \ref{ssec:imp_imp}).
+
+\begin{itemize}
+\item adapting code language for the LSST environment
+\item adapting input/output formats for the LSST catalogs
+\item ensuring I/O meets storage constraints
+\item ensuring processing meets computational constraints
+\item assembling and storing external data sets
+\item testing estimator training with the unreleased commissioning data
+\item early science validation based on unreleased commissioning data
+\item optimizing PZ estimator code to ensure scalability
+\end{itemize}
+
+With the exception of items that require access to the unreleased commissioning data, many of the above overlap with activities that the broader science community will engage in as part of the ``Photo-$z$ Validation Cooperative".
+The difference is that the PZ-related Commissioning Team members would be committed to implementation, and to providing leadership for the community in these tasks.
+
+As mentioned in \S~\ref{ssec:lor_choice}, the five more established estimators (GPz, DEmP, DNF, LePhare, BPZ) should be prioritized for implementation, but any further prioritization or the order of implementation would be left to the discretion and expertise of DM and these individuals doing the implementation work.
+
+{\bf Eligibility --} All Commissioning Team members must have Rubin data rights, as described in \cite{RDO-013}.
+For individuals who are part of US/Chilean community, the Commissioning Announcement of Opportunity will be used to guide the process of identifying Commissioning Team members (e.g., Section 4 of \cite{sitcomtn-101}).
+Individuals who are associated with an approved international program should consult their program managers to confirm the proposed work fits into the allocated contributions.
+
+DM will reach out to the shortlisted photo-$z$ estimator teams to identify potential individuals who are interested in taking on this role with the Rubin Commissioning team, and anyone else who is interested should contact Melissa Graham.
+Interested parties will be asked to prepare a short statement to establish specifically what they would contribute as Commissioning Team members (as individuals or teams) and how much time they can commit.
+As with all Commissioning Team members, the minimum level of sustained effort should be about one day per week of sustained effort over a year (0.2 FTE) or at least one contiguous month of focused effort (0.1 FTE), or some reasonable interpolation between these ?sustained? and ?focused? thresholds.
 
 To enable these individuals to get started on implementation in advance of commissioning, if desired, DM has arranged for 5--10 accounts in the Rubin Science Platform (RSP) at the Interim Data Facility (IDF) during Data Preview 0 (DP0) to be reserved for them, as described in \cite{rtn-004}.
-
-DM will reach out to the shortlisted photo-$z$ estimator teams to identify potential individuals who are interested in taking on this role with the Rubin Commissioning team.
 
 
 \subsection{Potential Commissioning Data for Photo-$z$ Validation}\label{ssec:pzcoop_commissioning}
@@ -393,6 +418,8 @@ This phase will last for 2 months.
 Data Preview 2 (DP2) will be based on data taken during the second and third phases of commissioning and processed with the Rubin Science Pipelines. 
 DP2 is more likely to provide a preliminary data set for photo-$z$ validation and possibly some of the needed data for LSST photo-$z$ described in Appendix \ref{ssec:dp_calib}. 
 Covering well-studied fields with DP2 data (e.g., COSMOS) would facilitate photo-$z$ validation; note that the effort to collect community input on the commissioning fields is underway\footnote{\url{https://community.lsst.org/t/community-input-to-the-on-sky-observing-strategy-during-commissioning}}.
+As of early 2022, there had been several suggestions for fields that overlap reference datasets and would be suitable for the generation and validation of photo-$z$ estimates.
+The Commissioning Team is taking this input into consideration and will announce the observing strategy for DP2 as soon as they can.
 
 As a side note for LSST users who are interested in doing science with commissioning data, it should not be assumed that any release of data products based on commissioning surveys will include photo-$z$ estimates.
 The release of any photo-$z$ catalogs prior to DR1 remains at the discretion of the DM team.

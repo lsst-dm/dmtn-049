@@ -13,7 +13,7 @@
 \setDocStatus{draft}
 
 \setDocAbstract{
-This roadmap guides the Rubin Observatory Data Management (DM) team's efforts to engage with the scientific community of data-rights holders in order to validate and implement one or more existing photometric redshift (photo-$z$) estimators into the Data Release (DR) processing pipeline, and serve the resulting photo-$z$ data products for the DR {\tt Object} catalogs.
+This roadmap guides the Rubin Observatory Data Management (DM) team's efforts to engage with the scientific community of data-rights holders in order to implement and validate one or more existing photometric redshift (photo-$z$) estimators into the Data Release (DR) processing pipeline, and serve the resulting photo-$z$ data products for the DR {\tt Object} catalogs.
 
 \medskip
 The DR {\tt Object} catalog photo-$z$ estimates will initially meet a set of {\it minimum scientific attributes} and serve the {\it widest variety of science applications}.
@@ -26,12 +26,11 @@ Therefore, the evaluation, implementation, and validation of the DR {\tt Objects
 
 \medskip
 \textbf{This roadmap is a living document} to guide this joint venture, and it will evolve over time to incorporate input from the science community.
-\textbf{The primary milestone in this roadmap is DM's call for "Letters of Recommendation" from the science community regarding photo-$z$ estimators (deadline 2021-09-30).}
-From these letters, DM will generate a shortlist of community-vetted photo-$z$ options that meet both the science community's needs for DR {\tt Object} photo-$z$ and the technical directives of the DM System.
+In 2021, community input regarding the evaluation criteria for photo-$z$ estimators, and which kind of photo-$z$ estimator(s) should be selected, was gathered via DM's series of ``LSST Photo-$z$ Virtual Forums" and photo-$z$ ``Letters of Recommendation" (LOR).
+This input has been incorporated into \S~\ref{sec:eval} and \ref{sec:lor}.
 
 \medskip
-In support of this milestone, starting in early 2021, DM will host a series of "LSST Photo-z Virtual Forums", discussions open to all interested people, which will focus on defining the evaluation criteria for photo-$z$ estimators (\S~\ref{sec:eval}) and facilitating the development of "Letters of Recommendation" (\S~\ref{sec:lor}).
-Further on in this roadmap DM will facilitate science community participation in a "Photo-$z$ Validation Cooperative" based on commissioning data for the shortlisted estimators (\S~\ref{sec:pzcoop}; dates TBD). 
+Further on in this roadmap DM will facilitate science community participation in a ``Photo-$z$ Validation Cooperative" based on commissioning data for the shortlisted estimators (\S~\ref{sec:pzcoop}; dates TBD). 
 
 \medskip
 This roadmap includes possible in-kind contributions from international partnerships to {\tt Object} catalog photo-$z$ for DR1 and beyond, as well as potential processes of improving the DR {\tt Object} catalog photo-$z$ and/or federating user-generated photo-$z$ catalogs during Rubin operations.
@@ -45,6 +44,7 @@ This roadmap includes possible in-kind contributions from international partners
 \addtohist{3.3}{2021-01-01}{Updates to Section 3: Technical Considerations.}{Jim Bosch, Leanne Guy}
 \addtohist{4.}{2021-01-20}{Released, merged to master branch.}{Melissa Graham, Jim Bosch, Leanne Guy}
 \addtohist{4.1}{2021-05-01}{Updated Evaluation Criteria and the call for Letters of Recommendation to incorporate community input (tickets/DM-29784). Merged to master branch.}{Melissa Graham}
+\addtohist{4.2}{2022-01-XX}{Updated after the Letters of Recommendation process completed (tickets/DM-31945).}{Melissa Graham}
 }
 
 \begin{document}
@@ -85,43 +85,49 @@ This is a \textit{\textbf{living document}} that will evolve over time to incorp
 
 All items in this timeline reference \textbf{\textit{actions taken by DM}}.
 
-{\bf 2021-02-01:} Write a summary of this proposed timeline. Advertise it broadly.
+{\bf 2021-02-01:} Wrote a summary of this proposed timeline. Advertised it broadly.
 
-{\bf 2021-02/04:} Hold three LSST Photo-$z$ Virtual Forums, one per month, which focus on ingesting input from the science community regarding the proposed evaluation criteria (\S~\ref{sec:eval}). Advertise the forums broadly.
+{\bf 2021-02/04:} Held three ``LSST Photo-$z$ Virtual Forums", one per month, which focused on ingesting input from the science community regarding the proposed evaluation criteria (\S~\ref{sec:eval}). Advertised the forums broadly.
 
-{\bf 2021-05-01:} Write a call for "Letters of Recommendation" from the science community. Advertise it broadly.
+{\bf 2021-05-01:} Wrote a call for ``Letters of Recommendation" from the science community. Advertised it broadly.
 
-{\bf 2021-05/08:} Hold four LSST Photo-$z$ Virtual Forums, one per month, which focus on supporting the science community's efforts to prepare "Letters of Recommendation" (\S~\ref{sec:lor}). Advertise the forums broadly.
+{\bf 2021-05/08:} Held four ``LSST Photo-$z$ Virtual Forums", one per month, which focused on supporting the science community's efforts to prepare ``Letters of Recommendation" (\S~\ref{sec:lor}). Advertised the forums broadly.
 
-{\bf 2021-09-30:} Deadline for "Letters of Recommendation" from the science community.
+{\bf 2021-09-30:} Deadline for ``Letters of Recommendation" from the science community.
 
-{\bf Before commissioning,} generate a shortlist of community-vetted estimators, and add the rationale for these choices to \S~\ref{ssec:lor_choice}. Advertise this update broadly.
+{\bf 2022-01-30:} Incorporated additional scientific criteria from the ``Letters of Recommendation" into \S~\ref{sec:eval}.
+Added a summary of the ``Letters" and DM's shortlist to \S~\ref{ssec:lor_choice}.
 
-{\bf During commissioning,} facilitate community participation in a "Photo-$z$ Validation Cooperative", which will analyze photo-$z$ estimates from the shortlisted estimators based on commissioning data (\S~\ref{sec:pzcoop}).
+{\bf Before commissioning,} identify community members of the shortlisted photo-$z$ teams to join the Rubin Commissioning Team and help to guide implementation and perform science validation for photo-$z$ estimators (see Section 3.2 of \cite{sitcomtn-010}).
+
+{\bf During commissioning,} DM and the photo-$z$ Commissioning Team members will facilitate community participation in a ``Photo-$z$ Validation Cooperative", which will analyze photo-$z$ estimates from DM's shortlisted estimators based on processed commissioning data released as Data Previews (DP) 1 and 2 (\S~\ref{sec:pzcoop}).
 The timeline for this effort is contingent on the commissioning schedule.
-At the end of commissioning, based on the results of the "Photo-$z$ Validation Cooperative", DM will select one or more estimators to generate the photo-$z$ data products for DR1.
+The science community is welcome to test non-shortlisted estimators with the data previews.
+At the end of commissioning, based on the results of the ``Photo-$z$ Validation Cooperative", DM will select one or more estimators to generate the photo-$z$ data products for DR1.
 
 {\bf During operations}, the Data Production team will generate photo-$z$ for {\tt Object} catalogs using the software and data products delivered by the Construction-era DMS, and make available any and all supporting materials such as documentation or spectral templates.
 The Rubin Operations team may solicit and collect community feedback on the photo-$z$ performance, and return to any stage of this roadmap to update the attributes, algorithms, implementation, and/or validation of {\tt Object} catalog photo-$z$ for future data releases.
 Additionally (or instead of a DMS-provided photo-$z$), the Rubin Operations team might choose to federate a user-generated photo-$z$ catalog, as described in \S~\ref{ssec:time_ops_ugfed} below.
 
-Several terms are used above, which are clarified here. \\
-$\bullet$ {\bf Advertise broadly} means posting in the Photo-$z$ Coordination Group at \url{Community.lsst.org} (\S~\ref{ssec:time_pzcoord}), sending emails to Science Collaborations and other lists of potentially interested individuals (e.g., authors of papers containing the terms LSST and photo-$z$), and including in Rubin newsletters. \\
-$\bullet$ The {\bf science community}, in the context of this document, refers to any individuals or groups of data rights holders who plan to use Rubin data products or services for science -- in particular, the {\tt Object} catalog photo-$z$. \\
-$\bullet$ {\bf LSST Photo-$z$ Virtual Forums} will be informal drop-in discussion sessions for Rubin staff and science community members, and held virtually at a variety of times so as to enable people from all timezones to attend at least one. \\
-$\bullet$ {\bf Ingesting input from the science community} means that this document will be updated to include contributions from the science community to (e.g., updating the proposed criteria in \S~\ref{sec:eval}).
-Science community input will primarily be ingested from the LSST Photo-$z$ Virtual Forums and from written discussions in the Photo-$z$ Coordination Group at \url{Community.lsst.org} (\S~\ref{ssec:time_pzcoord}).
+Several terms are used above, which are clarified here.
+\begin{itemize}
+\item {\bf Advertise broadly} means posting in the ``Photo-$z$ Coordination Group" at \url{Community.lsst.org} (\S~\ref{ssec:time_pzcoord}), sending emails to Science Collaborations and other lists of potentially interested individuals (e.g., authors of papers containing the terms LSST and photo-$z$), and including in Rubin newsletters. \\
+\item The {\bf science community}, in the context of this document, refers to any individuals or groups of data rights holders who plan to use Rubin data products or services for science -- in particular, the {\tt Object} catalog photo-$z$. \\
+\item {\bf ``LSST Photo-$z$ Virtual Forums"} will be informal drop-in discussion sessions for Rubin staff and science community members, and held virtually at a variety of times so as to enable people from all timezones to attend at least one. \\
+\item {\bf Ingesting input from the science community} means that this document will be updated to include contributions from the science community to (e.g., updating the proposed criteria in \S~\ref{sec:eval}).
+Science community input will primarily be ingested from the ``LSST Photo-$z$ Virtual Forums" and from written discussions in the ``Photo-$z$ Coordination Group" at \url{Community.lsst.org} (\S~\ref{ssec:time_pzcoord}).
+\end{itemize}
 
 \subsection{Photo-$z$ Coordination Group}\label{ssec:time_pzcoord}
 
-To help all groups and individuals from across the Rubin community communicate about photo-$z$ for the LSST throughout this roadmap, a Photo-$z$ Coordination Group has been established as the ``Photometric Redshifts" sub-category in the ``Science" category at \url{Community.lsst.org}; see \url{ls.st/clo4381} for more information.
+To help all groups and individuals from across the Rubin community communicate about photo-$z$ for the LSST throughout this roadmap, a ``Photo-$z$ Coordination Group" has been established as the ``Photometric Redshifts" sub-category in the ``Science" category at \url{Community.lsst.org}; see \url{ls.st/clo4381} for more information.
 This is not a Group that requires anyone to ``join", but rather it is a centralized location for questions, answers, and discussion about photo-$z$.
 
 All are encouraged to use this virtual space to raise questions or issues, report plans or progress, seek feedback on ideas, post summary notes from relevant meetings, or post topics and replies about any other LSST photo-$z$ related activities.
 Posts are welcome from anyone, including e.g., DM staff members, Rubin Operations team members, International Programs members involved with in-kind contributions, Science Collaboration members, and anyone interested in science with LSST photo-$z$.
 Active communication should help all parties to optimize and synchronize their efforts and reduce redundancy as progress is made along this roadmap to LSST photo-$z$.
 
-There are many advantages of using \url{Community.lsst.org} for the Photo-$z$ Coordination Group.
+There are many advantages of using \url{Community.lsst.org} for the ``Photo-$z$ Coordination Group".
 The platform is suitable for asynchronous conversations, which is important for our global community; it is easy to both search and browse, which allows fast access to information; topic features include threaded replies and cross-linking to enable discussion; markdown allows for nice formatting and embedding objects like images; and individuals may be 'mentioned' to facilitate collaboration.
 Furthermore, it is an open platform in which anyone may make an account and contribute, and offers user experience enhancements such as notifications.
 
@@ -133,13 +139,13 @@ Decisions about federating user-generated data products will be made by the oper
 
 As a long-term approach to providing DR {\tt Object} catalog photo-$z$, federating a user-generated catalog might require providing the community team(s) with access to a small (e.g., $\sim10\%$) amount of a data release weeks to months in advance.
 This would enable the community team(s) to train and calibrate their photo-$z$ estimator, and would minimize any delay between data release and federation (which is desired for many science goals; Appendix \ref{ssec:use_none}).
-Facilitating multiple teams sharing their photo-$z$ catalogs might involve hosting a "photo-$z$ server" within the Rubin Science Platform, similar to that of the Dark Energy Survey's Science Portal, an infrastructure for organizing input catalogs, training and running photo-$z$ estimators, and evaluating their output\footnote{A series of YouTube tutorials about the DES Science Portal are available at \url{https://www.youtube.com/playlist?list=PLGFEWqwqBauBIYa8H6KnZ4d-5ytM59vG2}.}, as described by \citet{2018A&C....25...58G}).
+Facilitating multiple teams sharing their photo-$z$ catalogs might involve hosting a ``photo-$z$ server" within the Rubin Science Platform, similar to that of the Dark Energy Survey's Science Portal, an infrastructure for organizing input catalogs, training and running photo-$z$ estimators, and evaluating their output\footnote{A series of YouTube tutorials about the DES Science Portal are available at \url{https://www.youtube.com/playlist?list=PLGFEWqwqBauBIYa8H6KnZ4d-5ytM59vG2}.}, as described by \citet{2018A&C....25...58G}).
 
 \subsection{International Partnerships (In-Kind Contributions)}\label{ssec:time_inkind}
 
 As the process for International Partnerships with Rubin Observatory via in-kind contributions evolved, photometric redshifts emerged as an area in which (1) multiple teams propose to provide different types of contributions and (2) optimizing the LSST scientific returns on these contributions requires coordination across the Rubin community: the in-kind teams, Rubin staff, the Science Collaborations, and the broad community of data rights holders.
 
-Thus, the stages of this roadmap and the Photo-$z$ Coordination Group (\S~\ref{ssec:time_pzcoord}) were developed with the in-kind contributions in mind, to create a timeline and communication methods that will assist with the development and integration of the in-kind program contributions related to photo-$z$.
+Thus, the stages of this roadmap and the ``Photo-$z$ Coordination Group" (\S~\ref{ssec:time_pzcoord}) were developed with the in-kind contributions in mind, to create a timeline and communication methods that will assist with the development and integration of the in-kind program contributions related to photo-$z$.
 
 At the time of Version 4 of this document, the proposed contributions included, e.g., individuals' expertise; scientific analyses; software algorithms, tools, or infrastructure; computational resources; datasets or observing time.
 The proposals specify the recipients for these contributions as either the Rubin Observatory project (e.g., DM, commissioning) or the science community (e.g., a Science Collaboration, all data rights holders).
@@ -147,11 +153,11 @@ The proposals specify the recipients for these contributions as either the Rubin
 Here are a couple of examples to illustrate how in-kind teams would be involved in this roadmap.
 The participation level would vary between in-kind teams depending on their type of contribution, for example:
 \begin{itemize}
-\item In-kind teams proposing to contribute photo-$z$ related directable effort or software packages to Rubin Observatory might be helping DM to evaluate the "Letters of Recommendation", or to set up infrastructure to run the "Photo-z Validation Cooperative".
-\item In-kind teams proposing to contribute data or software to the Science Collaborations might be more focused on preparing "Letters of Recommendation", writing photo-$z$ algorithms, and then participating in the "Photo-z Validation Cooperative".
+\item In-kind teams proposing to contribute photo-$z$ related directable effort or software packages to Rubin Observatory might be helping DM to set up infrastructure to run the ``Photo-$z$ Validation Cooperative".
+\item In-kind teams proposing to contribute data or software to the Science Collaborations might have prepared ``Letters of Recommendation", be writing photo-$z$ algorithms, and planning to participate in the ``Photo-$z$ Validation Cooperative".
 \end{itemize}
 
-As with all other groups and individuals interested in LSST photo-$z$, the in-kind teams should use the Photo-$z$ Coordination Group in the Community Forum for open discussions and Q\&A about their contributions, when possible (with the exception of things like staffing or other sensitive aspects, of course).
+As with all other groups and individuals interested in LSST photo-$z$, the in-kind teams should use the ``Photo-$z$ Coordination Group" in the Community Forum for open discussions and Q\&A about their contributions, when possible (with the exception of things like staffing or other sensitive aspects, of course).
 Since this is a living document, this section can be updated as the role of the in-kind contributors clarifies and evolves after the review process concludes.
 
 
@@ -159,7 +165,7 @@ Since this is a living document, this section can be updated as the role of the 
 
 The following provides a set of {\it initial} technical considerations for potential photo-$z$ estimators to be implemented in the DM System.
 The goal is to provide the community with some initial technical boundaries and expectations. 
-Community input on the feasibility or challenges of these technical considerations is solicited, and this topic will be open for discussion during the LSST Photo-$z$ Virtual Forum series.
+This topic was open for discussion during the LSST Photo-$z$ Virtual Forum series, and continued community input on the feasibility or challenges of these technical considerations is welcome at any time (\S~\ref{ssec:time_pzcoord}). 
 The DM team endeavors to be clear about the nature of these technical issues, but the following is subject to change as the DM System evolves and as feedback from the community is considered. 
 Adherence with these technical considerations is one of the {\it proposed} evaluation criteria in \S~\ref{sec:eval}.
 
@@ -170,22 +176,19 @@ Shortlisted photo-$z$ estimators will be benchmarked as part of the selection pr
 As an indication, the computation of photometric redshifts should take on the order of milliseconds per object and not seconds per object.
 
 \textbf{Inputs and Outputs:}
-Photo-$z$ estimators should require only catalog-level inputs and not require the use of pixels. 
+Photo-$z$ estimators should require only catalog-level LSST inputs and not require the use of pixels. 
 Inputs may include all measurements in all filter bands for a given object in the DR {\tt Object} catalog. 
-The DM team will ensure that all measured quantities needed as inputs to photo-$z$ estimators are computed and included in the {\tt Object} catalog (See Appendix~\ref{ssec:dp_objvals}). 
+The DM team will ensure that all measured quantities needed as inputs to photo-$z$ estimators are computed and included in the {\tt Object} catalog (See Appendix~\ref{ssec:dp_objvals}).
+This will include making corrections for MW dust using an external dust map prior to passing fluxes to the photo-$z$ estimator(s).
 
 The outputs currently foreseen and budgeted for, irrespective of algorithm, are defined in the LSST Data Products Definition Document (DPDD) \cite{LSE-163}, and are presented in Appendix \ref{sec:dp}. 
 Exact schema definitions for the output user-facing data products are stored in the {\tt GitHub} repository {\tt sdm\_schemas} (\url{https://github.com/lsst/sdm\_schemas}). 
 This repository represents the source of truth for the schema definitions for user-facing data products.
 A detailed description of schema management in DM is presented in \cite{dmtn-153}. 
-Community input on the currently defined defined inputs and outputs is solicited and this topic will be open for discussion during the LSST Photo-$z$ Virtual Forum series. 
-
-Any input measured quantities or outputs that are needed by proposed photo-$z$ estimators and that are not part of the current DR {\tt Object} catalog baseline should be presented for discussion during the LSST Photo-$z$ Virtual Forum series and detailed in the "Letters of Recommendation" for photo-$z$ estimators. 
 
 \textbf{Storage Constraints:}
 Additional storage may be required for auxiliary input data such as spectral templates, calibration data or training sets (See Appendix \ref{ssec:dp_calib}). 
 Storage for outputs defined in the the DPDD \cite{LSE-163} has already been budgeted for by DM and is presented in Appendix~\ref{ssec:dp_objvals}. 
-"Letters of Recommendation" for photo-$z$ estimators should list all necessary auxiliary data together with an estimate of the storage required.
 
 \textbf{External Data Sets:}
 The assembly of vetted training sets (e.g., compilations of spectroscopic and many-band photometric redshifts) is a separate but related aspect with its own technical considerations.
@@ -196,7 +199,7 @@ These external data sets should also be in the public domain and formatted to be
 Photo-$z$ estimators often require training in order to accurately relate the detailed properties and tendencies of the input photometric measurements to external data.
 This is rarely something that can be fully automated.
 Training of estimators such that they can be run at scale on the full {\tt Object} catalog with no human intervention requires domain-specific knowledge and is not within scope of the Rubin Operations team. 
-Data Management will work with the LSST science community to identify teams who will support the short-listed estimators through the Photo-$z$ Validation Cooperative during commissioning and beyond, into operations.
+Data Management will work with the LSST science community to identify teams who will support the short-listed estimators through the ``Photo-$z$ Validation Cooperative" during commissioning and beyond, into operations.
 These community-lead teams would take the lead on ensuring that their estimators are provided pre-trained to run within the LSST science pipelines. 
 This should include both software and auxiliary data that represents (and probably condenses) the results of any training procedure.
 
@@ -215,7 +218,7 @@ Access to these preliminary processed data products will be subject to the Rubin
 \textbf{Computational Processing Constraints:}
 Photo-$z$ estimators are expected to have a low-memory-footprint and to operate only on measurements in the LSST {\tt Object} catalog (See Appendix \ref{ssec:dp_objvals}). 
 DM has budgeted for currently known algorithms and continues to revise estimates based on benchmarking of the codebase as development progresses, updating estimates for future processing based on current benchmarking results.  
-Shortlisted community-vetted photo-z estimators will be similarly benchmarked to enable DM to accurately revise budget estimates. 
+Shortlisted community-vetted photo-$z$ estimators will be similarly benchmarked to enable DM to accurately revise budget estimates. 
 The DM sizing model through the end of the construction project is described in \cite{dmtn-135}.
 
 \textbf{Implementation Language:}
@@ -223,17 +226,14 @@ The Rubin Science Pipelines are written in a combination of C++ and Python.
 C++ is employed for computationally intensive operations such as direct pixel-level processing as well as for low-level primitive classes and data structures (e.g. images, PSF models, geometric regions), whereas high-level algorithms are written in Python. 
 Most photo-$z$ estimators are expected to fall into the latter category.
 Estimators written in either C++ or Python should be easy to adapt to run in the LSST science pipelines. 
-For estimators not written in either C++ or Python, "Letters of Recommendation" should include a description of how the code would be adapted to run from a Python harness.
-
 The effort required not only to integrate and run a photo-$z$ estimator as part of the Rubin Science Pipelines, but also to support it over the long term in the operations era will need to be understood. 
-Plans for long term maintenance of a photo-$z$ estimator should be addressed in the "Letters of Recommendation". 
 For further details on Data Management's development practices, consult the DM Developer Guide \cite{DevGuide}.
 
 
 \section{Evaluation Criteria} \label{sec:eval}
 
-The following set of proposed evaluation criteria will be used first as a guide for the Letters of Recommendation (\S~\ref{sec:lor}), and then to select which photo-$z$ estimator(s) will be used by DM to generate the {\tt Object} catalog photo-$z$.
-These criteria were assembled by the authors and include input from the science community who attended the Photo-$z$ Virtual Forums in early 2021.
+The following set of proposed evaluation criteria was used first as a guide for the ``Letters of Recommendation" (\S~\ref{sec:lor}), and will also be used by DM to select photo-$z$ estimator(s) to generate the {\tt Object} catalog photo-$z$.
+These criteria were assembled by the authors and include input from the science community who attended the ``LSST Photo-$z$ Virtual Forums" or submitted science use-case ``Letters of Recommendation" in 2021.
 These criteria will continue to evolve -- and to become more detailed -- during the later stages of this Roadmap, which will further clarify what the community needs and what existing photo-$z$ estimators can deliver.
 Some supporting material that provides background motivation for these criteria can be found in Appendices \ref{sec:imp}, \ref{sec:dp} and \ref{sec:use}.
 These criteria would also apply to any user-generated catalogs to be federated with the {\tt Object} table (Appendix \ref{ssec:time_ops_ugfed}).
@@ -246,11 +246,12 @@ A {\it basic} science need would not include, for example, photo-$z$ of the qual
 The development of such advanced photo-$z$ algorithms is an active research topic within the Dark Energy Science Collaboration \citep{2018arXiv180901669T}, and is a significant effort which the Rubin Observatory staff should not attempt to replicate. 
 \item \textbf{Serve Diverse Science Needs -- }
 The selected photo-$z$ estimator(s) should serve as wide a variety of scientists as possible, especially those who would or could not generate custom photo-$z$ for themselves (Appendix \ref{sec:use}). 
-Photo-$z$ estimators that can return reliable results not just for galaxies but also for, e.g., AGN and quasars, and/or that can also classify stellar types, should be considered favorably.
+At least one photo-$z$ estimator that can return reliable results not just for galaxies but also for AGN (and, e.g., quasars) should be selected.
 \item \textbf{Demonstrated Success -- }
 The selected photo-$z$ estimator(s) should have broad community adoption and demonstrated success with other wide-field optical surveys.
 It is especially beneficial if those past surveys overlap with the LSST Main Survey, to enable comparisons.
-The selected photo-$z$ estimator(s) should have publicly accessible documentation (e.g., journal article, website, schema) that has been used by the science community.
+\item \textbf{Accessibility --} The selected photo-$z$ estimator(s) should have publicly accessible documentation (e.g., journal article, website, schema) that has been used by the science community.
+The selected photo-$z$ estimator(s) should have publicly accessible code, inputs, and metadata, so that all of this can be made available to the science community for reproducibility. 
 Its output data products should be straightforward to understand and easy to access (Appendix \ref{ssec:dp_pz}).
 \end{itemize}
 
@@ -275,26 +276,451 @@ For template-fit photo-$z$ results, an identifier for the best-fit template shou
 The selected photo-$z$ estimators should, at least initially, meet a minimum quality in order to serve the basic science needs of the community.
 As described below, it is likely that many existing photo-$z$ estimators can easily meet a fiducial minimum quality.
 Of course, from this fiducial minimum there is room for optimization.
-During the Photo-$z$ Validation Cooperative, metrics to quantitatively evaluate the shortlisted estimators will be developed and used to inform the decision of which estimator to select to provide the {\tt Object} catalog photo-$z$.
+During the ``Photo-$z$ Validation Cooperative", metrics to quantitatively evaluate the shortlisted estimators will be developed and used to inform the decision of which estimator to select to provide the {\tt Object} catalog photo-$z$.
 
-\textbf{Proposed minimum performance targets --} 
+\begin{itemize}
+\item \textbf{Proposed minimum performance targets --} 
 Based on the science use-cases in Appendix \ref{sec:use}, the {\tt Object} catalog photo-$z$ could have a point-estimate accuracy of $\sim10\%$ and still meet the basic science needs.
 The photo-$z$ results should result in a standard deviation of $z_{\rm true}-z_{\rm phot}$ of $\sigma_z < 0.05(1+z_{\rm phot})$, and a catastrophic outlier fraction of $f_{\rm outlier} < 10\%$, over a redshift range of $0.0 < z_{\rm phot} < 2.0$ for galaxies with $i<25$ mag galaxies.
 Note that this preliminary proposed performance has been shown to be achievable for simulated LSST data with existing photo-$z$ estimators \citep[e.g.,][]{2018AJ....155....1G,2020MNRAS.499.1587S}.
+\item \textbf{Robustness -- } Photo-$z$ estimators that are demonstrated to perform well with imperfect priors and/or incomplete training sets, especially at low-$z$, should be prioritized.
+\end{itemize}
 
 \subsection{Technical Considerations}
 
 The selected photo-$z$ estimator(s) should meet the technical considerations described in Section \ref{sec:dmcon}.
 
+Furthermore, the selected photo-$z$ estimator(s) should be able to meet these technical constraints and produce photo-$z$ for the Object catalog by the time of data release, as there are negative scientific impacts of delaying the addition of photo-$z$ to the Object table (\S~\ref{ssec:use_none}).
+
 
 
 \section{Letters of Recommendation} \label{sec:lor}
+
+The original call for photo-$z$ ``Letters of Recommendation" (LOR) and the template provided with the call have been moved to Appendix~\ref{sec:orig_LOR}.
+
+\subsection{Summary of the Letters Submitted (and DM's Shortlist)} \label{ssec:lor_choice}
+
+The Rubin Observatory Data Management (DM) team sincerely thanks everyone who engaged with the PZ LOR process.
+In total, there were 20 submissions: 19 LOR and 1 ``non-LOR" describing DESC's photo-$z$ activities. 
+Of the 19 LOR, 12 advocated for particular algorithms, 6 presented scientific use cases, and 1 was a notification of future software development (deep probabilistic networks).
+
+Of the 6 LOR describing scientific use cases:
+\begin{itemize}
+\item1 focused on galaxies
+\item2 focused on dark energy
+\item3 focused on active galactic nuclei
+\end{itemize}
+The scientific recommendations made by these 6 LOR are detailed in Appendix~\ref{ssec:use_scilor} and have been incorporated into \S~\ref{sec:eval}.
+
+Of the 12 LOR advocating for particular algorithms:
+\begin{itemize}
+\item 4 were machine-learning (ML) based codes (GPz; DEmP; PZFlow; DNF)
+\item 3 were template-fitting (TF) based codes (LePhare; Phosphoros, BPZ)
+\item 2 were hybrid ML+TF codes (Delight, ML-accelerated hierarchical SPS models)
+\item 3 were for codes which performed "post-processing" to enhance PZ estimates (e.g., combine PZ estimates, recalibrate PDFs, refine outlier flags)
+\end{itemize}
+
+The LORs for five of the PZ estimators demonstrated that the software was established and would (or would likely) be capable of meeting the scientific, performance, and technical aspects as described in the call for LORs: GPz, DEmP, DNF, LePhare, and BPZ.
+The LORs for three of the PZ estimators which are still in development also demonstrated that the software would (or would likely) be capable of meeting these aspects: PZFlow, Delight, and Phosphoros. 
+
+\textbf{Thus, these eight PZ estimators comprise DM's formal initial shortlist} for potential codes to generate PZ for the LSST Objects catalog: GPz, DEmP, DNF, LePhare, BPZ, PZFlow, Delight, and Phosphoros.
+Given that DM's ability to support the implementation and validation of PZ estimators during commissioning will be limited, the five more established estimators (GPz, DEmP, DNF, LePhare, BPZ) would be prioritized.
+Further prioritization would be left to the discretion and expertise of the individuals handling the implementation (\S~\ref{ssec:pzcoop_ct}).
+
+The LOR for the in-development estimator based on ML-accelerated hierarchical SPS models was, due to the newness of the method, unclear about whether it would likely meet the technical aspects defined in \S~\ref{sec:dmcon}, but seems very promising.
+The three LORs for the post-processing codes established their potential positive impacts.
+Furthermore, the DM team is aware that additional PZ Estimators, such as those analyzed in \cite{2020MNRAS.499.1587S}, would likely be appropriate for the task of generating PZ for LSST Objects: e.g., ANNz2, EAZY, FlexZBoost, METAPhoR, SkyNet, and TPZ.
+
+%\textbf{In summary, the DM team would like to see the science community apply all of these PZ estimators (and post-processing codes) to commissioning data from the Data Previews during the Photo-$z$ Validation Cooperative (PVC) phase of the PZ Roadmap.}
+
+
+\section{Photo-$z$ Validation Cooperative}\label{sec:pzcoop}
+
+As the scientific community has a considerable wealth of expertise in generating photo-$z$ catalogs, and will be the primary users of the photo-$z$ data product, they are the best suited to scientifically validate the {\tt Object} catalog photo-$z$.
+
+Towards this end the DM team plans to facilitate the ``Photo-$z$ Validation Cooperative", during which DM will focus on providing technical support for the implementation of the eight photo-$z$ estimators that were shortlisted based on the community's ``Letters of Recommendation" (\S~\ref{sec:lor}; but the community may also consider other estimators).
+
+As the DM team is very limited in terms of the support it can provide for implementation, several spots on the Rubin Commissioning Team are being made available to individuals with relevant expertise who commit to implementing the shortlisted PZ estimators, to using the unreleased commissioning data for early tests, and to helping guide the science community's validation efforts with the released commissioning data (\S~\ref{ssec:pzcoop_ct}).
+
+During the ``Photo-$z$ Validation Cooperative", the science community would focus on:
+\begin{itemize}
+\item assembling training sets and validation metrics,
+\item helping to implement photo-$z$ estimators with the LSST Science Pipelines,
+\item using the data previews to validate the estimators' performance, and
+\item documenting, evaluating, and sharing the results.
+\end{itemize}
+
+These activities will inform DM's selection of photo-$z$ estimator(s) for the Object catalog, but more broadly would also enable the science community to prepare for photo-$z$ science with the LSST and to develop user-generated photo-$z$ catalogs.
+
+A preliminary collection of photo-$z$ validation techniques are presented in Appendix \ref{sec:imp}, and a preliminary collection of training and calibration data in Appendix \ref{sec:dp}.
+Types of commissioning data that might be most useful for scientific validation of photo-$z$ estimators are described in \S~\ref{ssec:pzcoop_commissioning}.
+Documentation regarding the technical aspects of the implementation and validation process is considered beyond the scope of this document and will appear elsewhere in the future.
+
+The ``Photo-$z$ Coordination Group" will be the communications hub for the ``Photo-$z$ Validation Cooperative". 
+
+
+\subsection{Seeking Photo-$z$ Expertise for the Rubin Commissioning Team}\label{ssec:pzcoop_ct}
+
+It is expected that \textit{most} of the science community participating in the ``Photo-$z$ Validation Cooperative" will use the commissioning data that is released as part of Data Preview 1 and 2 (DP1 and DP2), and will not need to formally join the Rubin Commissioning Team and have access to the unreleased commissioning data.
+
+However, as mentioned above the DM team is very limited in terms of the support it can provide for implementation, and furthermore there are some aspects of implementing and validating photo-$z$ estimators which would benefit from a connection with the unreleased commissioning data.
+
+Thus, Rubin Observatory is seeking to identify a small group of $\sim$5-10 individuals who have expertise with photo-$z$ estimators to join the Rubin Commissioning Team.
+
+As a member of the Rubin Commissioning team, these individuals would be responsible for implementing the shortlisted photo-$z$ estimators and leading the science community's validation efforts during DP1 and DP2.
+As mentioned in \S~\ref{ssec:lor_choice}, the five more established estimators (GPz, DEmP, DNF, LePhare, BPZ) should be prioritized for implementation, but any further prioritization or the order of implementation would be left to the discretion and expertise of DM and these individuals doing the implementation work.
+
+Example components of the implementation process which these individuals would be committing to are provided below (see also Appendix \ref{ssec:imp_imp}).
+
+\begin{itemize}
+\item adapting code language for the LSST environment
+\item adapting input/output formats for the LSST catalogs
+\item ensuring I/O meets storage constraints
+\item ensuring processing meets computational constraints
+\item assembling and storing external data sets
+\item testing estimator training with the unreleased commissioning data
+\item early science validation based on unreleased commissioning data
+\item optimizing PZ estimator code to ensure scalability
+\end{itemize}
+
+With the exception of items that require access to the unreleased commissioning data, many of the above overlap with activities that the broader science community will engage in as part of the ``Photo-$z$ Validation Cooperative" using the commissioning data released as Data Previews.
+The difference is that the PZ-related Commissioning Team members would be committed to implementation and to providing leadership for the community in these tasks.
+
+{\bf Eligibility --} All Commissioning Team members must have Rubin data rights, as described in \cite{RDO-013}.
+For individuals who are part of US/Chilean community, the Commissioning Announcement of Opportunity will be used to guide the process of identifying Commissioning Team members (e.g., Section 4 of \cite{sitcomtn-010}).
+Individuals who are associated with an approved international program should consult their program managers to confirm the proposed work fits into the allocated contributions.
+
+DM will reach out to the shortlisted photo-$z$ estimator teams as one way to identify potential individuals who are interested in taking on this role with the Rubin Commissioning team, and anyone else from the science community who is interested in this opportunity to do photo-$z$ implementation during Commissioning is welcome to contact Melissa Graham (by March 15).
+
+Interested parties will be asked to prepare a short statement to establish specifically what they would contribute as Commissioning Team members (as individuals or teams) and how much time they can commit.
+As with all Commissioning Team members, the minimum level of sustained effort should be about one day per week of sustained effort over a year (0.2 FTE) or at least one contiguous month of focused effort (0.1 FTE), or some reasonable interpolation between these ``sustained" and ``focused" thresholds.
+
+To enable these individuals to get started on implementation in advance of commissioning, if desired, DM has arranged for 5--10 accounts in the Rubin Science Platform (RSP) at the Interim Data Facility (IDF) during Data Preview 0 (DP0) to be reserved for them, as described in \citep{rtn-004}.
+
+
+\subsection{Potential Commissioning Data for Photo-$z$ Validation}\label{ssec:pzcoop_commissioning}
+
+The commissioning surveys and their schedule remain subject to change; the information in this section will be updated in the future as the situation clarifies.
+At this time, the commissioning schedule comprises 3 phases: 
+
+{\bf Early System Integration \& Test:}
+The first phase of commissioning comprises 3 months of technical integration and test (I\&T) with the Rubin Observatory Commissioning Camera (ComCam).
+The originally planned Key Performance Metrics (KPMs) and 20-year Depth Test and Schedule tests during this phase have since been descoped. 
+This phase is expected to deliver modest amounts of science-quality imaging (e.g., few hours to few nights) with which tests of image quality, single-visit depth, astrometry, and photometry might be possible, depending on the quality of the data.  
+Data Preview 1 (DP1) will be based on data taken during this phase and processed with the Rubin Science Pipelines. 
+This data might be useful as preliminary test data during the implementation of the photo-$z$ estimators, and help to test the formats of the input and output data, create visualizations for the validation codes, etc.
+
+{\bf Full System Integration \& Test with LSSTCam:}
+The second phase of commissioning comprises 3 months of technical integration and test (I\&T) with  the LSST Camera (LSSTCam) \textemdash \,the science instrument for Rubin Observatory. 
+The originally planned Key Performance Metrics (KPMs), 20-year Depth Test during this phase have since been descoped. 
+This phase is expected to deliver modest amounts of science-quality imaging (e.g., few hours to few nights), with which tests of image quality, single-visit depth, astrometry, and photometry might be possible, depending on the quality of the data. 
+
+{\bf Science Verification \& Validation:}
+The third and final phase of commissioning will be focused on science verification and validation of the integrated system and will include both wide-area surveys and a full 10-year depth survey in selected reference fields for which external imaging and spectroscopy is available. 
+This phase will last for 2 months. 
+
+Data Preview 2 (DP2) will be based on data taken during the second and third phases of commissioning and processed with the Rubin Science Pipelines. 
+DP2 is more likely to provide a preliminary data set for photo-$z$ validation and possibly some of the needed data for LSST photo-$z$ described in Appendix \ref{ssec:dp_calib}. 
+Covering well-studied fields with DP2 data (e.g., COSMOS) would facilitate photo-$z$ validation; note that the effort to collect community input on the commissioning fields is underway\footnote{\url{https://community.lsst.org/t/community-input-to-the-on-sky-observing-strategy-during-commissioning}}.
+As of early 2022, there had been several suggestions for fields that overlap reference datasets which would be suitable for the generation and validation of photo-$z$ estimates.
+The Commissioning Team is taking this input into consideration and will work with the ``Photo-$z$ Coordination Group" to develop and announce the observing strategy for DP2 as soon as they can.
+
+As a side note for LSST users who are interested in doing science with commissioning data, it should not be assumed that any release of data products based on commissioning surveys will include photo-$z$ estimates.
+The release of any photo-$z$ catalogs prior to DR1 remains at the discretion of the DM team.
+
+\bibliography{lsst,lsst-dm,refs_ads,local}
+
+\clearpage
+\appendix 
+
+\section{Appendix: Examples of Implementation and Validation}\label{sec:imp}
+
+\subsection{An Example Implementation Process}\label{ssec:imp_imp}
+
+For reference, the basic steps for implementing a photo-$z$ estimator include:
+\vspace{-15pt}
+\begin{itemize}
+\item prepare the LSST data inputs to the photo-$z$ estimators (Appendix \ref{ssec:dp_objvals})
+\item prepare the training and calibration data (Appendix \ref{ssec:dp_calib})
+\item install the needed codes (a technical aspect to be described elsewhere)
+\item run the estimator (on its own and/or embedded in the data release pipeline)
+\item validate the photo-$z$ estimator outputs (below, \ref{ssec:imp_val})
+\item store the results in the {\tt Object} catalog (Appendices \ref{ssec:dp_pz} and \ref{ssec:dp_store})
+\item ensure output schema and access methods are documented (Appendix \ref{ssec:dp_pz})
+\end{itemize}
+
+\subsection{Example Validation Tests}\label{ssec:imp_val}
+
+For reference, this section describes some photo-$z$ validation tests, some of which overlap with the evaluation criteria described in \S~\ref{sec:eval}. 
+Validation tests and quality assessment diagnostics will be necessary to ensure the results meet performance expectations (as defined in \S~\ref{sec:eval}).
+These lists are based in part on a brainstorming session during the LSST Project and Community Workshop's session on Photometric Redshifts on Aug 14 2019\footnote{E.g., slide 14 of \url{https://docs.google.com/presentation/d/1GEahvDQXIjSL4lLVjDlZHV5zpXLhGQfHwVtucs72Ajg/edit?usp=sharing}}.
+
+Journal articles that demonstrate validation processes for photo-$z$ from multi-band wide-area surveys include {\it ``DES science portal: Computing photometric redshifts"} \citep{2018A&C....25...58G}; {\it ``Photometric redshifts for Hyper Suprime-Cam Subaru Strategic Program Data Release 1"} \citep{2018PASJ...70S...9T}; and {\it ``On the realistic validation of photometric redshifts"} \citep{2017MNRAS.468.4323B}. 
+
+{\bf Truth Comparisons --} 
+Catalogs of true redshifts can be obtained by withholding some fraction of the training set or by cross-matching to external spectroscopic catalogs. Validation metrics should include at least those used to define the minimum performance of the LSST photo-$z$ for basic science needs (\S~\ref{sec:eval}). A list of potential metrics might include the following, and targets or limits on these metric values might apply to subsets in magnitude, color, or redshift: 
+\vspace{-15pt}
+\begin{itemize}
+\item plots of $z_{\rm true}$ {\it vs.} $z_{\rm phot}$ for visual inspection
+\item standard deviation and bias in $\Delta z = (z_{\rm true}-z_{\rm phot})/(1+z_{\rm true})$
+\item fraction of (catastrophic) outliers, e.g., $\Delta z > 3\sigma$ or $>0.06$ ($>1$)
+\item quantile-quantile (q-q) plots evaluate the shape of $P(z)$
+\item probability integrated transform, $PIT(z_{\rm phot}) = \int_{0}^{z_{\rm phot}} P(z)\,dz$, calculated for all test galaxies, should be flat for well-estimated $P(z)$ \citep{2016arXiv160808016P}
+\item the continuous ranking probability score, CRPS, should be a lower value for better estimated $P(z)$, as described in \citep{2016arXiv160808016P}
+\item redshift confidence for point estimates, $C(z_{\rm phot}) = \int_{z_{\rm phot}-0.03}^{z_{\rm phot}+0.03} P(z)\,dz $
+\item loss and risk parameters that characterize the photo-$z$ estimates:\\
+$L(\Delta z) = 1 - \left(1+ \left(\frac{\Delta z}{\gamma} \right)^2 \right)^{-1}$, 
+where $\gamma$ is a characteristic threshold (e.g., $0.15$), and:\\
+$R(z_{\rm phot}) = \int P(z)\,L(z_{\rm phot},z)\,dz$, as described in \citet{2018PASJ...70S...9T}
+\item the conditional density estimation (CDE) loss as described in Section 4.2 of \citet{2020MNRAS.499.1587S}. (Note that the CDE does not strictly require the true posterior be known.)
+\end{itemize}
+
+{\bf Basic Checks--} 
+These are tests that can be done using all LSST {\tt Objects} and do not require a truth catalog.
+\vspace{-15pt}
+\begin{itemize}
+\item the uncertainty in $z_{\rm phot}$ should correlate with photometric error
+\item the star/galaxy flag parameter should agree with photo-$z$ (stars have $z_{\rm phot}=0$)
+\item evolution of $N(z)$ to higher-$z$ for samples with fainter magnitudes, redder colors
+\end{itemize}
+
+{\bf Scientific Applications --} 
+The following might not be included in the formal validation process, but represent analyses that the broader scientific community may want to do to inform their use of the LSST photo-$z$.
+\vspace{-15pt}
+\begin{itemize}
+\item assessing the performance of point estimates in broker photometric classification algorithms
+\item evaluating the absolute magnitude distribution of Type Ia supernovae once the distance derived from the photo-$z$ point estimates are applied
+\item evaluating the distributions of derived physical parameters for galaxies using the $P(z)$
+\item checking whether high SFR galaxies (and maybe other sensitive populations) have reasonable $P(z)$
+\item galaxy cluster membership identification
+\item tomographic bin analysis, as in \citep{2019MNRAS.482.2807C}
+\end{itemize}
+
+\subsection{Example Publications that Evaluate Photo-$z$ Estimator Performance}\label{ssec:imp_evalpubs}
+
+\begin{itemize}
+\item \citet{2010A&A...523A..31H} tested 18 different photo-$z$ codes on the same sets of simulated and real data and found no significantly outstanding method.
+\item \citet{2013ApJ...775...93D} tested 11 different photo-$z$ codes on the CANDLES data set ($U$-band through infrared photometry) and also find that no method stands out as the ``best'', and that most of the photo-$z$ codes underestimate their redshift errors.
+\item \citet{2014MNRAS.445.1482S} used the science verification data (200 square degrees of $grizY$ photometry to a depth of $i_{AB}=24$ magnitudes) of the Dark Energy Survey (DES) to evaluate several photometric redshift estimators. They found that the Trees for Photo-$z$ code (TPZ; \citet{2013ascl.soft04011C}) provided the most accurate results with the highest redshift resolution, and that template-fitting methods also performed well -- especially with priors -- but that in general there was no clear ``winner.''
+\item \citet{2018PASJ...70S...9T} provides a comparative analysis of several photo-$z$ estimators applied to their data set from the HSC Strategic Program. Their website\footnote{\url{https://hsc-release.mtk.nao.ac.jp/doc/index.php/photometric-redshifts/}} provides comparative analysis plots for each of them.
+\item \citet{2020MNRAS.499.1587S} statistically compare the posterior probability distribution functions produced by 12 photo-$z$ estimators for a mock data set that is representative of the LSST, identifying some biases and shortfalls in both the produced PDFs and the evaluation methods used to analyze them.
+\end{itemize}
+
+\section{Appendix: Data Products Related to LSST Photo-$z$}\label{sec:dp}
+
+For reference, this section provides a \textbf{\textit{preliminary and incomplete}} collection of inputs, outputs, and associated products related to generating and serving LSST photo-$z$:
+\begin{itemize}
+\item the LSST data products needed as input to photo-$z$ estimators (Appendix \ref{ssec:dp_objvals})
+\item the required training and calibration data, LSST or external (Appendix \ref{ssec:dp_calib})
+\item the outputs' format, access methods, and documentation (Appendix \ref{ssec:dp_pz})
+\item options for compression to store the results of multiple estimators (Appendix \ref{ssec:dp_store})
+\end{itemize}
+
+\subsection{Inputs to Photo-$z$ Estimators}\label{ssec:dp_objvals}
+
+It is important to ensure that all measured quantities needed by photometric redshift estimators are going to be computed and included in the {\tt Object} table. 
+Aside from the fluxes and/or apparent magnitudes and errors for each Rubin Observatory filter, which will be provided in the {\tt Object} catalog, the color properties in the {\tt Object} table might be used for photo-$z$. {\it ``Colors of the object in 'standard seeing' (for example, the third quartile expected survey seeing in the i band, $\sim$0.9 arcsec) will be measured. These colors are guaranteed to be seeing-insensitive, suitable for estimation of photometric redshifts"} \citedsp{LSE-163}. In the {\tt Object} table the relevant elements are:
+\vspace{-15pt}
+\begin{itemize}
+\item \texttt{stdColor (float[5])} = {\it 'standard color', color of the object measured in 'standard seeing', suitable for photo-$z$}
+\item \texttt{stdColorErr (float[5])} = {\it uncertainty on \texttt{stdColor}}
+\end{itemize}
+
+Additionally, measured quantities such as the galaxy size, shape, radial profile, 'clumpiness', or surface brightness; the DCR correction (or residual); or a parameter that represents the clustering density within some radius (e.g., 2 Mpc) might all be useful (e.g., as priors) for photo-$z$ estimators. The effective transmission function ($\phi$; Eq. 5 in \citeds{LPM-17}), which will be provided for all {\tt Sources} either in the catalog or as a link, is another useful quantity for photo-$z$ estimators.
+
+\subsection{Training and Calibration Data}\label{ssec:dp_calib}
+
+{\bf Spectroscopic (or Many-Band) Redshifts --}
+Deep multi-band LSST photometry for spectroscopic fields like COSMOS, and/or WFD-depth LSST photometry that overlaps multiplexed spectroscopic surveys like DESI/4MOST, which is obtained either during commissioning or early in Operations year 1, will likely be necessary to produce photo-$z$ for DR1.
+Alternatively, redshifts based on many-band photometry can be used.
+
+{\bf Wide Area Imaging --} 
+Some photo-$z$ methods have requirements other than spec-$z$ fields: e.g., \citet{2019MNRAS.483.2801S} use clustering information to obtain photo-$z$ and this requires wider, shallower field coverage and not a single deep pointing like a spec-$z$ field would have. 
+This wider area would also serve to reduce cosmic variance in the training set ($\sim$100 square degrees would serve to average out the variance).
+
+{\bf Preliminary LSST Data --}
+For the community to participate in the training or calibration of a photo-$z$ estimator prior to a data release, it will probably be necessary to make a small but representative amount of pre-processed LSST data available in advance of each data release during Operations. (See (\S~\ref{sec:dmcon}).
+
+\subsection{Output Schema, Access Methods, and Documentation}\label{ssec:dp_pz}
+
+{\bf Output Schema --} 
+The format of the photo-$z$ output is one of the attributes that must still be defined (\S~\ref{sec:eval}). 
+The photo-$z$ outputs must provide all the necessary inputs to the validation tests, to be defined in Appendix \ref{ssec:imp_val}.
+
+The LSST Data Products Definitions Document (DPDD) \citedsp{LSE-163} defines the format of the {\tt Object} catalog's table columns which could store the results of photometric redshift estimates, regardless of how they're generated. 
+The following is from Table 5 of the DPDD:
+\vspace{-15pt}
+\begin{itemize}
+\item \texttt{photoZ (float[2x95])} = photometric redshift likelihood samples -- pairs of redshift and likelihood ($z,\log{L}$) -- computed using a to-be-determined published and widely accepted estimator at the time of LSST Commissioning
+\item \texttt{photoZ\_pest (float[10])} = point estimates for the photometric redshift provided in {\tt photoZ}
+\end{itemize}
+
+The exact point estimate quantities stored in the \texttt{photoZ\_pest} are to-be-determined, {\it ``but likely candidates are the mode, mean, standard deviation, skewness, kurtosis, and 1\%, 5\%, 25\%, 50\%, 75\%, and 99\% points from cumulative distribution"} \citedsp{LSE-163}. 
+Flags that represent potential catastrophic outliers, failure modes, a photo-$z$ consistent with $z=0$, etc., could also be included.
+
+{\bf Access Methods --} 
+The user experience is one of the proposed selection criteria for the LSST photo-$z$ estimator (\S~\ref{sec:eval}). 
+Some examples of publicly released photo-$z$ catalogs which were prepared with a user experience that might be desirable for the LSST photo-$z$ include the Dark Energy Survey's Science Portal to serve photometric redshifts \cite{2018A&C....25...58G} and the Hyper SuprimeCam Subaru Strategic Program \cite{2018PASJ...70S...9T}\footnote{\url{https://hsc-release.mtk.nao.ac.jp/doc/index.php/photometric-redshifts/}}.
+
+If the LSST photo-$z$ are not made available in either the {\tt Objects} table or in a federated or joinable catalog -- for example in the case where a community-generated photo-$z$ catalog is replacing the DMS-generated catalog (Appendix \ref{ssec:time_ops_ugfed}) -- and are instead made available via, e.g., a ``photo-$z$ server" (as in \cite{2018A&C....25...58G}), then at least the {\tt Object} catalog ID of the most recent data release should be a queryable parameter.
+
+If the results of multiple estimators are generated, compressed, and stored in the {\tt Objects} table, then decompression should be straightforward for the user (Appendix \ref{ssec:dp_store}).
+
+{\bf Documentation --} 
+Appropriate types of documentation might include published journal articles, GitHub repositories, websites, or other online documentation resources (e.g., \url{https://readthedocs.org/}). Whatever the format, the documentation contents should include: 
+\vspace{-15pt}
+\begin{itemize}
+\item general description of the estimator
+\item adaptations made to ingest LSST data (compared to past applications)
+\item an analysis of the training, calibration, and validation processes
+\item a full list of all inputs and outputs (i.e., a schema browser)
+\end{itemize}
+
+\subsection{Storage and Compression}\label{ssec:dp_store}
+
+The stored values related to photo-$z$ are subject to the storage space allotted in the {\tt Objects} table as described in \S~\ref{sec:dp}.
+Both the posteriors and point estimates from several different photo-$z$ estimators could be compressed and stored in this allotted space.
+Given the variety of use-cases and the fact that different photo-$z$ estimators produce different results \citep{2020MNRAS.499.1587S}, the option to compute, compress, and store estimates from multiple estimators in the $2\times95$ float might be scientifically desirable.
+
+Efficient $P(z)$ compression algorithms are in development, such as \citet{2014MNRAS.441.3550C} and \citet{2018AJ....156...35M}.
+\citet{2014MNRAS.441.3550C} present an algorithm for sparse representation, for which {\it ``an entire PDF can be stored by using a 4-byte integer per basis function''} and {\it ``only ten to twenty points per galaxy are sufficient to reconstruct both the individual PDFs and the ensemble redshift distribution, $N(z)$, to an accuracy of 99.9\% when compared to the one built using the original PDFs computed with a resolution of $\delta z = 0.01$, reducing the required storage of two hundred original values by a factor of ten to twenty.''} 
+\citet{2018AJ....156...35M} presents a {\tt Python} package for compressing one-dimensional posterior distribution functions (PDFs), demonstrates its performance on several types of photo-$z$ PDFs, and provides a set of recommendations for best practices which should be consulted when DM is making decisions on the DR photo-$z$ data products.
+
+However, compression (and decompression by users) will require extra computational resources, which should be estimated and considered, and decompression must be fast and easy for users.
+
+\section{Appendix: Example Use-Cases for LSST Photo-$z$} \label{sec:use}
+
+This section contains an \textbf{\textit{incomplete, non-exhaustive}} summary of a variety of internal and scientific use-cases for the LSST {\tt Object} catalog photo-$z$.
+These use-cases inform the evaluation criteria proposed in \S~\ref{sec:eval}. 
+
+Some of the following information on use-cases was collected from participants of the LSST Project and Community Workshop's session on Photometric Redshifts on Aug 14 2019\footnote{Thanks to Sam Schmidt, Chris Morrison, Sugata Kaviraj, Gautham Narayan, Lauren Corlies, Travis Rector, Tina Peters, Alex Malz, Dara Norman, Stephen Smartt, and other participants from the science community.}.
+
+\subsection{Internal DMS Use-Cases}\label{ssec:use_dm}
+
+DM's galaxy photometry outputs are being developed with the goal of feeding photometric redshift estimators, so the computation of photometric redshifts is likely to be a part of the science validation process for LSST photometry. 
+Unlike stars, color-color and color-magnitude diagrams for galaxies do not have sufficient structure to reveal issues with the photometry.
+While other photometric validation techniques will also be useful (such as evaluating the width of galaxy cluster red-sequences) they may only apply to {\it some} galaxies, whereas {\it all} galaxies have a redshift. 
+
+The internal use-case of scientifically validating the galaxy photometry outputs is likely to require a simple photo-$z$ estimator which fits SED templates, since the goal is to evaluate whether the photometric outputs match the colors of real galaxies.
+Whether such a simple SED-fit photo-$z$ could also serve the scientific use-cases is undetermined, because the photometric validation process is not yet defined or written.
+The potential internal use-case of needing photo-$z$ in order to assess catalog completeness for low- and high-redshift {\tt Objects} is also likely to be served by a simple SED-fit photo-$z$ estimate.
+
+As a side note, although the DMS will assign fiducial spectral energy distributions (SEDs) to {\tt Objects} in order to apply sub-band wavelength-dependent photometric calibration and PSF modeling, computing photo-$z$ is not planned to be a part of this process.
+Furthermore, the SED templates used will likely be simpler (e.g., step-function or slope) than would be needed for deriving photo-$z$.
+
+\subsection{Scientific Use-Cases}\label{ssec:use_sci}
+
+A variety of potential scientific applications for the {\tt Object} photo-$z$ are discussed in turn. 
+These scientific use-cases should be used to inform the evaluation criteria proposed in \S~\ref{sec:eval}.
+A summary of the commonalities between science use-cases for photo-$z$ is provided in \S~\ref{sssec:use_sci_sum}.
+
+\subsubsection{Dark Energy}\label{sssec:use_sci_de}
+Extragalactic astrophysics such as weak lensing, baryon acoustic oscillations, and Type Ia supernova cosmology are all main science drivers for the LSST, and all require catalogs of galaxies with photometric redshifts.
+The photo-$z$ estimators for precision cosmology will be custom-tailored to these particular science goals, and the photo-$z$ results are subject to established science requirements for dark energy cosmology \citep{2018arXiv180901669T}.
+For example, weak lensing and large scale structure require ensemble measurements of $N(z)$ and thus require a full posterior PDF, whereas point-estimate photo-$z$ for individual {\tt Objects} are required for Type Ia supernova host galaxies and the identification of strong lensing candidates and galaxy cluster members. 
+The Dark Energy Science Collaboration (DESC) is developing specialized photo-$z$ pipelines for these science goals (which {\it could} serve to generate photo-$z$ for the {\tt Object} catalog, as discussed in Appendix \ref{ssec:time_ops_ugfed}).
+
+\subsubsection{Time Domain}\label{sssec:use_sci_td}
+The Transients and Variable Stars Science Collaboration reported that they would use LSST-provided {\tt Object} photo-$z$ to identify and/or characterize extragalactic transient host galaxies.
+Alert packets provide {\tt Object} IDs for the three nearest stars and three nearest galaxies in the most recent data release.
+Alert stream brokers intend to query the {\tt Objects} catalog in real time to obtain host photo-$z$ because photometric classification for transient light curves is {\it significantly} aided by redshift estimates.
+The {\tt Object} catalog's photo-$z$ will also be used to identify and prioritize the potential host galaxies of gravitational wave events for imaging searches of the optical counterpart.
+
+\subsubsection{Galaxies}\label{sssec:use_sci_gal}
+The Galaxies Science Collaboration reported that they would use LSST-provided {\tt Object} photo-$z$, and that their science goals require that photo-$z$ be accurate enough ($<10\%$) to derive intrinsic galaxy properties like mass and star formation rate (SFR).
+They also indicated that posteriors delivered as $P(z,M)$ and/or with rest-frame apparent magnitudes would be useful to their science goals.
+This indicates that the results of a template-fitting photo-$z$ estimator might be more relevant to Galaxies studies than machine-learning estimates (especially if the SED templates are associated with intrinsic galaxy properties like mass, metallicity, or star formation rate).
+The {\tt Object} photo-$z$ might also be used to assist with star-galaxy separation, to enable population studies, to estimate environmental (clustering) parameters, and/or to choose instrument configurations for spectroscopic follow-up (i.e., the expected location of emission lines).
+
+\subsubsection{Active Galactic Nuclei}\label{sssec:use_sci_agn}
+It is currently unclear how useful the {\tt Object} photo-$z$ will be for the AGN community because there is no special deblending planned for the DMS to produce galaxy photometry which is free of AGN emission.
+The AGN contribution to the DR CoAdd image stacks, and thus the {\tt Object} catalog photometry, will be an average flux over the LSST survey images.
+Photometric redshift codes will either have to be able to recognize and deal with AGN contamination, or the photo-$z$ estimates for AGN host galaxies will be impacted.
+Potential AGN contamination could be identified by identifying {\tt DIAObjects} in the nuclear region, but quantifying and removing that AGN flux from the galaxy photometry and recalculating photo-$z$ remain a user-generated data product.
+
+\subsubsection{Clustering}\label{sssec:use_sci_clust}
+Photometric redshifts would likely be used by individuals studying large scale structure and galaxy clustering -- for example, as a way to make an initial selection of cluster members.
+
+\subsubsection{Stars, Milky Way, and Local Volume}\label{sssec:use_sci_smwlv}
+LSST-provided {\tt Object} photo-$z$ could be used to reject compact extragalactic objects from stellar samples for population studies and/or spectroscopic follow-up campaigns.
+
+\subsubsection{Education and Public Outreach}\label{sssec:use_sci_epo}
+The question {\it ``how far away is it?"} is common to many EPO initiatives and the {\tt Object} catalog photo-$z$ will be used when preparing information for the public.
+EPO might also use photo-$z$ for, e.g., generating 3D graphics that visualize large volumes, or educational programs on the Hubble constant.
+For EPO purposes, high precision is not as important as outlier reduction for photo-$z$.
+
+\subsubsection{Science Use-Cases Summary}\label{sssec:use_sci_sum}
+Aside from the specialized use-cases related to dark energy cosmology, which will be served by customized photo-$z$ estimators developed within DESC, most other scientific scenarios use the {\tt Object} photo-$z$ as point estimates of distance in order to subset the data and identifying targets of interest for follow-up, and/or infer intrinsic galaxy properties.
+
+\subsection{The Science Impacts of a Data Release Without {\tt Object} Photo-$z$}\label{ssec:use_none}
+
+The option to federate a community-generated photo-$z$ catalog leads to this question: {\it If there will likely be a superior community photo-$z$ anyway, should Data Management avoid installing a photo-$z$ estimator in the DMS, and instead simply wait for the community to generate a catalog?}
+There are several significant risks and drawbacks to this option.
+\vspace{-15pt}
+\begin{itemize}
+\item An {\tt Object} table without photo-$z$ at the time of data release is a problem for brokers, unless alerts are instead (or additionally) associated to an older DR's {\tt Object} catalog that has photo-$z$. Brokers require host-galaxy photo-$z$ to optimally classify and prioritize transients for follow-up, and plan to obtain this information via each alert's associations with nearby {\tt Objects} from {\it the most recent DR}.
+\item The {\tt Object} photo-$z$ might be tailored to the specific science case of the community team and might not serve the broader science use-cases.
+\item There is no incentive or reward for a community team that generates a photo-$z$ catalog, except perhaps citations to their photo-$z$ catalog. Consequently, if no community team generates and donates a catalog there would be no {\tt Object} photo-$z$, which is a risk for the science use-cases described in Appendix \ref{ssec:use_sci}
+\end{itemize}
+
+\subsection{Considerations for Maximizing Early Science}\label{ssec:use_LOY1}
+
+Plans for early science with LSST are still in development and are strongly dependent on the outcomes of commissioning. 
+Given the uncertainties on the actual construction schedule and commissioning period, several different plans for early science are being considered  (\citeds{rtn-011}). 
+The actual state of science verification (SV) and system completeness at handover to Operations will determine the most appropriate course of action to take regarding early science. 
+
+In the event that SV is completely successful and the project moves quickly to the LSST cadence and DR1 (Plan ``A"), estimators that  meet the criteria defined in \S~\ref{sec:eval} and that have been fully validated during the commissioning period will be prioritized. 
+If, however, the commissioning SV period is cut short, an {\it Early Science Period} of $\approx$3\,\textendash\,6 months that is different to regular survey operations may be enacted (Plan ``B").
+During this period, it is envisaged that estimators that meet the criteria defined in \S~\ref{sec:eval} could continue to work on validation during this {\it Early Science Period}, and that a decision would be taken on which estimator(s) to run for DR1 prior to reverting to the LSST cadence and DR1. 
+If a further shakedown of operations procedures and data taking is still required at handover to Operations (Plan ``C"), the implications for photo-$z$ estimators will be reviewed at that time based on the actual state of the system to determine the best course of action for photo-$z$ estimators. 
+
+In any of these scenarios, estimators that will return the most accurate photo-$z$ as early in the survey as possible and meet the criteria in (\S~\ref{sec:dmcon}) may be prioritized.
+In the first year of LSST, it might be simpler to use a template-fitting photo-$z$ estimator and avoid potential issues related to computation resources and/or the need to train a machine learning model.
+Additionally, the likelihood that the large spectroscopic training sets needed for ML photo-$z$ estimators exist will continue to increase through the 2020s.
+However, if a machine learning estimator is applied for LSST DR1 and DR2, it should be a community-accepted estimator with demonstrated success in other surveys, preferably surveys that overlap the LSST footprint, as this will facilitate the characterization and validation of the LSST photo-$z$.
+
+\subsection{A Summary of Scientific Recommendations from the LORs}\label{ssec:use_scilor}
+
+As described in \S~\ref{ssec:lor_choice}, of the 6 LOR describing scientific use cases:
+\begin{itemize}
+\item 1 focused on galaxies
+\item 2 focused on dark energy
+\item 3 focused on active galactic nuclei
+\end{itemize}
+
+Recommendations that are within scope for the DM team (or were already in the plans or evaluation criteria; \S~\ref{sec:eval}) and are likely to be achieved:
+\begin{itemize}
+\item adopt a PZ estimator that provides PDFs, point estimates, SED/template fits, physical params, and flags
+\item adopt at least one PZ estimator that can generate accurate PZ for galaxies with AGN
+\item adopt a PZ estimator that performs well with imperfect priors / incomplete training sets (especially at low-z) 
+\item provide PZ in the Object catalog at the time of data release (i.e., no delay)
+\item make all PZ-related code, inputs, metadata, etc. available (for reproducibility)
+\item correct for MW dust before passing fluxes to the PZ estimator
+\item provide users with a framework and tools to cross-match to non-LSST catalogs
+\end{itemize}
+Any of these recommendations which were not already part of the evaluation criteria in \S~\ref{sec:eval} have been added.
+
+Recommendations that present a challenge:
+\begin{itemize}
+\item incorporate non-LSST, non-optical photometry into the PZ estimates
+\item cross-match the LSST Object catalogs with external data sets (e.g., an X-ray AGN catalog) and provide the results with flags and identifiers
+\item release revised PZ data products every few months as new sky regions are observed
+\item link Object identifiers between data releases (so users can get new host data for old alerts)
+\item in the alert packets, provide host galaxy Object data (PZ, photometry, shape) and non-LSST survey data for host galaxies (spec-z, PZ, photometry)
+\end{itemize}
+These challenges are out of scope for the Rubin Construction project (and some violate the current Rubin data rights policy), and some items (such as providing cross-matched catalogs) are best left to the expertise of the science community.
+However, just because an idea or data product presents a challenge, or is beyond the scope of Rubin construction and commissioning, does not mean it could never be accomplished.
+Adopting and federating value-added user-generated data products, and updating algorithms in the LSST Science Pipelines, is an Operations-era (2024 and beyond) activity that will take input from the science community via the Rubin Users Committee, the Community Engagement Team, the Science Advisory Committee, and other such groups.
+It is very useful to have these suggestions raised early on so that the DM team can help the science community prepare for Operations; all of the LOR providing these recommendations are much appreciated.
+
+
+\section{Original Call for Photo-$z$ Letters of Recommendation}\label{sec:orig_LOR}
 
 \textbf{Deadline:} Sep 30 2021.
 
 \textbf{Submission:} 
 In the spirit of open cooperation and collaboration towards our collective goal of generating LSST Object PZ that serve a wide variety of science goals, all letters will be public.
-Letters should be submitted by creating a new topic in the "Science -- Photometric Redshifts" category at \url{Community.lsst.org}\footnote{Start at this link, \url{https://community.lsst.org/c/sci/photoz}, click "+New Topic" at upper right, enter a title and text (do not worry about tags), and if applicable upload a PDF using the up-arrow icon in the menu bar.}.
+Letters should be submitted by creating a new topic in the ``Science -- Photometric Redshifts" category at \url{Community.lsst.org}\footnote{Start at this link, \url{https://community.lsst.org/c/sci/photoz}, click ``+New Topic" at upper right, enter a title and text (do not worry about tags), and if applicable upload a PDF using the up-arrow icon in the menu bar.}.
 Use a title that starts with ``LOR" and provides a bit of detail, e.g., ``LOR for the CMNN PZ Estimator", ``LOR: PZ and Local Volume Science".
 Short letters could be presented in the text body of the new topic; longer letters could be provided by uploading an accompanying PDF.
 
@@ -364,306 +790,6 @@ Details are not necessary, but an evaluation of the technical considerations at 
 }
 \end{enumerate}
 
-\subsection{Shortlisted Photo-$z$ Estimator(s)} \label{ssec:lor_choice}
 
-\textit{TBD: This section will summarize the "Letters of Recommendation" and describe which community-vetted photo-$z$ estimator(s) have been shortlisted for the photo-$z$ validation cooperative, and why.}
-
-\section{Photo-$z$ Validation Cooperative}\label{sec:pzcoop}
-
-\textbf{This preliminary draft description of this proposed cooperative effort will be updated based on community input.}
-
-\textbf{Draft:} \\
-As the scientific community has a considerable wealth of expertise in generating photo-z catalogs, and will be the primary users of the photo-z data product, they are the best suited to scientifically validate the {\tt Object} catalog photo-$z$.
-Towards this end the DM team plans to facilitate a "Photo-$z$ Validation Cooperative" to analyze photo-$z$ estimates based on LSST commissioning data and share results.
-This is intended to be a collaborative endeavor between project and community to maximize the scientific utility of the {\tt Object} catalog photo-$z$ data products.
-
-It is anticipated that this process will start with open communication about what the science community needs to fully participate in the photo-$z$ co-op (e.g., commissioning data, access to tools, computational resources).
-During this process, DM will focus on providing technical support for the validation of the photo-$z$ estimators using commissioning data, especially those shortlisted based on the community's "Letters of Recommendation" (\S~\ref{sec:lor}), but the community may also consider estimator(s) that were not shortlisted.
-It is expected that the community will be focused on assembling training sets and validation metrics and applying them to the commissioning data, and documenting and sharing the results.
-The mode of communication during this time (e.g., an extension of the "Photo-$z$ Virtual Forums") remains to be determined.
-
-Types of commissioning data that might be most useful for scientific validation of photo-$z$ estimators are described in \S~\ref{ssec:pzcoop_commissioning}.
-A preliminary collection of photo-$z$ validation techniques based are presented in Appendix \ref{sec:imp}, and a preliminary collection of training and calibration data in Appendix \ref{sec:dp}.
-
-Documentation regarding the technical aspects of the implementation and validation process is considered beyond the scope of this document and will appear elsewhere in the future.
-
-\subsection{Potential Commissioning Data for Photo-$z$ Validation}\label{ssec:pzcoop_commissioning}
-
-The commissioning surveys and their schedule remain subject to change; the information in this section will be updated in the future as the situation clarifies.
-At this time, the commissioning schedule comprises 3 phases: 
-
-{\bf Early System Integration \& Test:}
-The first phase of commissioning comprises 3 months of technical integration and test (I\&T) with the Rubin Observatory Commissioning Camera (ComCam).
-The originally planned Key Performance Metrics (KPMs) and 20-year Depth Test and Schedule tests during this phase have since been descoped. 
-This phase is expected to deliver modest amounts of science-quality imaging (e.g., few hours to few nights) with which tests of image quality, single-visit depth, astrometry, and photometry might be possible, depending on the quality of the data.  
-Data Preview 1 (DP1) will be based on data taken during this phase and processed with the Rubin Science Pipelines. 
-This data might be useful as preliminary test data during the implementation of the photo-$z$ estimators, and help to test the formats of the input and output data, create visualizations for the validation codes, etc.
-
-{\bf Full System Integration \& Test with LSSTCam:}
-The second phase of commissioning comprises 3 months of technical integration and test (I\&T) with  the LSST Camera (LSSTCam) \textemdash \,the science instrument for Rubin Observatory. 
-The originally planned Key Performance Metrics (KPMs), 20-year Depth Test during this phase have since been descoped. 
-This phase is expected to deliver modest amounts of science-quality imaging (e.g., few hours to few nights), with which tests of image quality, single-visit depth, astrometry, and photometry might be possible, depending on the quality of the data. 
-
-{\bf Science Verification \& Validation:}
-The third and final phase of commissioning will be focused on science verification and validation of the integrated system and will include both wide-area surveys and a full 10-year depth survey in selected reference fields for which external imaging and spectroscopy is available. 
-This phase will last for 2 months. 
-
-Data Preview 2 (DP2) will be based on data taken during the second and third phases of commissioning and processed with the Rubin Science Pipelines. 
-DP2 is more likely to provide a preliminary data set for photo-$z$ validation and possibly some of the needed data for LSST photo-$z$ described in Appendix \ref{ssec:dp_calib}. 
-Covering well-studied fields with DP2 data (e.g., COSMOS) would facilitate photo-$z$ validation; note that the effort to collect community input on the commissioning fields is underway\footnote{\url{https://community.lsst.org/t/community-input-to-the-on-sky-observing-strategy-during-commissioning}}.
-
-As a side note for LSST users who are interested in doing science with commissioning data, it should not be assumed that any release of data products based on commissioning surveys will include photo-$z$ estimates.
-The release of any photo-$z$ catalogs prior to DR1 remains at the discretion of the DM team.
-
-\bibliography{lsst,lsst-dm,refs_ads,local}
-
-\clearpage
-\appendix 
-
-\section{Appendix: Examples of Implementation and Validation}\label{sec:imp}
-
-\subsection{An Example Implementation Process}\label{ssec:imp_imp}
-
-For reference, the basic steps for implementing a photo-$z$ estimator include:
-\vspace{-15pt}
-\begin{itemize}
-\item prepare the LSST data inputs to the photo-$z$ estimators (Appendix \ref{ssec:dp_objvals})
-\item prepare the training and calibration data (Appendix \ref{ssec:dp_calib})
-\item install the needed codes (a technical aspect to be described elsewhere)
-\item run the estimator (on its own and/or embedded in the data release pipeline)
-\item validate the photo-$z$ estimator outputs (below, \ref{ssec:imp_val})
-\item store the results in the {\tt Object} catalog (Appendices \ref{ssec:dp_pz} and \ref{ssec:dp_store})
-\item ensure output schema and access methods are documented (Appendix \ref{ssec:dp_pz})
-\end{itemize}
-
-\subsection{Example Validation Tests}\label{ssec:imp_val}
-
-For reference, this section describes some photo-$z$ validation tests, some of which overlap with the evaluation criteria described in \S~\ref{sec:eval}. 
-Validation tests and quality assessment diagnostics will be necessary to ensure the results meet performance expectations (as defined in \S~\ref{sec:eval}).
-These lists are based in part on a brainstorming session during the LSST Project and Community Workshop's session on Photometric Redshifts on Aug 14 2019\footnote{E.g., slide 14 of \url{https://docs.google.com/presentation/d/1GEahvDQXIjSL4lLVjDlZHV5zpXLhGQfHwVtucs72Ajg/edit?usp=sharing}}.
-
-Journal articles that demonstrate validation processes for photo-$z$ from multi-band wide-area surveys include {\it "DES science portal: Computing photometric redshifts"} \citep{2018A&C....25...58G}; {\it "Photometric redshifts for Hyper Suprime-Cam Subaru Strategic Program Data Release 1"} \citep{2018PASJ...70S...9T}; and {\it "On the realistic validation of photometric redshifts"} \citep{2017MNRAS.468.4323B}. 
-
-{\bf Truth Comparisons --} 
-Catalogs of true redshifts can be obtained by withholding some fraction of the training set or by cross-matching to external spectroscopic catalogs. Validation metrics should include at least those used to define the minimum performance of the LSST photo-$z$ for basic science needs (\S~\ref{sec:eval}). A list of potential metrics might include the following, and targets or limits on these metric values might apply to subsets in magnitude, color, or redshift: 
-\vspace{-15pt}
-\begin{itemize}
-\item plots of $z_{\rm true}$ {\it vs.} $z_{\rm phot}$ for visual inspection
-\item standard deviation and bias in $\Delta z = (z_{\rm true}-z_{\rm phot})/(1+z_{\rm true})$
-\item fraction of (catastrophic) outliers, e.g., $\Delta z > 3\sigma$ or $>0.06$ ($>1$)
-\item quantile-quantile (q-q) plots evaluate the shape of $P(z)$
-\item probability integrated transform, $PIT(z_{\rm phot}) = \int_{0}^{z_{\rm phot}} P(z)\,dz$, calculated for all test galaxies, should be flat for well-estimated $P(z)$ \citep{2016arXiv160808016P}
-\item the continuous ranking probability score, CRPS, should be a lower value for better estimated $P(z)$, as described in \citep{2016arXiv160808016P}
-\item redshift confidence for point estimates, $C(z_{\rm phot}) = \int_{z_{\rm phot}-0.03}^{z_{\rm phot}+0.03} P(z)\,dz $
-\item loss and risk parameters that characterize the photo-$z$ estimates:\\
-$L(\Delta z) = 1 - \left(1+ \left(\frac{\Delta z}{\gamma} \right)^2 \right)^{-1}$, 
-where $\gamma$ is a characteristic threshold (e.g., $0.15$), and:\\
-$R(z_{\rm phot}) = \int P(z)\,L(z_{\rm phot},z)\,dz$, as described in \citet{2018PASJ...70S...9T}
-\item the conditional density estimation (CDE) loss as described in Section 4.2 of \citet{2020MNRAS.499.1587S}. (Note that the CDE does not strictly require the true posterior be known.)
-\end{itemize}
-
-{\bf Basic Checks--} 
-These are tests that can be done using all LSST {\tt Objects} and do not require a truth catalog.
-\vspace{-15pt}
-\begin{itemize}
-\item the uncertainty in $z_{\rm phot}$ should correlate with photometric error
-\item the star/galaxy flag parameter should agree with photo-$z$ (stars have $z_{\rm phot}=0$)
-\item evolution of $N(z)$ to higher-$z$ for samples with fainter magnitudes, redder colors
-\end{itemize}
-
-{\bf Scientific Applications --} 
-The following might not be included in the formal validation process, but represent analyses that the broader scientific community may want to do to inform their use of the LSST photo-$z$.
-\vspace{-15pt}
-\begin{itemize}
-\item assessing the performance of point estimates in broker photometric classification algorithms
-\item evaluating the absolute magnitude distribution of Type Ia supernovae once the distance derived from the photo-$z$ point estimates are applied
-\item evaluating the distributions of derived physical parameters for galaxies using the $P(z)$
-\item checking whether high SFR galaxies (and maybe other sensitive populations) have reasonable $P(z)$
-\item galaxy cluster membership identification
-\item tomographic bin analysis, as in \citep{2019MNRAS.482.2807C}
-\end{itemize}
-
-\subsection{Example Publications that Evaluate Photo-$z$ Estimator Performance}\label{ssec:imp_evalpubs}
-
-\begin{itemize}
-\item \citet{2010A&A...523A..31H} tested 18 different photo-$z$ codes on the same sets of simulated and real data and found no significantly outstanding method.
-\item \citet{2013ApJ...775...93D} tested 11 different photo-$z$ codes on the CANDLES data set ($U$-band through infrared photometry) and also find that no method stands out as the "best'', and that most of the photo-$z$ codes underestimate their redshift errors.
-\item \citet{2014MNRAS.445.1482S} used the science verification data (200 square degrees of $grizY$ photometry to a depth of $i_{AB}=24$ magnitudes) of the Dark Energy Survey (DES) to evaluate several photometric redshift estimators. They found that the Trees for Photo-$z$ code (TPZ; \citet{2013ascl.soft04011C}) provided the most accurate results with the highest redshift resolution, and that template-fitting methods also performed well -- especially with priors -- but that in general there was no clear "winner.''
-\item \citet{2018PASJ...70S...9T} provides a comparative analysis of several photo-$z$ estimators applied to their data set from the HSC Strategic Program. Their website\footnote{\url{https://hsc-release.mtk.nao.ac.jp/doc/index.php/photometric-redshifts/}} provides comparative analysis plots for each of them.
-\item \citet{2020MNRAS.499.1587S} statistically compare the posterior probability distribution functions produced by 12 photo-$z$ estimators for a mock data set that is representative of the LSST, identifying some biases and shortfalls in both the produced PDFs and the evaluation methods used to analyze them.
-\end{itemize}
-
-\section{Appendix: Data Products Related to LSST Photo-$z$}\label{sec:dp}
-
-For reference, this section provides a \textbf{\textit{preliminary and incomplete}} collection of inputs, outputs, and associated products related to generating and serving LSST photo-$z$:
-\begin{itemize}
-\item the LSST data products needed as input to photo-$z$ estimators (Appendix \ref{ssec:dp_objvals})
-\item the required training and calibration data, LSST or external (Appendix \ref{ssec:dp_calib})
-\item the outputs' format, access methods, and documentation (Appendix \ref{ssec:dp_pz})
-\item options for compression to store the results of multiple estimators (Appendix \ref{ssec:dp_store})
-\end{itemize}
-
-\subsection{Inputs to Photo-$z$ Estimators}\label{ssec:dp_objvals}
-
-It is important to ensure that all measured quantities needed by photometric redshift estimators are going to be computed and included in the {\tt Object} table. 
-Aside from the fluxes and/or apparent magnitudes and errors for each Rubin Observatory filter, which will be provided in the {\tt Object} catalog, the color properties in the {\tt Object} table might be used for photo-$z$. {\it "Colors of the object in 'standard seeing' (for example, the third quartile expected survey seeing in the i band, $\sim$0.9 arcsec) will be measured. These colors are guaranteed to be seeing-insensitive, suitable for estimation of photometric redshifts"} \citedsp{LSE-163}. In the {\tt Object} table the relevant elements are:
-\vspace{-15pt}
-\begin{itemize}
-\item \texttt{stdColor (float[5])} = {\it 'standard color', color of the object measured in 'standard seeing', suitable for photo-$z$}
-\item \texttt{stdColorErr (float[5])} = {\it uncertainty on \texttt{stdColor}}
-\end{itemize}
-
-Additionally, measured quantities such as the galaxy size, shape, radial profile, 'clumpiness', or surface brightness; the DCR correction (or residual); or a parameter that represents the clustering density within some radius (e.g., 2 Mpc) might all be useful (e.g., as priors) for photo-$z$ estimators. The effective transmission function ($\phi$; Eq. 5 in \citeds{LPM-17}), which will be provided for all {\tt Sources} either in the catalog or as a link, is another useful quantity for photo-$z$ estimators.
-
-\subsection{Training and Calibration Data}\label{ssec:dp_calib}
-
-{\bf Spectroscopic (or Many-Band) Redshifts --}
-Deep multi-band LSST photometry for spectroscopic fields like COSMOS, and/or WFD-depth LSST photometry that overlaps multiplexed spectroscopic surveys like DESI/4MOST, which is obtained either during commissioning or early in Operations year 1, will likely be necessary to produce photo-$z$ for DR1.
-Alternatively, redshifts based on many-band photometry can be used.
-
-{\bf Wide Area Imaging --} 
-Some photo-$z$ methods have requirements other than spec-$z$ fields: e.g., \citet{2019MNRAS.483.2801S} use clustering information to obtain photo-$z$ and this requires wider, shallower field coverage and not a single deep pointing like a spec-$z$ field would have. 
-This wider area would also serve to reduce cosmic variance in the training set ($\sim$100 square degrees would serve to average out the variance).
-
-{\bf Preliminary LSST Data --}
-For the community to participate in the training or calibration of a photo-$z$ estimator prior to a data release, it will probably be necessary to make a small but representative amount of pre-processed LSST data available in advance of each data release during Operations. (See (\S~\ref{sec:dmcon}).
-
-\subsection{Output Schema, Access Methods, and Documentation}\label{ssec:dp_pz}
-
-{\bf Output Schema --} 
-The format of the photo-$z$ output is one of the attributes that must still be defined (\S~\ref{sec:eval}). 
-The photo-$z$ outputs must provide all the necessary inputs to the validation tests, to be defined in Appendix \ref{ssec:imp_val}.
-
-The LSST Data Products Definitions Document (DPDD) \citedsp{LSE-163} defines the format of the {\tt Object} catalog's table columns which could store the results of photometric redshift estimates, regardless of how they're generated. 
-The following is from Table 5 of the DPDD:
-\vspace{-15pt}
-\begin{itemize}
-\item \texttt{photoZ (float[2x95])} = photometric redshift likelihood samples -- pairs of redshift and likelihood ($z,\log{L}$) -- computed using a to-be-determined published and widely accepted estimator at the time of LSST Commissioning
-\item \texttt{photoZ\_pest (float[10])} = point estimates for the photometric redshift provided in {\tt photoZ}
-\end{itemize}
-
-The exact point estimate quantities stored in the \texttt{photoZ\_pest} are to-be-determined, {\it "but likely candidates are the mode, mean, standard deviation, skewness, kurtosis, and 1\%, 5\%, 25\%, 50\%, 75\%, and 99\% points from cumulative distribution"} \citedsp{LSE-163}. 
-Flags that represent potential catastrophic outliers, failure modes, a photo-$z$ consistent with $z=0$, etc., could also be included.
-
-{\bf Access Methods --} 
-The user experience is one of the proposed selection criteria for the LSST photo-$z$ estimator (\S~\ref{sec:eval}). 
-Some examples of publicly released photo-$z$ catalogs which were prepared with a user experience that might be desirable for the LSST photo-$z$ include the Dark Energy Survey's Science Portal to serve photometric redshifts \cite{2018A&C....25...58G} and the Hyper SuprimeCam Subaru Strategic Program \cite{2018PASJ...70S...9T}\footnote{\url{https://hsc-release.mtk.nao.ac.jp/doc/index.php/photometric-redshifts/}}.
-
-If the LSST photo-$z$ are not made available in either the {\tt Objects} table or in a federated or joinable catalog -- for example in the case where a community-generated photo-$z$ catalog is replacing the DMS-generated catalog (Appendix \ref{ssec:time_ops_ugfed}) -- and are instead made available via, e.g., a "photo-$z$ server" (as in \cite{2018A&C....25...58G}), then at least the {\tt Object} catalog ID of the most recent data release should be a queryable parameter.
-
-If the results of multiple estimators are generated, compressed, and stored in the {\tt Objects} table, then decompression should be straightforward for the user (Appendix \ref{ssec:dp_store}).
-
-{\bf Documentation --} 
-Appropriate types of documentation might include published journal articles, GitHub repositories, websites, or other online documentation resources (e.g., \url{https://readthedocs.org/}). Whatever the format, the documentation contents should include: 
-\vspace{-15pt}
-\begin{itemize}
-\item general description of the estimator
-\item adaptations made to ingest LSST data (compared to past applications)
-\item an analysis of the training, calibration, and validation processes
-\item a full list of all inputs and outputs (i.e., a schema browser)
-\end{itemize}
-
-\subsection{Storage and Compression}\label{ssec:dp_store}
-
-The stored values related to photo-$z$ are subject to the storage space allotted in the {\tt Objects} table as described in \S~\ref{sec:dp}.
-Both the posteriors and point estimates from several different photo-$z$ estimators could be compressed and stored in this allotted space.
-Given the variety of use-cases and the fact that different photo-z estimators produce different results \citep{2020MNRAS.499.1587S}, the option to compute, compress, and store estimates from multiple estimators in the $2\times95$ float might be scientifically desirable.
-
-Efficient $P(z)$ compression algorithms are in development, such as \citet{2014MNRAS.441.3550C} and \citet{2018AJ....156...35M}.
-\citet{2014MNRAS.441.3550C} present an algorithm for sparse representation, for which {\it "an entire PDF can be stored by using a 4-byte integer per basis function''} and {\it "only ten to twenty points per galaxy are sufficient to reconstruct both the individual PDFs and the ensemble redshift distribution, $N(z)$, to an accuracy of 99.9\% when compared to the one built using the original PDFs computed with a resolution of $\delta z = 0.01$, reducing the required storage of two hundred original values by a factor of ten to twenty.''} 
-\citet{2018AJ....156...35M} presents a {\tt Python} package for compressing one-dimensional posterior distribution functions (PDFs), demonstrates its performance on several types of photo-$z$ PDFs, and provides a set of recommendations for best practices which should be consulted when DM is making decisions on the DR photo-$z$ data products.
-
-However, compression (and decompression by users) will require extra computational resources, which should be estimated and considered, and decompression must be fast and easy for users.
-
-\section{Appendix: Example Use-Cases for LSST Photo-$z$} \label{sec:use}
-
-This section contains an \textbf{\textit{incomplete, non-exhaustive}} summary of a variety of internal and scientific use-cases for the LSST {\tt Object} catalog photo-$z$.
-These use-cases inform the evaluation criteria proposed in \S~\ref{sec:eval}. 
-
-Some of the following information on use-cases was collected from participants of the LSST Project and Community Workshop's session on Photometric Redshifts on Aug 14 2019\footnote{Thanks to Sam Schmidt, Chris Morrison, Sugata Kaviraj, Gautham Narayan, Lauren Corlies, Travis Rector, Tina Peters, Alex Malz, Dara Norman, Stephen Smartt, and other participants from the science community.}.
-
-\subsection{Internal DMS Use-Cases}\label{ssec:use_dm}
-
-DM's galaxy photometry outputs are being developed with the goal of feeding photometric redshift estimators, so the computation of photometric redshifts is likely to be a part of the science validation process for LSST photometry. 
-Unlike stars, color-color and color-magnitude diagrams for galaxies do not have sufficient structure to reveal issues with the photometry.
-While other photometric validation techniques will also be useful (such as evaluating the width of galaxy cluster red-sequences) they may only apply to {\it some} galaxies, whereas {\it all} galaxies have a redshift. 
-
-The internal use-case of scientifically validating the galaxy photometry outputs is likely to require a simple photo-$z$ estimator which fits SED templates, since the goal is to evaluate whether the photometric outputs match the colors of real galaxies.
-Whether such a simple SED-fit photo-$z$ could also serve the scientific use-cases is undetermined, because the photometric validation process is not yet defined or written.
-The potential internal use-case of needing photo-$z$ in order to assess catalog completeness for low- and high-redshift {\tt Objects} is also likely to be served by a simple SED-fit photo-$z$ estimate.
-
-As a side note, although the DMS will assign fiducial spectral energy distributions (SEDs) to {\tt Objects} in order to apply sub-band wavelength-dependent photometric calibration and PSF modeling, computing photo-$z$ is not planned to be a part of this process.
-Furthermore, the SED templates used will likely be simpler (e.g., step-function or slope) than would be needed for deriving photo-$z$.
-
-\subsection{Scientific Use-Cases}\label{ssec:use_sci}
-
-A variety of potential scientific applications for the {\tt Object} photo-$z$ are discussed in turn. 
-These scientific use-cases should be used to inform the evaluation criteria proposed in \S~\ref{sec:eval}.
-A summary of the commonalities between science use-cases for photo-$z$ is provided in \S~\ref{sssec:use_sci_sum}.
-
-\subsubsection{Dark Energy}\label{sssec:use_sci_de}
-Extragalactic astrophysics such as weak lensing, baryon acoustic oscillations, and Type Ia supernova cosmology are all main science drivers for the LSST, and all require catalogs of galaxies with photometric redshifts.
-The photo-$z$ estimators for precision cosmology will be custom-tailored to these particular science goals, and the photo-$z$ results are subject to established science requirements for dark energy cosmology \citep{2018arXiv180901669T}.
-For example, weak lensing and large scale structure require ensemble measurements of $N(z)$ and thus require a full posterior PDF, whereas point-estimate photo-$z$ for individual {\tt Objects} are required for Type Ia supernova host galaxies and the identification of strong lensing candidates and galaxy cluster members. 
-The Dark Energy Science Collaboration (DESC) is developing specialized photo-$z$ pipelines for these science goals (which {\it could} serve to generate photo-$z$ for the {\tt Object} catalog, as discussed in Appendix \ref{ssec:time_ops_ugfed}).
-
-\subsubsection{Time Domain}\label{sssec:use_sci_td}
-The Transients and Variable Stars Science Collaboration reported that they would use LSST-provided {\tt Object} photo-$z$ to identify and/or characterize extragalactic transient host galaxies.
-Alert packets provide {\tt Object} IDs for the three nearest stars and three nearest galaxies in the most recent data release.
-Alert stream brokers intend to query the {\tt Objects} catalog in real time to obtain host photo-$z$ because photometric classification for transient light curves is {\it significantly} aided by redshift estimates.
-The {\tt Object} catalog's photo-$z$ will also be used to identify and prioritize the potential host galaxies of gravitational wave events for imaging searches of the optical counterpart.
-
-\subsubsection{Galaxies}\label{sssec:use_sci_gal}
-The Galaxies Science Collaboration reported that they would use LSST-provided {\tt Object} photo-$z$, and that their science goals require that photo-$z$ be accurate enough ($<10\%$) to derive intrinsic galaxy properties like mass and star formation rate (SFR).
-They also indicated that posteriors delivered as $P(z,M)$ and/or with rest-frame apparent magnitudes would be useful to their science goals.
-This indicates that the results of a template-fitting photo-$z$ estimator might be more relevant to Galaxies studies than machine-learning estimates (especially if the SED templates are associated with intrinsic galaxy properties like mass, metallicity, or star formation rate).
-The {\tt Object} photo-$z$ might also be used to assist with star-galaxy separation, to enable population studies, to estimate environmental (clustering) parameters, and/or to choose instrument configurations for spectroscopic follow-up (i.e., the expected location of emission lines).
-
-\subsubsection{Active Galactic Nuclei}\label{sssec:use_sci_agn}
-It is currently unclear how useful the {\tt Object} photo-$z$ will be for the AGN community because there is no special deblending planned for the DMS to produce galaxy photometry which is free of AGN emission.
-The AGN contribution to the DR CoAdd image stacks, and thus the {\tt Object} catalog photometry, will be an average flux over the LSST survey images.
-Photometric redshift codes will either have to be able to recognize and deal with AGN contamination, or the photo-$z$ estimates for AGN host galaxies will be impacted.
-Potential AGN contamination could be identified by identifying {\tt DIAObjects} in the nuclear region, but quantifying and removing that AGN flux from the galaxy photometry and recalculating photo-$z$ remain a user-generated data product.
-
-\subsubsection{Clustering}\label{sssec:use_sci_clust}
-Photometric redshifts would likely be used by individuals studying large scale structure and galaxy clustering -- for example, as a way to make an initial selection of cluster members.
-
-\subsubsection{Stars, Milky Way, and Local Volume}\label{sssec:use_sci_smwlv}
-LSST-provided {\tt Object} photo-$z$ could be used to reject compact extragalactic objects from stellar samples for population studies and/or spectroscopic follow-up campaigns.
-
-\subsubsection{Education and Public Outreach}\label{sssec:use_sci_epo}
-The question {\it "how far away is it?"} is common to many EPO initiatives and the {\tt Object} catalog photo-$z$ will be used when preparing information for the public.
-EPO might also use photo-$z$ for, e.g., generating 3D graphics that visualize large volumes, or educational programs on the Hubble constant.
-For EPO purposes, high precision is not as important as outlier reduction for photo-$z$.
-
-\subsubsection{Science Use-Cases Summary}\label{sssec:use_sci_sum}
-Aside from the specialized use-cases related to dark energy cosmology, which will be served by customized photo-$z$ estimators developed within DESC, most other scientific scenarios use the {\tt Object} photo-$z$ as point estimates of distance in order to subset the data and identifying targets of interest for follow-up, and/or infer intrinsic galaxy properties.
-
-\subsection{The Science Impacts of a Data Release Without {\tt Object} Photo-$z$}\label{ssec:use_none}
-
-The option to federate a community-generated photo-$z$ catalog leads to this question: {\it If there will likely be a superior community photo-$z$ anyway, should Data Management avoid installing a photo-$z$ estimator in the DMS, and instead simply wait for the community to generate a catalog?}
-There are several significant risks and drawbacks to this option.
-\vspace{-15pt}
-\begin{itemize}
-\item An {\tt Object} table without photo-$z$ at the time of data release is a problem for brokers, unless alerts are instead (or additionally) associated to an older DR's {\tt Object} catalog that has photo-$z$. Brokers require host-galaxy photo-$z$ to optimally classify and prioritize transients for follow-up, and plan to obtain this information via each alert's associations with nearby {\tt Objects} from {\it the most recent DR}.
-\item The {\tt Object} photo-$z$ might be tailored to the specific science case of the community team and might not serve the broader science use-cases.
-\item There is no incentive or reward for a community team that generates a photo-$z$ catalog, except perhaps citations to their photo-$z$ catalog. Consequently, if no community team generates and donates a catalog there would be no {\tt Object} photo-$z$, which is a risk for the science use-cases described in Appendix \ref{ssec:use_sci}
-\end{itemize}
-
-\subsection{Considerations for Maximizing Early Science}\label{ssec:use_LOY1}
-
-Plans for early science with LSST are still in development and are strongly dependent on the outcomes of commissioning (\citeds{rtn-011}). 
-Given the uncertainties on the actual construction schedule and commissioning period, several different plans for early science are being considered. 
-The actual state of science verification (SV) and system completeness at handover to Operations will determine the most appropriate course of action to take regarding early science. 
-
-In the event that SV is completely successful and the project moves quickly to the LSST cadence and DR1 (Plan "A"), estimators that  meet the criteria defined in \S~\ref{sec:eval} and that have been fully validated during the commissioning period will be prioritized. 
-If, however, the commissioning SV period is cut short, an {\it Early Science Period} of $\approx$3\,\textendash\,6 months that is different to regular survey operations may be enacted (Plan "B").
-During this period, it is envisaged that estimators that meet the criteria defined in \S~\ref{sec:eval} could continue to work on validation during this {\it Early Science Period}, and that a decision would be taken on which estimator(s) to run for DR1 prior to reverting to the LSST cadence and DR1. 
-If a further shakedown of operations procedures and data taking is still required at handover to Operations (Plan "C"), the implications for photo-$z$ estimators will be reviewed at that time based on the actual state of the system to determine the best course of action for photo-$z$ estimators. 
-
-In any of these scenarios, estimators that will return the most accurate photo-$z$ as early in the survey as possible and meet the criteria in (\S~\ref{sec:dmcon}) may be prioritized.
-In the first year of LSST, it might be simpler to use a template-fitting photo-$z$ estimator and avoid potential issues related to computation resources and/or the need to train a machine learning model.
-Additionally, the likelihood that the large spectroscopic training sets needed for ML photo-$z$ estimators exist will continue to increase through the 2020s.
-However, if a machine learning estimator is applied for LSST DR1 and DR2, it should be a community-accepted estimator with demonstrated success in other surveys, preferably surveys that overlap the LSST footprint, as this will facilitate the characterization and validation of the LSST photo-$z$.
 
 \end{document}
